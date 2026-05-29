@@ -3,7 +3,7 @@ services:
     name: vortex-forge
     runtime: python
     buildCommand: bash build.sh
-    startCommand: gunicorn vortexforge.wsgi:application
+    startCommand: bash scripts/render_start.sh
     disk:
       name: vortex-forge-media
       mountPath: /var/data
@@ -52,3 +52,6 @@ services:
 
 databases:
   - name: vortex-forge-db
+    plan: free
+    databaseName: vortex_forge
+    user: vortex_forge_user
