@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from urllib.parse import urlparse
 
 from django.utils.translation import gettext_lazy as _
 
@@ -47,6 +48,15 @@ def env_list(name, default=""):
     return [item.strip() for item in raw.split(",") if item.strip()]
 
 
+def hostname_from_url(value):
+    value = (value or "").strip()
+    if not value:
+        return ""
+    if "://" in value:
+        return urlparse(value).netloc
+    return value.split("/", 1)[0]
+
+
 SECRET_KEY = env(
     "DJANGO_SECRET_KEY",
     "replace-this-with-a-long-random-secret-key-before-production-2026-vortex-forge",
@@ -54,6 +64,16 @@ SECRET_KEY = env(
 DEBUG = env_bool("DJANGO_DEBUG", True)
 ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,testserver")
 CSRF_TRUSTED_ORIGINS = env_list("DJANGO_CSRF_TRUSTED_ORIGINS", "")
+
+for host in (
+    hostname_from_url(env("SITE_PUBLIC_URL", "")),
+    hostname_from_url(env("RENDER_EXTERNAL_HOSTNAME", "")),
+):
+    if host and host not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(host)
+
+if env("RENDER") and ".onrender.com" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(".onrender.com")
 
 
 INSTALLED_APPS = [
