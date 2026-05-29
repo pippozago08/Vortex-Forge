@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Account limitato" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  <section class="wrapper auth-shell reveal-on-scroll">
+    <div class="auth-card-main card-shell">
+      <p class="brand-eyebrow">{% trans "Accesso limitato" %}</p>
+      <h1>{% trans "Account bannato" %}</h1>
+      {% if ban %}
+        <div class="status-panel status-danger">
+          <p><strong>{% trans "Tipo" %}:</strong> {{ ban.get_ban_type_display }}</p>
+          <p><strong>{% trans "Motivo" %}:</strong> {{ ban.reason }}</p>
+          <p><strong>{% trans "Inizio" %}:</strong> {{ ban.starts_at }}</p>
+          <p>
+            <strong>{% trans "Fine" %}:</strong>
+            {% if ban.ends_at %}
+              {{ ban.ends_at }}
+            {% else %}
+              {% trans "Permanente" %}
+            {% endif %}
+          </p>
+          <p><strong>{% trans "Stato" %}:</strong> {{ ban.translated_status }}</p>
+        </div>
+      {% else %}
+        <p class="hero-intro">{% trans "Non e disponibile un dettaglio del ban, ma l'accesso al profilo risulta limitato." %}</p>
+      {% endif %}
+      <div class="action-row">
+        <a class="button button-primary" href="{% url 'contacts:contact' %}">{% trans "Contatta l'assistenza" %}</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

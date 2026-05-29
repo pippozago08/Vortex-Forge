@@ -1,0 +1,7 @@
+{% if messages %}
+  <div class="flash-stack wrapper">
+    {% for message in messages %}
+      <div class="flash-message {{ message.tags|default:'info' }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+{% endif %}

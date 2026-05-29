@@ -1,0 +1,28 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% trans "Errore temporaneo" %} | Vortex Forge</title>
+  <link rel="icon" type="image/png" href="{% static 'img/vortex-forge-logo.png' %}">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}?v=deploy-final-1">
+</head>
+<body class="site-body">
+  <main class="site-main">
+    <section class="wrapper section-shell reveal-on-scroll is-visible">
+      <div class="empty-panel empty-panel-rich">
+        <div>
+          <p class="brand-eyebrow">{% trans "Errore server" %}</p>
+          <h1>{% trans "Qualcosa non ha risposto correttamente." %}</h1>
+          <p>{% trans "Riprova tra poco. Se il problema resta, contatta il team di supporto." %}</p>
+        </div>
+        <div class="action-row">
+          <a class="button button-primary" href="/">{% trans "Torna alla home" %}</a>
+          <a class="button button-ghost" href="/contact/">{% trans "Contatta il team" %}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,129 @@
+{% extends "backoffice/base.html" %}
+{% load i18n catalog_extras %}
+
+{% block title %}{% if build %}{% trans "Modifica build" %}{% else %}{% trans "Nuova build" %}{% endif %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block panel_content %}
+  <div class="section-headline">
+    <div>
+      <p class="brand-eyebrow">{% trans "Editor build" %}</p>
+      <h1>{% trans "Specifiche Build" %}</h1>
+      {% if build %}
+        <p class="hero-intro">{{ build.localized_name }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <form method="post" enctype="multipart/form-data" class="stack-layout">
+    {% csrf_token %}
+
+    <div class="editor-layout">
+      <div class="editor-main">
+        <section class="form-panel">
+          <div class="subsection-headline">
+            <h2>{% trans "Specifiche Build" %}</h2>
+          </div>
+          <div class="status-panel status-success">
+            {% trans "La build verra salvata come pubblica sul sito. Prezzo e disponibilita restano modificabili in qualsiasi momento." %}
+          </div>
+
+          <div class="form-layout">
+            {% include "partials/form_field.html" with field=form.name field_class="field-group field-span-full" %}
+            {% include "partials/form_field.html" with field=form.price %}
+            {% include "partials/form_field.html" with field=form.release_date %}
+            {% include "partials/form_field.html" with field=form.cpu_brand %}
+            {% include "partials/form_field.html" with field=form.gpu_brand %}
+            {% include "partials/form_field.html" with field=form.case_brand %}
+            {% include "partials/form_field.html" with field=form.ram_gb %}
+            {% include "partials/form_field.html" with field=form.vram_gb %}
+            {% include "partials/form_field.html" with field=form.cpu %}
+            {% include "partials/form_field.html" with field=form.gpu %}
+            {% include "partials/form_field.html" with field=form.power_supply %}
+            {% include "partials/form_field.html" with field=form.ram %}
+            {% include "partials/form_field.html" with field=form.cooler %}
+            {% include "partials/form_field.html" with field=form.storage %}
+            {% include "partials/form_field.html" with field=form.case %}
+            {% include "partials/form_field.html" with field=form.motherboard %}
+            {% include "partials/form_field.html" with field=form.extra_fans %}
+            {% include "partials/form_field.html" with field=form.network_card %}
+            {% include "partials/form_field.html" with field=form.description field_class="field-group field-span-full" %}
+            {% include "partials/form_field.html" with field=form.primary_image field_class="field-group field-span-full" %}
+          </div>
+        </section>
+      </div>
+
+      <aside class="editor-side">
+        <section class="form-panel preview-panel">
+          <div class="subsection-headline">
+            <h2>{% trans "Anteprima immagine principale" %}</h2>
+          </div>
+          <div class="image-preview-frame">
+            {% if build and build.primary_image %}
+              {% image_size build.primary_image as primary_size %}
+              <img src="{{ build.primary_image.url }}" alt="{{ build.name }}" {% if primary_size %}width="{{ primary_size.0 }}" height="{{ primary_size.1 }}"{% endif %} class="image-preview-target" data-image-preview-target>
+            {% else %}
+              <div class="image-preview-placeholder" data-image-preview-placeholder>{% trans "Nessuna immagine principale caricata" %}</div>
+              <img alt="{% trans 'Anteprima immagine build' %}" width="900" height="600" class="image-preview-target hidden" data-image-preview-target>
+            {% endif %}
+          </div>
+        </section>
+
+        <section class="form-panel">
+          <div class="subsection-headline">
+            <h2>{% trans "Immagini aggiuntive" %}</h2>
+          </div>
+
+          {% include "partials/form_field.html" with field=gallery_form.gallery_images field_class="field-group field-span-full" %}
+          <p class="field-help">{% trans "Le immagini selezionate verranno salvate insieme alla build." %}</p>
+        </section>
+      </aside>
+    </div>
+
+    <div class="action-row">
+      <button type="submit" name="save_build" class="button button-primary">{% trans "Salva build" %}</button>
+      <a class="button button-ghost" href="{% url 'backoffice:build_list' %}">{% trans "Torna alla lista" %}</a>
+    </div>
+  </form>
+
+  {% if build %}
+    <section class="form-panel">
+      <div class="subsection-headline">
+        <h2>{% trans "Immagini aggiuntive" %}</h2>
+      </div>
+
+      <div class="gallery-stack">
+        {% for image in gallery_images %}
+          <article class="gallery-item">
+            {% image_size image.image as gallery_size %}
+            <img src="{{ image.image.url }}" alt="{{ image.alt_text|default:build.name }}" {% if gallery_size %}width="{{ gallery_size.0 }}" height="{{ gallery_size.1 }}"{% endif %} loading="lazy" decoding="async">
+            <div>
+              <strong>{% trans "Immagine galleria" %}</strong>
+              <span>{{ image.image.name|default:image.pk }}</span>
+            </div>
+            <form method="post" action="{% url 'backoffice:build_delete_image' image.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="button button-ghost">{% trans "Elimina" %}</button>
+            </form>
+          </article>
+        {% empty %}
+          <div class="empty-panel compact">{% trans "Nessuna immagine aggiuntiva." %}</div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if build %}
+    <section class="form-panel">
+      <div class="subsection-headline">
+        <h2>{% trans "Zona eliminazione" %}</h2>
+      </div>
+      <div class="status-panel status-danger">
+        {% trans "Questa azione elimina definitivamente la build e la sua galleria dal catalogo." %}
+      </div>
+      <form method="post" action="{% url 'backoffice:build_delete' build.pk %}">
+        {% csrf_token %}
+        <button type="submit" class="button button-danger" onclick="return confirm('{% trans "Confermi l'eliminazione definitiva della build?" %}')">{% trans "Elimina definitivamente" %}</button>
+      </form>
+    </section>
+  {% endif %}
+{% endblock %}

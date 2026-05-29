@@ -1,0 +1,62 @@
+{% extends "backoffice/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Gestione utenti" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block panel_content %}
+  <div class="section-headline">
+    <div>
+      <p class="brand-eyebrow">{% trans "Utenti" %}</p>
+      <h1>{% trans "Gestione utenti" %}</h1>
+      <p class="section-copy">{% trans "Cerca per nome utente, apri la scheda e gestisci ruolo, stato account e ban dalla stessa pagina." %}</p>
+    </div>
+  </div>
+
+  <form method="get" class="form-panel user-search-panel">
+    <label class="field-group" for="user-search">
+      <span>{% trans "Cerca nome utente" %}</span>
+      <input id="user-search" type="search" name="q" value="{{ search_query }}" placeholder="{% trans 'Scrivi il nome utente, non la email' %}">
+    </label>
+    <div class="action-row">
+      <button type="submit" class="button button-primary">{% trans "Cerca utente" %}</button>
+      {% if search_query %}
+        <a class="button button-ghost" href="{% url 'backoffice:user_list' %}">{% trans "Mostra tutti" %}</a>
+      {% endif %}
+    </div>
+  </form>
+
+  <div class="table-shell">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>{% trans "Nome utente" %}</th>
+          <th>{% trans "Ruolo" %}</th>
+          <th>{% trans "Attivo" %}</th>
+          <th>{% trans "Ban" %}</th>
+          <th>{% trans "Azioni" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in users %}
+          <tr>
+            <td data-label="{% trans 'Nome utente' %}">
+              <a class="link-inline" href="{% url 'backoffice:user_edit' item.pk %}">{{ item.display_name }}</a>
+            </td>
+            <td data-label="{% trans 'Ruolo' %}">{{ item.get_role_display }}</td>
+            <td data-label="{% trans 'Attivo' %}">
+              {% if item.is_active %}
+                {% trans "Si" %}
+              {% else %}
+                {% trans "No" %}
+              {% endif %}
+            </td>
+            <td data-label="{% trans 'Ban' %}">{% if item.get_active_ban %}{% trans "Attivo" %}{% else %}{% trans "No" %}{% endif %}</td>
+            <td data-label="{% trans 'Azioni' %}"><a class="button button-ghost" href="{% url 'backoffice:user_edit' item.pk %}">{% trans "Apri scheda" %}</a></td>
+          </tr>
+        {% empty %}
+          <tr><td colspan="5">{% if search_query %}{% trans "Nessun utente trovato con questo nome utente." %}{% else %}{% trans "Nessun utente." %}{% endif %}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

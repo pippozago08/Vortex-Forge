@@ -1,0 +1,432 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Pagamento build personalizzata" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  <section class="wrapper section-shell reveal-on-scroll">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Checkout build personalizzata" %}</p>
+        <h1>{{ custom_request.reference_code }}</h1>
+        <p class="section-copy">{% trans "Questa pagina deve sembrare un checkout vero: riepilogo ordine, prezzo finale, metodo scelto, stato attuale e storico di ogni tentativo." %}</p>
+        <p class="status-inline-note">{{ custom_request.origin_label }}</p>
+      </div>
+      <div class="action-row">
+        <a class="button button-ghost" href="{% url 'accounts:dashboard' %}">{% trans "Torna al tuo account" %}</a>
+      </div>
+    </div>
+
+    <div class="status-hero card-shell">
+      <div class="status-hero-main">
+        <span class="status-badge status-{{ custom_request.status_tone }}">{{ custom_request.ui_status_label }}</span>
+        <h2>{% trans "Stato del checkout" %}</h2>
+        <p>{{ custom_request.user_status_message }}</p>
+      </div>
+      <div class="status-hero-side">
+        <div class="request-fact">
+          <span>{% trans "Prezzo finale" %}</span>
+          <strong>{{ custom_request.approved_price_display }}</strong>
+        </div>
+        <div class="request-fact">
+          <span>{% trans "Valuta" %}</span>
+          <strong>{{ custom_request.currency }}</strong>
+        </div>
+        <div class="request-fact">
+          <span>{% trans "Metodo selezionato" %}</span>
+          <strong>{% if checkout_payment %}{{ checkout_payment.get_checkout_method_display }}{% else %}{% trans "Da scegliere" %}{% endif %}</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkout-stepper">
+      <article class="checkout-step {% if checkout_stage == 'review' or checkout_stage == 'waiting' or checkout_stage == 'closed' %}is-active{% elif checkout_stage == 'confirm' or checkout_stage == 'success' or checkout_stage == 'failure' %}is-complete{% endif %}">
+        <span class="checkout-step-index">1</span>
+        <h3>{% trans "Ordine e metodo" %}</h3>
+        <p>{% trans "Controlli il riepilogo della richiesta e scegli come vorrai pagare in futuro." %}</p>
+      </article>
+      <article class="checkout-step {% if checkout_stage == 'confirm' %}is-active{% elif checkout_stage == 'success' or checkout_stage == 'failure' %}is-complete{% endif %}">
+        <span class="checkout-step-index">2</span>
+        <h3>{% trans "Autorizzazione" %}</h3>
+        <p>{% trans "Questa fase simula il passaggio a un provider esterno come PayPal o un gateway carte." %}</p>
+      </article>
+      <article class="checkout-step {% if checkout_stage == 'success' or checkout_stage == 'failure' %}is-active{% endif %}">
+        <span class="checkout-step-index">3</span>
+        <h3>{% trans "Esito pagamento" %}</h3>
+        <p>{% trans "Vedi subito se il pagamento e confermato oppure se va ripetuto." %}</p>
+      </article>
+    </div>
+
+    <div class="payment-summary-strip">
+      <article class="request-fact">
+        <span>{% trans "Richiesta" %}</span>
+        <strong>{{ custom_request.configuration_summary }}</strong>
+      </article>
+      <article class="request-fact">
+        <span>{% trans "Budget cliente" %}</span>
+        <strong>{{ custom_request.budget_range_display }}</strong>
+      </article>
+      <article class="request-fact">
+        <span>{% trans "Prezzo finale" %}</span>
+        <strong>{{ custom_request.approved_price_display }}</strong>
+      </article>
+      <article class="request-fact">
+        <span>{% trans "Stato" %}</span>
+        <strong>{{ custom_request.ui_status_label }}</strong>
+      </article>
+    </div>
+
+    <div class="content-split payment-layout">
+      <article class="info-card">
+        <div class="subsection-headline">
+          <div>
+            <h2>{% trans "Riepilogo ordine" %}</h2>
+            <p class="section-copy">{% trans "Questi dati accompagnano il checkout: cliente, componenti, budget iniziale, prezzo finale e riferimenti ordine." %}</p>
+          </div>
+        </div>
+
+        <div class="payment-record-grid">
+          <div class="payment-record">
+            <span>{% trans "Cliente" %}</span>
+            <strong>{{ request.user.email }}</strong>
+          </div>
+          <div class="payment-record">
+            <span>{% trans "Riferimento richiesta" %}</span>
+            <strong>{{ custom_request.reference_code }}</strong>
+          </div>
+          <div class="payment-record">
+            <span>{% trans "Origine" %}</span>
+            <strong>{{ custom_request.origin_label }}</strong>
+          </div>
+          <div class="payment-record">
+            <span>{% trans "Budget indicato" %}</span>
+            <strong>{{ custom_request.budget_range_display }}</strong>
+          </div>
+          <div class="payment-record">
+            <span>{% trans "Prezzo finale approvato" %}</span>
+            <strong>{{ custom_request.approved_price_display }}</strong>
+          </div>
+          <div class="payment-record">
+            <span>{% trans "Riferimento pagamento" %}</span>
+            <strong>{% if checkout_payment %}{{ checkout_payment.reference_code }}{% else %}{% trans "Non ancora creato" %}{% endif %}</strong>
+          </div>
+          <div class="payment-record">
+            <span>{% trans "Order ID" %}</span>
+            <strong>{% if checkout_payment %}{{ checkout_payment.external_order_id|default:"-" }}{% else %}-{% endif %}</strong>
+          </div>
+        </div>
+
+        <div class="form-panel component-panel">
+          <div class="subsection-headline">
+            <h2>{% trans "Componenti richiesti" %}</h2>
+          </div>
+          <ul class="request-component-list">
+            {% for label, value in custom_request.component_items %}
+              <li><strong>{{ label }}:</strong> {{ value }}</li>
+            {% empty %}
+              <li>{% trans "Configurazione descritta soprattutto nelle note inviate al team." %}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {% if custom_request.notes %}
+          <div class="form-panel">
+            <div class="subsection-headline">
+              <h2>{% trans "Note del cliente" %}</h2>
+            </div>
+            <p>{{ custom_request.notes|linebreaksbr }}</p>
+          </div>
+        {% endif %}
+
+        {% if custom_request.admin_notes %}
+          <div class="form-panel">
+            <div class="subsection-headline">
+              <h2>{% trans "Note importanti del team" %}</h2>
+            </div>
+            <p>{{ custom_request.admin_notes|linebreaksbr }}</p>
+          </div>
+        {% endif %}
+      </article>
+
+      <article class="info-card">
+        <div class="subsection-headline">
+          <div>
+            <h2>{% trans "Checkout protetto" %}</h2>
+            <p class="section-copy">{% trans "Questa sezione simula una vera esperienza di pagamento, ma resta in modalita sviluppo finche non collegheremo il provider reale." %}</p>
+          </div>
+        </div>
+
+        <div class="checkout-note">
+          <strong>{% trans "Ambiente sviluppo" %}</strong>
+          <p>{% trans "Le opzioni PayPal, Mastercard, Visa e American Express sono gia pronte a livello visivo e di flusso. In futuro il metodo scelto portera al checkout ufficiale corretto." %}</p>
+        </div>
+
+        {% if checkout_stage == "waiting" %}
+          <div class="status-panel status-warning">
+            <strong>{% trans "In approvazione dei venditori" %}</strong>
+            <p>{% trans "Il preventivo non e ancora approvato. Appena il team confermera il prezzo finale, qui potrai scegliere il metodo di pagamento e procedere al checkout." %}</p>
+          </div>
+        {% elif checkout_stage == "closed" %}
+          <div class="status-panel status-danger">
+            <strong>{{ custom_request.ui_status_label }}</strong>
+            <p>{% trans "Questa richiesta non puo proseguire verso il pagamento. Puoi comunque consultare il riepilogo ordine e le note del team." %}</p>
+          </div>
+        {% elif checkout_stage == "review" %}
+          <div class="status-panel status-info">
+            <strong>{% trans "Scegli il metodo di pagamento" %}</strong>
+            <p>{% trans "Il prezzo finale e pronto. Seleziona il metodo preferito per creare il checkout e passare alla fase di autorizzazione." %}</p>
+          </div>
+
+          <div class="payment-summary-grid">
+            <div class="request-fact">
+              <span>{% trans "Da pagare adesso" %}</span>
+              <strong>{{ custom_request.approved_price_display }}</strong>
+            </div>
+            <div class="request-fact">
+              <span>{% trans "Stato attuale" %}</span>
+              <strong>{{ custom_request.ui_status_label }}</strong>
+            </div>
+          </div>
+
+          {% if show_start_payment %}
+            <form method="post" class="checkout-start-shell">
+              {% csrf_token %}
+              <input type="hidden" name="action" value="start_payment">
+
+              <div class="payment-method-grid">
+                {% for method in checkout_methods %}
+                  <label class="payment-method-card payment-method-card--{{ method.value }}{% if selected_checkout_method == method.value %} is-selected{% endif %}">
+                    <input type="radio" name="checkout_method" value="{{ method.value }}" {% if selected_checkout_method == method.value %}checked{% endif %}>
+                    <div class="payment-method-top">
+                      <span class="payment-method-eyebrow">{{ method.eyebrow }}</span>
+                      <div class="payment-brand-group">
+                        {% for badge in method.badges %}
+                          <span class="payment-brand-pill payment-brand-pill--{{ method.value }}">{{ badge }}</span>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <strong>{{ method.label }}</strong>
+                    <p>{{ method.description }}</p>
+                  </label>
+                {% endfor %}
+              </div>
+
+              {% if start_checkout_form.checkout_method.help_text %}
+                <small class="field-help">{{ start_checkout_form.checkout_method.help_text }}</small>
+              {% endif %}
+              {% if start_checkout_form.checkout_method.errors %}
+                <small class="field-error">{{ start_checkout_form.checkout_method.errors|striptags }}</small>
+              {% endif %}
+
+              <button type="submit" class="button button-primary button-wide">{% trans "Conferma e procedi al pagamento" %}</button>
+              <p class="section-copy">{% trans "Il metodo scelto verra salvato nel tentativo di pagamento e in futuro decidera il reindirizzamento al checkout esterno corretto." %}</p>
+            </form>
+          {% endif %}
+        {% elif checkout_stage == "confirm" %}
+          <div class="status-panel status-info">
+            <strong>{% trans "Conferma autorizzazione pagamento" %}</strong>
+            <p>{% trans "Questo e il passaggio che in futuro aprira la pagina esterna del provider selezionato. In ambiente dev lo completi direttamente qui." %}</p>
+          </div>
+
+          {% if active_payment %}
+            <div class="checkout-provider-shell">
+              <div class="checkout-provider-header">
+                <div>
+                  <p class="brand-eyebrow">{% trans "Gateway di test" %}</p>
+                  <h3>{{ active_payment.get_checkout_method_display }}</h3>
+                  <p class="section-copy">{{ active_payment.checkout_method_destination_label }}</p>
+                </div>
+                <div class="payment-brand-group">
+                  <span class="payment-brand-pill payment-brand-pill--{{ active_payment.checkout_method }}">{{ active_payment.get_checkout_method_display }}</span>
+                  {% if active_payment.checkout_method != "paypal" %}
+                    <span class="payment-brand-pill">{% trans "Secure Card" %}</span>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="payment-record-grid">
+                <div class="payment-record">
+                  <span>{% trans "Merchant" %}</span>
+                  <strong>{{ site_settings.site_name }}</strong>
+                </div>
+                <div class="payment-record">
+                  <span>{% trans "Metodo" %}</span>
+                  <strong>{{ active_payment.get_checkout_method_display }}</strong>
+                </div>
+                <div class="payment-record">
+                  <span>{% trans "Importo da autorizzare" %}</span>
+                  <strong>{{ active_payment.amount }} {{ active_payment.currency }}</strong>
+                </div>
+                <div class="payment-record">
+                  <span>{% trans "Order ID" %}</span>
+                  <strong>{{ active_payment.external_order_id|default:"-" }}</strong>
+                </div>
+                <div class="payment-record">
+                  <span>{% trans "Riferimento pagamento" %}</span>
+                  <strong>{{ active_payment.reference_code }}</strong>
+                </div>
+                <div class="payment-record">
+                  <span>{% trans "Creato il" %}</span>
+                  <strong>{{ active_payment.initiated_at }}</strong>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          <form method="post" class="form-panel checkout-form-shell">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="confirm_checkout">
+
+            <div class="subsection-headline">
+              <div>
+                <h2>{% trans "Conferma finale" %}</h2>
+                <p class="section-copy">{% trans "Usa questo passaggio per simulare il ritorno del provider e concludere il test di pagamento." %}</p>
+              </div>
+            </div>
+
+            {% include "partials/form_field.html" with field=simulation_form.simulation_result %}
+
+            <label class="checkout-consent">
+              {{ simulation_form.confirm_checkout }}
+              <span>{{ simulation_form.confirm_checkout.label }}</span>
+            </label>
+            {% if simulation_form.confirm_checkout.help_text %}
+              <small class="field-help">{{ simulation_form.confirm_checkout.help_text }}</small>
+            {% endif %}
+            {% if simulation_form.confirm_checkout.errors %}
+              <small class="field-error">{{ simulation_form.confirm_checkout.errors|striptags }}</small>
+            {% endif %}
+
+            <button type="submit" class="button button-primary button-wide">{% if active_payment %}{{ active_payment.checkout_authorization_label }}{% else %}{% trans "Autorizza pagamento" %}{% endif %}</button>
+            <p class="section-copy">{% trans "Nel live questo pulsante verra sostituito dal ritorno automatico del provider selezionato dopo la sua pagina di checkout ufficiale." %}</p>
+          </form>
+        {% elif checkout_stage == "success" %}
+          <div class="status-panel status-success">
+            <strong>{% trans "Pagamento registrato con successo" %}</strong>
+            <p>{% trans "Il checkout risulta completato. Qui sotto trovi il riepilogo finale con metodo, riferimenti e stato confermato." %}</p>
+          </div>
+
+          {% if latest_payment %}
+            <div class="payment-record-grid">
+              <div class="payment-record">
+                <span>{% trans "Riferimento pagamento" %}</span>
+                <strong>{{ latest_payment.reference_code }}</strong>
+              </div>
+              <div class="payment-record">
+                <span>{% trans "Metodo" %}</span>
+                <strong>{{ latest_payment.get_checkout_method_display }}</strong>
+              </div>
+              <div class="payment-record">
+                <span>{% trans "Order ID" %}</span>
+                <strong>{{ latest_payment.external_order_id|default:"-" }}</strong>
+              </div>
+              <div class="payment-record">
+                <span>{% trans "Transaction ID" %}</span>
+                <strong>{{ latest_payment.external_transaction_id|default:"-" }}</strong>
+              </div>
+              <div class="payment-record">
+                <span>{% trans "Completato il" %}</span>
+                <strong>{{ latest_payment.completed_or_updated_at }}</strong>
+              </div>
+              <div class="payment-record">
+                <span>{% trans "Importo registrato" %}</span>
+                <strong>{{ latest_payment.amount }} {{ latest_payment.currency }}</strong>
+              </div>
+            </div>
+          {% endif %}
+
+          <div class="action-stack">
+            <a class="button button-primary button-wide" href="{% url 'accounts:dashboard' %}">{% trans "Torna alla dashboard" %}</a>
+            <a class="button button-ghost button-wide" href="{% url 'catalog:custom_request_payment' custom_request.pk %}">{% trans "Rivedi il riepilogo checkout" %}</a>
+          </div>
+        {% elif checkout_stage == "failure" %}
+          <div class="status-panel status-danger">
+            <strong>{% trans "Pagamento non completato" %}</strong>
+            <p>{% trans "L'ultimo tentativo non e andato a buon fine. Puoi ripartire dal checkout e scegliere anche un metodo diverso prima di riprovare." %}</p>
+          </div>
+
+          {% if latest_payment %}
+            <div class="payment-record-grid">
+              <div class="payment-record">
+                <span>{% trans "Riferimento pagamento" %}</span>
+                <strong>{{ latest_payment.reference_code }}</strong>
+              </div>
+              <div class="payment-record">
+                <span>{% trans "Metodo" %}</span>
+                <strong>{{ latest_payment.get_checkout_method_display }}</strong>
+              </div>
+              <div class="payment-record">
+                <span>{% trans "Order ID" %}</span>
+                <strong>{{ latest_payment.external_order_id|default:"-" }}</strong>
+              </div>
+              <div class="payment-record">
+                <span>{% trans "Ultimo aggiornamento" %}</span>
+                <strong>{{ latest_payment.completed_or_updated_at }}</strong>
+              </div>
+            </div>
+          {% endif %}
+
+          <div class="action-stack">
+            {% if show_start_payment %}
+              <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="start_payment">
+                <input type="hidden" name="checkout_method" value="{{ selected_checkout_method }}">
+                <button type="submit" class="button button-primary button-wide">{% trans "Riavvia il checkout" %}</button>
+              </form>
+            {% endif %}
+            <a class="button button-ghost button-wide" href="{% url 'accounts:dashboard' %}">{% trans "Torna alla dashboard" %}</a>
+          </div>
+        {% endif %}
+      </article>
+    </div>
+
+    <article class="info-card">
+      <div class="subsection-headline">
+        <div>
+          <h2>{% trans "Storico pagamenti" %}</h2>
+          <p class="section-copy">{% trans "Cronologia completa dei tentativi registrati per questa richiesta, con metodo scelto, riferimenti e stato di ogni passaggio." %}</p>
+        </div>
+      </div>
+      <div class="table-shell">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>{% trans "Pagamento" %}</th>
+              <th>{% trans "Metodo" %}</th>
+              <th>{% trans "Data" %}</th>
+              <th>{% trans "Importo" %}</th>
+              <th>{% trans "Stato" %}</th>
+              <th>{% trans "Order / Transaction" %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for payment in payment_history %}
+              <tr>
+                <td data-label="{% trans 'Pagamento' %}">
+                  <strong>{{ payment.reference_code }}</strong>
+                </td>
+                <td data-label="{% trans 'Metodo' %}">
+                  {{ payment.get_checkout_method_display }}
+                </td>
+                <td data-label="{% trans 'Data' %}">{{ payment.initiated_at }}</td>
+                <td data-label="{% trans 'Importo' %}">{{ payment.amount }} {{ payment.currency }}</td>
+                <td data-label="{% trans 'Stato' %}">
+                  <span class="status-badge status-{{ payment.status_tone }}">{{ payment.get_status_display }}</span>
+                </td>
+                <td data-label="{% trans 'Order / Transaction' %}">
+                  <div class="table-action-stack">
+                    <span>{{ payment.external_order_id|default:"-" }}</span>
+                    <span>{{ payment.external_transaction_id|default:"-" }}</span>
+                  </div>
+                </td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="6">{% trans "Nessun tentativo di pagamento registrato." %}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+{% endblock %}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 420" fill="none">
+  <defs>
+    <linearGradient id="gpuCard" x1="36" y1="42" x2="274" y2="372" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#132017"/>
+      <stop offset="1" stop-color="#09100c"/>
+    </linearGradient>
+    <linearGradient id="gpuAccent" x1="78" y1="76" x2="244" y2="298" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C8FF70"/>
+      <stop offset="1" stop-color="#6DBF18"/>
+    </linearGradient>
+  </defs>
+  <rect x="42" y="48" width="236" height="324" rx="30" fill="url(#gpuCard)" stroke="rgba(183,255,79,0.28)" stroke-width="4"/>
+  <rect x="62" y="92" width="196" height="36" rx="18" fill="#0F1712"/>
+  <rect x="74" y="104" width="88" height="12" rx="6" fill="url(#gpuAccent)"/>
+  <rect x="170" y="104" width="52" height="12" rx="6" fill="#223628"/>
+  <circle cx="114" cy="212" r="54" fill="#0D1510" stroke="rgba(183,255,79,0.18)" stroke-width="3"/>
+  <circle cx="206" cy="212" r="54" fill="#0D1510" stroke="rgba(183,255,79,0.18)" stroke-width="3"/>
+  <circle cx="114" cy="212" r="20" fill="url(#gpuAccent)"/>
+  <circle cx="206" cy="212" r="20" fill="url(#gpuAccent)"/>
+  <path d="M114 166c12 0 22 18 22 34s-10 34-22 34-22-18-22-34 10-34 22-34Z" fill="rgba(183,255,79,0.24)"/>
+  <path d="M206 166c12 0 22 18 22 34s-10 34-22 34-22-18-22-34 10-34 22-34Z" fill="rgba(183,255,79,0.24)"/>
+  <rect x="72" y="304" width="148" height="16" rx="8" fill="#15211A"/>
+  <rect x="72" y="332" width="112" height="10" rx="5" fill="rgba(183,255,79,0.22)"/>
+  <rect x="236" y="124" width="18" height="168" rx="9" fill="#122015"/>
+  <rect x="278" y="132" width="12" height="22" rx="6" fill="#84D81D"/>
+  <rect x="278" y="164" width="12" height="22" rx="6" fill="#84D81D"/>
+  <rect x="278" y="196" width="12" height="22" rx="6" fill="#84D81D"/>
+  <rect x="278" y="228" width="12" height="22" rx="6" fill="#84D81D"/>
+</svg>

@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ build.localized_name }} | {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  <section class="wrapper section-shell reveal-on-scroll">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Scheda build" %}</p>
+        <h1>{{ build.localized_name }}</h1>
+        <p class="section-copy">{% trans "Questa pagina deve aiutare subito a capire immagine della build, componenti principali, disponibilita e come entrare nel flusso di approvazione." %}</p>
+      </div>
+      <div class="action-row">
+        <a class="button button-ghost" href="{% url 'catalog:build_list' %}">{% trans "Torna alle build" %}</a>
+        <a class="button button-primary" href="#request-build-flow">{% trans "Richiedi questa build" %}</a>
+      </div>
+    </div>
+
+    <div class="detail-layout">
+      <div class="detail-gallery" data-build-gallery>
+        {% if gallery_items %}
+          <div class="detail-cover-frame">
+            <button type="button" class="detail-cover-button" data-gallery-open aria-label="{% trans 'Apri galleria build' %}">
+              <img
+                class="detail-primary-image"
+                src="{{ gallery_items.0.url }}"
+                alt="{{ gallery_items.0.alt }}"
+                {% if gallery_items.0.width %}width="{{ gallery_items.0.width }}" height="{{ gallery_items.0.height }}"{% endif %}
+                fetchpriority="high"
+                decoding="async"
+                data-gallery-main-image
+              >
+            </button>
+
+            {% if gallery_items|length > 1 %}
+              <div class="detail-gallery-controls" aria-label="{% trans 'Controlli galleria build' %}">
+                <button type="button" class="gallery-inline-nav" data-gallery-prev-inline aria-label="{% trans 'Immagine precedente' %}">&lsaquo;</button>
+                <span class="gallery-inline-counter" data-gallery-inline-counter></span>
+                <button type="button" class="gallery-inline-nav" data-gallery-next-inline aria-label="{% trans 'Immagine successiva' %}">&rsaquo;</button>
+              </div>
+              <div class="gallery-data" hidden>
+                {% for image in gallery_items %}
+                  <span
+                    data-gallery-item
+                    data-gallery-src="{{ image.url }}"
+                    data-gallery-alt="{{ image.alt }}"
+                  ></span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="gallery-modal" data-gallery-modal aria-hidden="true">
+            <button type="button" class="gallery-modal-backdrop" data-gallery-close aria-label="{% trans 'Chiudi galleria' %}"></button>
+            <div class="gallery-modal-shell">
+              <div class="gallery-modal-toolbar">
+                <span class="brand-eyebrow">{% trans "Galleria build" %}</span>
+                <button type="button" class="button button-ghost" data-gallery-close>{% trans "Chiudi" %}</button>
+              </div>
+              <div class="gallery-modal-stage">
+                <button type="button" class="gallery-modal-nav" data-gallery-prev aria-label="{% trans 'Immagine precedente' %}">&lsaquo;</button>
+                <div class="gallery-modal-viewport" data-gallery-zoom-viewport>
+                  <img src="{{ gallery_items.0.url }}" alt="{{ gallery_items.0.alt }}" {% if gallery_items.0.width %}width="{{ gallery_items.0.width }}" height="{{ gallery_items.0.height }}"{% endif %} class="gallery-modal-image" data-gallery-modal-image>
+                </div>
+                <button type="button" class="gallery-modal-nav" data-gallery-next aria-label="{% trans 'Immagine successiva' %}">&rsaquo;</button>
+              </div>
+              <p class="gallery-modal-counter" data-gallery-counter></p>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <aside class="detail-panel card-shell">
+        <p class="brand-eyebrow">{% trans "Specifiche Build" %}</p>
+        <h2 class="detail-panel-title">{{ build.localized_name }}</h2>
+
+        <div class="meta-row detail-meta-row">
+          <span class="meta-chip meta-chip-strong">
+            {% if build.price > 0 %}
+              {{ build.price }} EUR
+            {% else %}
+              {% trans "Prezzo su richiesta" %}
+            {% endif %}
+          </span>
+          <span class="meta-chip">{{ build.get_availability_status_display }}</span>
+          {% if build.highlight_badge != "none" %}
+            <span class="meta-chip">{{ build.get_highlight_badge_display }}</span>
+          {% endif %}
+        </div>
+
+        <div class="detail-summary-grid">
+          <div class="request-fact">
+            <span>{% trans "Disponibilita" %}</span>
+            <strong>{{ build.get_availability_status_display }}</strong>
+          </div>
+          <div class="request-fact">
+            <span>{% trans "Uscita" %}</span>
+            <strong>{{ build.release_date|date:"d/m/Y" }}</strong>
+          </div>
+          <div class="request-fact">
+            <span>CPU</span>
+            <strong>{{ build.get_cpu_brand_display }}</strong>
+          </div>
+          <div class="request-fact">
+            <span>GPU</span>
+            <strong>{{ build.get_gpu_brand_display }}</strong>
+          </div>
+          <div class="request-fact">
+            <span>{% trans "Marca case" %}</span>
+            <strong>{{ build.get_case_brand_display }}</strong>
+          </div>
+          <div class="request-fact">
+            <span>RAM</span>
+            <strong>{{ build.ram_gb }} GB</strong>
+          </div>
+          <div class="request-fact">
+            <span>VRAM</span>
+            <strong>{{ build.vram_gb }} GB</strong>
+          </div>
+          {% if request.user.is_authenticated and request.user.has_backoffice_access %}
+            <div class="request-fact">
+              <span>{% trans "Vendute" %}</span>
+              <strong>{{ build.sold_count }}</strong>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="component-panel">
+          <h2>{% trans "Componenti" %}</h2>
+          <ul class="feature-list component-list">
+            {% for component in build.localized_component_list %}
+              <li>- {{ component }}</li>
+            {% empty %}
+              <li>- {% trans "Componenti non ancora specificati." %}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {% if build.localized_description %}
+          <div class="component-panel">
+            <h2>{% trans "Note aggiuntive" %}</h2>
+            <p class="hero-intro detail-notes">{{ build.localized_description }}</p>
+          </div>
+        {% endif %}
+      </aside>
+    </div>
+  </section>
+
+  <section class="wrapper section-shell reveal-on-scroll" id="request-build-flow">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Flusso approvazione" %}</p>
+        <h2>{% trans "Richiedi questa build" %}</h2>
+        <p class="section-copy">{% trans "La richiesta entra in approvazione nel pannello admin. Dopo l'approvazione il cliente la trova nel proprio account e puo aprire il checkout completo." %}</p>
+      </div>
+    </div>
+
+    {% if request.user.is_authenticated %}
+      <div class="content-split detail-request-layout">
+        <article class="info-card">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "Cosa succede dopo l'invio" %}</h2>
+              <p class="section-copy">{% trans "Questa parte deve chiarire al cliente che non sta comprando subito: prima il team controlla la richiesta, poi conferma il prezzo finale." %}</p>
+            </div>
+          </div>
+          <div class="process-grid process-grid-tight">
+            <article class="process-card">
+              <span class="process-index">01</span>
+              <h3>{% trans "Invio richiesta" %}</h3>
+              <p>{% trans "I dati di contatto e il messaggio entrano nel flusso approvazione, non restano in un semplice elenco messaggi." %}</p>
+            </article>
+            <article class="process-card">
+              <span class="process-index">02</span>
+              <h3>{% trans "Valutazione admin" %}</h3>
+              <p>{% trans "Il team definisce il prezzo finale, salva eventuali note e rende la richiesta pagabile solo se approvata." %}</p>
+            </article>
+            <article class="process-card">
+              <span class="process-index">03</span>
+              <h3>{% trans "Checkout ordinato" %}</h3>
+              <p>{% trans "Quando la build e pronta, il cliente trova il checkout direttamente nel proprio account con storico e stato aggiornati." %}</p>
+            </article>
+          </div>
+        </article>
+
+        <form method="post" action="{% url 'catalog:purchase_request' build.slug %}" class="form-panel form-layout detail-request-panel">
+          {% csrf_token %}
+          {% include "partials/form_field.html" with field=purchase_form.full_name %}
+          {% include "partials/form_field.html" with field=purchase_form.email %}
+          {% include "partials/form_field.html" with field=purchase_form.phone %}
+          {% include "partials/form_field.html" with field=purchase_form.message field_class="field-group field-span-full" %}
+          <div class="field-span-full action-row action-row-spread">
+            <button type="submit" class="button button-primary">{% trans "Invia richiesta e passa in approvazione" %}</button>
+            <p class="status-inline-note">{% trans "Nessun pagamento immediato: il prezzo finale comparira solo dopo la revisione del team." %}</p>
+          </div>
+        </form>
+      </div>
+    {% else %}
+      <div class="empty-panel empty-panel-rich">
+        <div>
+          <h3>{% trans "Devi accedere per richiedere questa build" %}</h3>
+          <p>{% trans "L'accesso serve a collegare la richiesta al tuo account, mostrarti lo stato e sbloccare il checkout solo quando il team la approva." %}</p>
+        </div>
+        <div class="action-row">
+          <a class="button button-primary" href="{% url 'accounts:login' %}?next={{ request.path|urlencode }}">{% trans "Accedi" %}</a>
+          <a class="button button-ghost" href="{% url 'accounts:register' %}">{% trans "Registrati" %}</a>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+
+  <section class="wrapper cta-band reveal-on-scroll">
+    <div class="cta-band-copy">
+      <p class="brand-eyebrow">{% trans "Alternativa" %}</p>
+      <h2>{% trans "Hai bisogno di qualcosa di piu personalizzato rispetto a questa build?" %}</h2>
+      <p>{% trans "Se vuoi cambiare componenti o partire da esigenze diverse, passa direttamente alla richiesta custom completa." %}</p>
+    </div>
+    <div class="action-row">
+      <a class="button button-primary" href="{% url 'catalog:custom_request' %}">{% trans "Apri richiesta custom" %}</a>
+      <a class="button button-ghost" href="{% url 'catalog:build_list' %}">{% trans "Continua a vedere le build" %}</a>
+    </div>
+  </section>
+{% endblock %}

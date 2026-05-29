@@ -1,0 +1,49 @@
+{% extends "backoffice/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Gestione ban" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block panel_content %}
+  <div class="section-headline">
+    <div>
+      <p class="brand-eyebrow">{% trans "Moderazione" %}</p>
+      <h1>{% trans "Gestione ban" %}</h1>
+    </div>
+    <a class="button button-primary" href="{% url 'backoffice:ban_create' %}">{% trans "Nuovo ban" %}</a>
+  </div>
+
+  <div class="table-shell">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>{% trans "Utente" %}</th>
+          <th>{% trans "Tipo" %}</th>
+          <th>{% trans "Motivo" %}</th>
+          <th>{% trans "Stato" %}</th>
+          <th>{% trans "Azioni" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ban in bans %}
+          <tr>
+            <td data-label="{% trans 'Utente' %}">{{ ban.user.display_name }}</td>
+            <td data-label="{% trans 'Tipo' %}">{{ ban.get_ban_type_display }}</td>
+            <td data-label="{% trans 'Motivo' %}">{{ ban.reason|truncatechars:100 }}</td>
+            <td data-label="{% trans 'Stato' %}">{{ ban.translated_status }}</td>
+            <td data-label="{% trans 'Azioni' %}">
+              {% if ban.is_active %}
+                <form method="post" action="{% url 'backoffice:ban_revoke' ban.pk %}" class="inline-form">
+                  {% csrf_token %}
+                  <input type="text" name="reason" placeholder="{% trans 'Motivo revoca' %}">
+                  <button type="submit" class="button button-ghost">{% trans "Revoca" %}</button>
+                </form>
+              {% endif %}
+            </td>
+          </tr>
+        {% empty %}
+          <tr><td colspan="5">{% trans "Nessun ban registrato." %}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

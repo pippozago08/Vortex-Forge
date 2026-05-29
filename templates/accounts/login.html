@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Accedi" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  <section class="wrapper auth-shell reveal-on-scroll">
+    <div class="auth-card-main card-shell">
+      <p class="brand-eyebrow">{% trans "Accesso sicuro" %}</p>
+      <h1>{% trans "Accedi al tuo account." %}</h1>
+      <p class="hero-intro">{% trans "Entra per gestire richieste build, profilo e pannello amministrativo se autorizzato." %}</p>
+
+      <div class="auth-highlight-row">
+        <div class="request-fact">
+          <span>{% trans "Dashboard" %}</span>
+          <strong>{% trans "Richieste e pagamenti sempre sotto controllo" %}</strong>
+        </div>
+        <div class="request-fact">
+          <span>{% trans "Sicurezza" %}</span>
+          <strong>{% trans "Accesso protetto, stati chiari e recupero password integrato" %}</strong>
+        </div>
+      </div>
+
+      <form method="post" class="form-layout login-form">
+        {% csrf_token %}
+        {% include "partials/form_field.html" with field=form.email %}
+        <div class="field-group" data-password-field>
+          {{ form.password.label_tag }}
+          <div class="password-input-shell">
+            {{ form.password }}
+            <button type="button" class="password-eye-button" data-password-hold aria-label="{% trans 'Tieni premuto per vedere la password' %}" title="{% trans 'Tieni premuto per vedere la password' %}">
+              <span class="password-eye-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <label class="checkbox-field password-checkbox">
+            <input type="checkbox" data-password-checkbox>
+            <span>{% trans "Mostra password" %}</span>
+          </label>
+          {% if form.password.errors %}
+            <small class="field-error">{{ form.password.errors|striptags }}</small>
+          {% endif %}
+          <small class="field-help"><a class="link-inline" href="{% url 'accounts:password_reset_request' %}">{% trans "Non ricordi la password?" %}</a></small>
+        </div>
+        <div class="field-span-full action-row">
+          <button type="submit" class="button button-primary">{% trans "Accedi" %}</button>
+        </div>
+      </form>
+    </div>
+
+    <aside class="auth-card-side card-shell">
+      <p class="brand-eyebrow">{% trans "Nuovo cliente" %}</p>
+      <h2>{% trans "Crea il tuo profilo in pochi minuti." %}</h2>
+      <p>{% trans "Registrati per inviare richieste personalizzate, seguire i contatti e salvare il tuo account cliente." %}</p>
+      <ul class="feature-list">
+        <li>{% trans "Storico richieste e pagamenti sempre disponibile." %}</li>
+        <li>{% trans "Accesso al checkout solo dopo approvazione del team." %}</li>
+        <li>{% trans "Profilo cliente e dati di contatto modificabili in autonomia." %}</li>
+      </ul>
+      <a class="button button-primary" href="{% url 'accounts:register' %}">{% trans "Crea account" %}</a>
+    </aside>
+  </section>
+{% endblock %}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 420" fill="none">
+  <defs>
+    <linearGradient id="boardBase" x1="54" y1="46" x2="266" y2="374" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111B14"/>
+      <stop offset="1" stop-color="#09100B"/>
+    </linearGradient>
+    <linearGradient id="boardAccent" x1="104" y1="116" x2="212" y2="272" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8FF86"/>
+      <stop offset="1" stop-color="#6EC519"/>
+    </linearGradient>
+  </defs>
+  <rect x="54" y="46" width="212" height="328" rx="36" fill="url(#boardBase)" stroke="rgba(183,255,79,0.28)" stroke-width="4"/>
+  <rect x="84" y="84" width="88" height="88" rx="24" fill="#0F1712" stroke="rgba(183,255,79,0.22)" stroke-width="3"/>
+  <rect x="104" y="104" width="48" height="48" rx="14" fill="url(#boardAccent)"/>
+  <rect x="186" y="84" width="46" height="20" rx="10" fill="#15211A"/>
+  <rect x="186" y="116" width="54" height="20" rx="10" fill="#15211A"/>
+  <rect x="186" y="148" width="38" height="20" rx="10" fill="#15211A"/>
+  <rect x="84" y="212" width="156" height="110" rx="28" fill="#0D1510" stroke="rgba(183,255,79,0.16)" stroke-width="3"/>
+  <path d="M114 236h96M114 264h72M114 292h112" stroke="rgba(183,255,79,0.26)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M80 186v22h48v-22h24v40h36v-18h24v18h34" stroke="#84D81D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M84 340h48M152 340h34M204 340h22" stroke="#84D81D" stroke-width="8" stroke-linecap="round"/>
+</svg>

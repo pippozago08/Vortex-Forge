@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+{% load i18n l10n catalog_extras %}
+
+{% block title %}{% trans "Le nostre build" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  {% trans "Scheda madre" as showcase_board_kicker %}
+  {% trans "Da struttura alla build con VRM robusti, connettivita moderna e una base solida per componenti di fascia alta." as showcase_board_description %}
+  {% trans "Memoria" as showcase_ram_kicker %}
+  {% trans "Tiene alti transfer rate e buona reattivita quando il sistema deve gestire software creativi, progetti e attivita in parallelo." as showcase_ram_description %}
+  {% trans "Storage" as showcase_ssd_jupiter_kicker %}
+  {% trans "Riduce tempi di caricamento e da una sensazione piu immediata a sistema operativo, software e librerie pesanti." as showcase_ssd_jupiter_description %}
+  {% trans "Archivio veloce" as showcase_ssd_mars_kicker %}
+  {% trans "E perfetto per librerie software, progetti pesanti e un archivio piu reattivo per i file usati ogni giorno." as showcase_ssd_mars_description %}
+
+  <section class="wrapper section-shell reveal-on-scroll">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Catalogo build" %}</p>
+        <h1>{% trans "Trova la configurazione pronta piu adatta." %}</h1>
+        <p class="section-copy">{% trans "Filtra il catalogo per processore, scheda video, case, prezzo, data e caratteristiche principali prima di aprire la scheda completa." %}</p>
+      </div>
+      <div class="action-row">
+        <a class="button button-primary" href="{% url 'catalog:custom_request' %}">{% trans "Richiedi una build personalizzata" %}</a>
+        <a class="button button-ghost" href="{% url 'contacts:contact' %}">{% trans "Contatta il team" %}</a>
+      </div>
+    </div>
+
+    <form class="catalog-filter-panel" method="get" action="{% url 'catalog:build_list' %}">
+      <div class="catalog-filter-heading">
+        <div>
+          <p class="brand-eyebrow">{% trans "Filtri catalogo" %}</p>
+          <h2>{% trans "Restringi le build come in un catalogo prodotto." %}</h2>
+        </div>
+        <div class="catalog-results-pill">
+          <span>{% trans "Risultati" %}</span>
+          <strong>{{ result_count }}</strong>
+        </div>
+      </div>
+
+      <div class="catalog-filter-grid">
+        <label class="filter-control" for="catalog-cpu">
+          <span>{% trans "Processore" %}</span>
+          <select id="catalog-cpu" name="cpu_brand">
+            <option value="">{% trans "Tutti i processori" %}</option>
+            {% for option in cpu_brand_options %}
+              <option value="{{ option.value }}" {% if filters.cpu_brand == option.value %}selected{% endif %}>{{ option.label }}</option>
+            {% endfor %}
+          </select>
+        </label>
+
+        <label class="filter-control" for="catalog-gpu">
+          <span>{% trans "Scheda video" %}</span>
+          <select id="catalog-gpu" name="gpu_brand">
+            <option value="">{% trans "Tutte le schede video" %}</option>
+            {% for option in gpu_brand_options %}
+              <option value="{{ option.value }}" {% if filters.gpu_brand == option.value %}selected{% endif %}>{{ option.label }}</option>
+            {% endfor %}
+          </select>
+        </label>
+
+        <label class="filter-control" for="catalog-case-brand">
+          <span>{% trans "Marca case" %}</span>
+          <select id="catalog-case-brand" name="case_brand">
+            <option value="">{% trans "Tutte le marche case" %}</option>
+            {% for option in case_brand_options %}
+              <option value="{{ option.value }}" {% if filters.case_brand == option.value %}selected{% endif %}>{{ option.label }}</option>
+            {% endfor %}
+          </select>
+        </label>
+
+        <label class="filter-control" for="catalog-sort">
+          <span>{% trans "Ordina per" %}</span>
+          <select id="catalog-sort" name="sort">
+            {% for option in sort_options %}
+              <option value="{{ option.value }}" {% if filters.sort == option.value %}selected{% endif %}>{{ option.label }}</option>
+            {% endfor %}
+          </select>
+        </label>
+
+        <label class="filter-control range-control" for="catalog-price">
+          <span>{% trans "Prezzo massimo" %}</span>
+          <div class="range-input-row">
+            <input id="catalog-price" type="range" name="price_max" min="{{ price_slider_min|unlocalize }}" max="{{ price_slider_max|unlocalize }}" step="{{ price_slider_step|unlocalize }}" value="{{ filters.price_max|unlocalize }}" data-range-input>
+            <input class="range-number-input" type="number" min="{{ price_slider_min|unlocalize }}" max="{{ price_slider_max|unlocalize }}" step="{{ price_slider_step|unlocalize }}" value="{{ filters.price_max|unlocalize }}" data-range-number aria-label="{% trans 'Prezzo massimo' %}">
+            <span class="range-unit">EUR</span>
+          </div>
+        </label>
+
+        <label class="filter-control range-control" for="catalog-ram">
+          <span>{% trans "RAM massima" %}</span>
+          <div class="range-input-row">
+            <input id="catalog-ram" type="range" name="ram_max" min="{{ ram_slider_min }}" max="{{ ram_slider_max }}" step="4" value="{{ filters.ram_max }}" data-range-input>
+            <input class="range-number-input" type="number" min="{{ ram_slider_min }}" max="{{ ram_slider_max }}" step="4" value="{{ filters.ram_max }}" data-range-number aria-label="{% trans 'RAM massima' %}">
+            <span class="range-unit">GB</span>
+          </div>
+        </label>
+
+        <label class="filter-control range-control" for="catalog-vram">
+          <span>{% trans "VRAM massima" %}</span>
+          <div class="range-input-row">
+            <input id="catalog-vram" type="range" name="vram_max" min="{{ vram_slider_min }}" max="{{ vram_slider_max }}" step="4" value="{{ filters.vram_max }}" data-range-input>
+            <input class="range-number-input" type="number" min="{{ vram_slider_min }}" max="{{ vram_slider_max }}" step="4" value="{{ filters.vram_max }}" data-range-number aria-label="{% trans 'VRAM massima' %}">
+            <span class="range-unit">GB</span>
+          </div>
+        </label>
+
+        <div class="catalog-filter-actions">
+          <button class="button button-primary" type="submit">{% trans "Applica filtri" %}</button>
+          <a class="button button-ghost" href="{% url 'catalog:build_list' %}">{% trans "Reset filtri" %}</a>
+        </div>
+      </div>
+
+      <p class="catalog-active-note">
+        {% blocktrans count counter=active_filters_count %}{{ counter }} filtro attivo{% plural %}{{ counter }} filtri attivi{% endblocktrans %}
+      </p>
+    </form>
+
+    <div class="product-grid catalog-product-grid">
+      {% for build in builds %}
+        <article class="product-card">
+          <a class="product-media" href="{% url 'catalog:build_detail' build.slug %}">
+            {% if build.primary_image %}
+              {% image_size build.primary_image as primary_size %}
+              <img
+                src="{{ build.primary_image.url }}"
+                alt="{{ build.localized_name }}"
+                {% if primary_size %}width="{{ primary_size.0 }}" height="{{ primary_size.1 }}"{% endif %}
+                loading="lazy"
+                decoding="async"
+              >
+            {% endif %}
+            {% if build.highlight_badge != "none" %}
+              <span class="product-badge">{{ build.get_highlight_badge_display }}</span>
+            {% endif %}
+          </a>
+          <div class="product-content">
+            <div class="product-header">
+              <div>
+                <p class="product-category">{% trans "Specifiche Build" %}</p>
+                <h3>{{ build.localized_name }}</h3>
+              </div>
+              <strong class="product-price">
+                {% if build.price > 0 %}
+                  {{ build.price }} EUR
+                {% else %}
+                  {% trans "Prezzo su richiesta" %}
+                {% endif %}
+              </strong>
+            </div>
+            <p>{{ build.localized_short_description }}</p>
+            <div class="meta-row">
+              <span class="meta-chip">{{ build.get_availability_status_display }}</span>
+              <span class="meta-chip">CPU: {{ build.get_cpu_brand_display }}</span>
+              <span class="meta-chip">GPU: {{ build.get_gpu_brand_display }}</span>
+              <span class="meta-chip">{% trans "Marca case" %}: {{ build.get_case_brand_display }}</span>
+              <span class="meta-chip">RAM: {{ build.ram_gb }} GB</span>
+              <span class="meta-chip">VRAM: {{ build.vram_gb }} GB</span>
+              {% if request.user.is_authenticated and request.user.has_backoffice_access %}
+                <span class="meta-chip">{% trans "Vendute" %}: {{ build.sold_count }}</span>
+              {% endif %}
+              <span class="meta-chip">{% trans "Uscita" %}: {{ build.release_date|date:"d/m/Y" }}</span>
+              {% if build.is_featured %}
+                <span class="meta-chip">{% trans "In evidenza" %}</span>
+              {% endif %}
+            </div>
+            <a class="button button-primary" href="{% url 'catalog:build_detail' build.slug %}">{% trans "Scopri la build" %}</a>
+          </div>
+        </article>
+      {% empty %}
+        <div class="empty-panel">{% trans "Nessuna build disponibile per il filtro selezionato." %}</div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="wrapper section-shell reveal-on-scroll showcase-intro-shell">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Selezione componenti" %}</p>
+        <h2>{% trans "Una build credibile parte da hardware riconoscibile e ben contestualizzato." %}</h2>
+        <p class="section-copy">{% trans "Le immagini laterali e il relativo copy devono aiutare a dare peso commerciale al catalogo, senza togliere attenzione ai prodotti centrali." %}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="component-showcase-section">
+    <div class="component-showcase-shell">
+      {% include "partials/component_spotlight.html" with side="right" image="img/showcase/motherboard-msi-meg.webp" kicker=showcase_board_kicker title="MSI MEG Enthusiast" description=showcase_board_description %}
+      {% include "partials/component_spotlight.html" with side="left" image="img/showcase/ram-viper-ddr5.webp" kicker=showcase_ram_kicker title="Viper DDR5" description=showcase_ram_description %}
+      {% include "partials/component_spotlight.html" with side="right" image="img/showcase/ssd-fikwot-jupiter.webp" kicker=showcase_ssd_jupiter_kicker title="Fikwot Jupiter PCIe 4.0" description=showcase_ssd_jupiter_description %}
+      {% include "partials/component_spotlight.html" with side="left" image="img/showcase/ssd-fikwot-mars.webp" kicker=showcase_ssd_mars_kicker title="Fikwot Mars PCIe" description=showcase_ssd_mars_description %}
+    </div>
+  </section>
+
+  <section class="wrapper cta-band reveal-on-scroll">
+    <div class="cta-band-copy">
+      <p class="brand-eyebrow">{% trans "Configurazione su misura" %}</p>
+      <h2>{% trans "Non trovi la combinazione giusta nel catalogo?" %}</h2>
+      <p>{% trans "Usa la richiesta personalizzata per indicare componenti, fascia di budget e priorita tra prestazioni, silenziosita o estetica." %}</p>
+    </div>
+    <div class="action-row">
+      <a class="button button-primary" href="{% url 'catalog:custom_request' %}">{% trans "Apri il configuratore" %}</a>
+    </div>
+  </section>
+{% endblock %}

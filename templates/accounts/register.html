@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Registrati" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  <section class="wrapper auth-shell reveal-on-scroll">
+    <div class="auth-card-main card-shell">
+      <p class="brand-eyebrow">{% trans "Nuovo account" %}</p>
+      <h1>{% trans "Registrazione cliente" %}</h1>
+      <p class="hero-intro">{% trans "La password viene validata lato server e archiviata solo in forma hashata." %}</p>
+
+      <div class="auth-highlight-row">
+        <div class="request-fact">
+          <span>{% trans "Subito dopo" %}</span>
+          <strong>{% trans "Puoi inviare richieste custom e seguire ogni stato dal tuo account" %}</strong>
+        </div>
+        <div class="request-fact">
+          <span>{% trans "Consiglio" %}</span>
+          <strong>{% trans "Usa un'email che controlli spesso: il team la usera per approvazioni e aggiornamenti importanti" %}</strong>
+        </div>
+      </div>
+
+      <form method="post" class="form-layout">
+        {% csrf_token %}
+        {% include "partials/form_field.html" with field=form.username %}
+        {% include "partials/form_field.html" with field=form.email %}
+        {% include "partials/form_field.html" with field=form.first_name %}
+        {% include "partials/form_field.html" with field=form.last_name %}
+        {% include "partials/form_field.html" with field=form.phone %}
+        {% include "partials/form_field.html" with field=form.password %}
+        <div class="field-span-full action-row">
+          <button type="submit" class="button button-primary">{% trans "Registrati" %}</button>
+          <a class="button button-ghost" href="{% url 'accounts:login' %}">{% trans "Hai gia un account?" %}</a>
+        </div>
+      </form>
+    </div>
+
+    <aside class="auth-card-side card-shell">
+      <p class="brand-eyebrow">{% trans "Perche registrarti" %}</p>
+      <h2>{% trans "Un profilo pensato per seguire richieste, preventivi e pagamenti senza confusione." %}</h2>
+      <ul class="feature-list">
+        <li>{% trans "Richieste personalizzate salvate con riferimento chiaro." %}</li>
+        <li>{% trans "Stati leggibili: approvazione, preventivo pronto, pagamento, esito." %}</li>
+        <li>{% trans "Storico sempre disponibile senza dover riscrivere tutto a ogni contatto." %}</li>
+      </ul>
+      <a class="button button-ghost" href="{% url 'accounts:login' %}">{% trans "Hai gia un account?" %}</a>
+    </aside>
+  </section>
+{% endblock %}

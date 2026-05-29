@@ -1,0 +1,320 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Account" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  <section class="wrapper section-shell reveal-on-scroll">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Area cliente" %}</p>
+        <h1>{% trans "Il tuo account" %}</h1>
+        <p class="section-copy">{% trans "Da qui controlli lo stato delle richieste personalizzate, vedi il prezzo finale quando viene approvato e accedi al pagamento solo quando e disponibile." %}</p>
+      </div>
+      <div class="action-row">
+        <a class="button button-primary" href="{% url 'catalog:custom_request' %}">{% trans "Nuova richiesta custom" %}</a>
+        <a class="button button-ghost" href="{% url 'accounts:profile' %}">{% trans "Modifica profilo" %}</a>
+      </div>
+    </div>
+
+    <div class="dashboard-highlight-strip">
+      <article class="request-fact">
+        <span>{% trans "Vista rapida" %}</span>
+        <strong>{% trans "Richieste, pagamenti e stati sempre nello stesso punto" %}</strong>
+      </article>
+      <article class="request-fact">
+        <span>{% trans "Percorso" %}</span>
+        <strong>{% trans "Invii la richiesta, aspetti l'approvazione, paghi solo quando il preventivo e pronto" %}</strong>
+      </article>
+      <article class="request-fact">
+        <span>{% trans "Obiettivo" %}</span>
+        <strong>{% trans "Capire in pochi secondi cosa richiede attenzione e qual e il prossimo passo" %}</strong>
+      </article>
+    </div>
+
+    <div class="dashboard-overview">
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Totale richieste" %}</p>
+        <h3>{{ custom_request_total }}</h3>
+        <p>{% trans "Tutte le tue richieste build personalizzate." %}</p>
+      </article>
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "In approvazione" %}</p>
+        <h3>{{ custom_request_approval_total }}</h3>
+        <p>{% trans "Il team le sta ancora valutando." %}</p>
+      </article>
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Da pagare" %}</p>
+        <h3>{{ custom_request_payable_total }}</h3>
+        <p>{% trans "Richieste approvate o con pagamento da ripetere." %}</p>
+      </article>
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Pagate" %}</p>
+        <h3>{{ custom_request_paid_total }}</h3>
+        <p>{% trans "Richieste con pagamento gia confermato." %}</p>
+      </article>
+    </div>
+
+    <div class="content-split dashboard-layout">
+      <article class="info-card">
+        <div class="subsection-headline">
+          <div>
+            <h2>{% trans "Le tue richieste build" %}</h2>
+            <p class="section-copy">{% trans "Qui trovi sia le richieste personalizzate sia quelle inviate dalle build del catalogo, sempre con stato, prezzo finale e prossimo passo." %}</p>
+          </div>
+        </div>
+
+        <div class="status-guide status-guide-inline">
+          <div class="status-guide-item">
+            <span class="status-badge status-warning">{% trans "In approvazione" %}</span>
+            <p>{% trans "Il team sta ancora valutando la richiesta. Nessun checkout disponibile." %}</p>
+          </div>
+          <div class="status-guide-item">
+            <span class="status-badge status-info">{% trans "Approvata" %}</span>
+            <p>{% trans "Il prezzo finale e pronto. Da qui puoi aprire il checkout e completare il pagamento." %}</p>
+          </div>
+          <div class="status-guide-item">
+            <span class="status-badge status-success">{% trans "Pagata" %}</span>
+            <p>{% trans "Il pagamento e registrato correttamente e la richiesta resta disponibile nello storico." %}</p>
+          </div>
+        </div>
+
+        <div class="request-card-grid">
+          {% for item in custom_requests %}
+            <article class="request-card card-shell subtle-hover">
+              <div class="request-card-header">
+                <div>
+                  <p class="brand-eyebrow">{{ item.reference_code }}</p>
+                  <h3>{{ item.configuration_summary }}</h3>
+                  <p class="status-inline-note">{{ item.origin_label }}</p>
+                </div>
+                <span class="status-badge status-{{ item.status_tone }}">{{ item.ui_status_label }}</span>
+              </div>
+
+              <p class="request-card-copy">{{ item.user_status_message }}</p>
+
+              <div class="request-key-facts">
+                <div class="request-fact">
+                  <span>{% trans "Budget" %}</span>
+                  <strong>{{ item.budget_range_display }}</strong>
+                </div>
+                <div class="request-fact">
+                  <span>{% trans "Prezzo finale" %}</span>
+                  <strong>{{ item.approved_price_display }}</strong>
+                </div>
+              </div>
+
+              <ul class="request-component-list compact">
+                {% for component in item.component_lines|slice:":4" %}
+                  <li>{{ component }}</li>
+                {% empty %}
+                  <li>{% trans "Configurazione descritta nelle note della richiesta." %}</li>
+                {% endfor %}
+              </ul>
+
+              {% if item.admin_notes %}
+                <p class="request-note"><strong>{% trans "Messaggio del team" %}:</strong> {{ item.admin_notes|truncatechars:180 }}</p>
+              {% elif item.notes %}
+                <p class="request-note"><strong>{% trans "Le tue note" %}:</strong> {{ item.notes|truncatechars:180 }}</p>
+              {% endif %}
+
+              <div class="action-row">
+                {% if item.status == "approved" %}
+                  <a class="button button-primary" href="{% url 'catalog:custom_request_payment' item.pk %}">{% trans "Vai al pagamento" %}</a>
+                {% elif item.status == "payment_pending" %}
+                  <a class="button button-primary" href="{% url 'catalog:custom_request_payment' item.pk %}">{% trans "Continua pagamento" %}</a>
+                {% elif item.status == "payment_failed" %}
+                  <a class="button button-primary" href="{% url 'catalog:custom_request_payment' item.pk %}">{% trans "Riprova pagamento" %}</a>
+                {% elif item.status == "paid" %}
+                  <a class="button button-ghost" href="{% url 'catalog:custom_request_payment' item.pk %}">{% trans "Vedi riepilogo pagamento" %}</a>
+                {% elif item.status == "rejected" or item.status == "cancelled" %}
+                  <a class="button button-ghost" href="{% url 'catalog:custom_request_payment' item.pk %}">{% trans "Vedi esito richiesta" %}</a>
+                {% else %}
+                  <a class="button button-ghost" href="{% url 'catalog:custom_request_payment' item.pk %}">{% trans "Vedi dettagli richiesta" %}</a>
+                {% endif %}
+              </div>
+            </article>
+          {% empty %}
+            <div class="empty-panel">
+              <h3>{% trans "Nessuna richiesta build" %}</h3>
+              <p>{% trans "Quando invierai la prima richiesta custom o una richiesta da una build del catalogo, la troverai qui con stato e prossimo passo sempre visibili." %}</p>
+              <a class="button button-primary" href="{% url 'catalog:custom_request' %}">{% trans "Crea la prima richiesta" %}</a>
+            </div>
+          {% endfor %}
+        </div>
+      </article>
+
+      <div class="stack-layout dashboard-rail">
+        <article class="info-card">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "Profilo e stato account" %}</h2>
+              <p class="section-copy">{% trans "Dati rapidi del tuo profilo e stato generale dell'accesso." %}</p>
+            </div>
+          </div>
+          <p><strong>{{ request.user.get_full_name|default:request.user.username }}</strong></p>
+          <p>{{ request.user.email }}</p>
+          <p>{% trans "Ruolo" %}: {{ request.user.get_role_display }}</p>
+          <p>
+            {% trans "Telefono" %}:
+            {% if request.user.phone %}
+              {{ request.user.phone }}
+            {% else %}
+              {% trans "Non inserito" %}
+            {% endif %}
+          </p>
+          {% if active_ban %}
+            <div class="status-panel status-danger">{{ active_ban.summary_message }}</div>
+          {% else %}
+            <div class="status-panel status-success">{% trans "Account attivo e pronto all'uso." %}</div>
+          {% endif %}
+
+          {% if request.user.role != "super_admin" %}
+            <div class="account-danger-zone">
+              <div>
+                <p class="brand-eyebrow">{% trans "Eliminazione account" %}</p>
+                <p class="section-copy">{% trans "Puoi eliminare definitivamente il tuo account solo dopo aver confermato un codice inviato alla tua email." %}</p>
+              </div>
+              <div class="status-panel status-danger">
+                {% trans "Questa azione eliminera definitivamente account, profilo e dati collegati." %}
+              </div>
+              <form method="post" action="{% url 'accounts:account_delete_request' %}" class="inline-action-form">
+                {% csrf_token %}
+                <button type="submit" class="button button-danger">{% trans "Elimina account" %}</button>
+              </form>
+            </div>
+          {% endif %}
+        </article>
+
+        <article class="info-card">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "Come leggere gli stati" %}</h2>
+              <p class="section-copy">{% trans "Una guida rapida per capire subito cosa succede in ogni fase." %}</p>
+            </div>
+          </div>
+          <div class="status-guide">
+            <div class="status-guide-item">
+              <span class="status-badge status-warning">{% trans "In approvazione" %}</span>
+              <p>{% trans "Il team sta ancora valutando la tua richiesta. Nessun pagamento disponibile." %}</p>
+            </div>
+            <div class="status-guide-item">
+              <span class="status-badge status-info">{% trans "Approvata" %}</span>
+              <p>{% trans "Il prezzo finale e pronto. Puoi aprire la richiesta e pagare." %}</p>
+            </div>
+            <div class="status-guide-item">
+              <span class="status-badge status-success">{% trans "Pagata" %}</span>
+              <p>{% trans "Il pagamento e registrato correttamente." %}</p>
+            </div>
+            <div class="status-guide-item">
+              <span class="status-badge status-danger">{% trans "Pagamento da ripetere" %}</span>
+              <p>{% trans "L'ultimo tentativo non e riuscito. Puoi riprovare dalla scheda richiesta." %}</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "Pagamenti e tentativi recenti" %}</h2>
+              <p class="section-copy">{% trans "Qui controlli velocemente i pagamenti riusciti, quelli da riprovare e gli eventuali checkout ancora in corso." %}</p>
+            </div>
+          </div>
+
+          <div class="request-key-facts">
+            <div class="request-fact">
+              <span>{% trans "Riusciti" %}</span>
+              <strong>{{ payment_success_total }}</strong>
+            </div>
+            <div class="request-fact">
+              <span>{% trans "Da ripetere" %}</span>
+              <strong>{{ payment_failed_total }}</strong>
+            </div>
+            <div class="request-fact">
+              <span>{% trans "In corso" %}</span>
+              <strong>{{ payment_pending_total }}</strong>
+            </div>
+            <div class="request-fact">
+              <span>{% trans "Pagabili ora" %}</span>
+              <strong>{{ custom_request_payable_total }}</strong>
+            </div>
+          </div>
+
+          <div class="table-shell">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>{% trans "Pagamento" %}</th>
+                  <th>{% trans "Richiesta" %}</th>
+                  <th>{% trans "Metodo" %}</th>
+                  <th>{% trans "Importo" %}</th>
+                  <th>{% trans "Stato" %}</th>
+                  <th>{% trans "Azione" %}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for payment in recent_payments %}
+                  <tr>
+                    <td data-label="{% trans 'Pagamento' %}">
+                      <strong>{{ payment.reference_code }}</strong>
+                    </td>
+                    <td data-label="{% trans 'Richiesta' %}">
+                      {{ payment.custom_request.reference_code }}
+                    </td>
+                    <td data-label="{% trans 'Metodo' %}">
+                      {{ payment.get_checkout_method_display }}
+                    </td>
+                    <td data-label="{% trans 'Importo' %}">
+                      {{ payment.amount }} {{ payment.currency }}
+                    </td>
+                    <td data-label="{% trans 'Stato' %}">
+                      <span class="status-badge status-{{ payment.status_tone }}">{{ payment.get_status_display }}</span>
+                    </td>
+                    <td data-label="{% trans 'Azione' %}">
+                      <a class="button button-ghost" href="{% url 'catalog:custom_request_payment' payment.custom_request.pk %}">{% trans "Apri checkout" %}</a>
+                    </td>
+                  </tr>
+                {% empty %}
+                  <tr><td colspan="6">{% trans "Nessun pagamento registrato finora." %}</td></tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        {% if purchase_requests %}
+        <article class="info-card">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "Contatti legacy sulle build del catalogo" %}</h2>
+              <p class="section-copy">{% trans "Questa sezione resta solo per eventuali contatti vecchi non ancora collegati al nuovo flusso approvazione e pagamento." %}</p>
+            </div>
+          </div>
+          <div class="table-shell">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>{% trans "Build" %}</th>
+                  <th>{% trans "Contatto" %}</th>
+                  <th>{% trans "Stato" %}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in purchase_requests %}
+                  <tr>
+                    <td data-label="{% trans 'Build' %}">{{ item.build.localized_name }}</td>
+                    <td data-label="{% trans 'Contatto' %}">{{ item.email }}</td>
+                    <td data-label="{% trans 'Stato' %}">{{ item.get_status_display }}</td>
+                  </tr>
+                {% empty %}
+                  <tr><td colspan="3">{% trans "Nessuna richiesta build inviata." %}</td></tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </article>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Personalizza il tuo PC" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  {% trans "Alimentazione" as showcase_psu_kicker %}
+  {% trans "Da margine vero alla configurazione, tiene la build pulita e resta adatto anche a schede video e CPU molto spinte." as showcase_psu_description %}
+  {% trans "Case" as showcase_case_kicker %}
+  {% trans "Apre spazio a raffreddamento, cable management e presenza scenica, lasciando la build ordinata e leggibile." as showcase_case_description %}
+  {% trans "Ventole" as showcase_fan_kicker %}
+  {% trans "Migliora il ricambio d'aria e completa il look della build con una luce uniforme e una resa piu curata." as showcase_fan_description %}
+
+  <section class="wrapper auth-shell reveal-on-scroll">
+    <div class="auth-card-main card-shell wide">
+      <div class="section-headline">
+        <div>
+          <p class="brand-eyebrow">{% trans "Configurazione su misura" %}</p>
+          <h1>{% trans "Personalizza il tuo PC" %}</h1>
+          <p class="section-copy">
+            {% trans "Compila la richiesta con i componenti che conosci gia, il tuo budget e le note finali. Dopo l'invio la richiesta passera al team, che la valutera prima di rendere disponibile il pagamento." %}
+          </p>
+        </div>
+        <a class="button button-ghost" href="{% url 'accounts:dashboard' %}">{% trans "Torna al tuo account" %}</a>
+      </div>
+
+      <div class="custom-request-shell">
+        <div class="custom-request-summary">
+          <article class="request-fact">
+            <span>{% trans "Obiettivo" %}</span>
+            <strong>{% trans "Raccogliere una richiesta chiara, poi approvarla con preventivo reale." %}</strong>
+          </article>
+          <article class="request-fact">
+            <span>{% trans "Pagamento" %}</span>
+            <strong>{% trans "Disponibile solo dopo approvazione admin." %}</strong>
+          </article>
+          <article class="request-fact">
+            <span>{% trans "Consiglio" %}</span>
+            <strong>{% trans "Compila solo i componenti gia decisi e usa le note per priorita o dubbi." %}</strong>
+          </article>
+        </div>
+
+        <article class="info-card custom-request-side-note">
+          <p class="brand-eyebrow">{% trans "Prima di iniziare" %}</p>
+          <h2>{% trans "Cosa rende utile una richiesta ben scritta" %}</h2>
+          <ul class="feature-list">
+            <li>{% trans "Budget massimo realistico, cosi il preventivo resta coerente." %}</li>
+            <li>{% trans "Uso principale del PC: gaming, editing video, rendering, streaming o workstation." %}</li>
+            <li>{% trans "Preferenze estetiche o limiti pratici: colore, ingombro, silenziosita o raffreddamento." %}</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="request-steps">
+        <article class="info-card compact">
+          <p class="brand-eyebrow">{% trans "Passo 1" %}</p>
+          <h3>{% trans "Invia la richiesta" %}</h3>
+          <p>{% trans "Inserisci componenti, budget e note in modo semplice. Puoi lasciare vuoti i campi che non hai ancora deciso." %}</p>
+        </article>
+        <article class="info-card compact">
+          <p class="brand-eyebrow">{% trans "Passo 2" %}</p>
+          <h3>{% trans "Il team la valuta" %}</h3>
+          <p>{% trans "Admin e super admin controllano la configurazione, definiscono il preventivo finale e aggiornano lo stato." %}</p>
+        </article>
+        <article class="info-card compact">
+          <p class="brand-eyebrow">{% trans "Passo 3" %}</p>
+          <h3>{% trans "Paghi solo se approvata" %}</h3>
+          <p>{% trans "Finche la richiesta e in approvazione non compare alcun pagamento. Il pulsante compare solo dopo l'approvazione." %}</p>
+        </article>
+      </div>
+
+      <section class="component-showcase-section component-showcase-section--embedded">
+        <div class="component-showcase-shell">
+          {% include "partials/component_spotlight.html" with side="left" image="img/showcase/psu-rog-thor-1600w.webp" kicker=showcase_psu_kicker title="ROG Thor 1600W" description=showcase_psu_description %}
+          {% include "partials/component_spotlight.html" with side="right" image="img/showcase/case-tryx-white.webp" kicker=showcase_case_kicker title="TRYX White Showcase" description=showcase_case_description %}
+          {% include "partials/component_spotlight.html" with side="left" image="img/showcase/fan-corsair-rgb.webp" kicker=showcase_fan_kicker title="Corsair RGB Fan" description=showcase_fan_description %}
+        </div>
+      </section>
+
+      <form method="post" class="stack-layout">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+          <div class="status-panel status-danger">
+            {{ form.non_field_errors|striptags }}
+          </div>
+        {% endif %}
+
+        <section class="form-panel">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "1. Componenti che conosci gia" %}</h2>
+              <p class="section-copy">{% trans "Inserisci solo i componenti che hai gia deciso. Se qualcosa non e definito, spiegalo nelle note finali." %}</p>
+            </div>
+          </div>
+          <div class="form-layout">
+            {% include "partials/form_field.html" with field=form.cpu %}
+            {% include "partials/form_field.html" with field=form.gpu %}
+            {% include "partials/form_field.html" with field=form.power_supply %}
+            {% include "partials/form_field.html" with field=form.ram %}
+            {% include "partials/form_field.html" with field=form.cooling %}
+            {% include "partials/form_field.html" with field=form.storage %}
+            {% include "partials/form_field.html" with field=form.case %}
+            {% include "partials/form_field.html" with field=form.motherboard %}
+            {% include "partials/form_field.html" with field=form.extra_fans %}
+            {% include "partials/form_field.html" with field=form.network_card %}
+          </div>
+        </section>
+
+        <section class="form-panel">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "2. Budget" %}</h2>
+              <p class="section-copy">{% trans "Il budget massimo e obbligatorio. Il budget minimo e facoltativo e serve solo se vuoi indicare una fascia di partenza." %}</p>
+            </div>
+          </div>
+          <div class="form-layout">
+            {% include "partials/form_field.html" with field=form.budget_min %}
+            {% include "partials/form_field.html" with field=form.budget_max %}
+            {% include "partials/form_field.html" with field=form.currency %}
+          </div>
+        </section>
+
+        <section class="form-panel">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "3. Note finali" %}</h2>
+              <p class="section-copy">{% trans "Qui puoi spiegare l'uso del PC, lo stile che preferisci, la priorita tra prestazioni e silenziosita o altre richieste importanti." %}</p>
+            </div>
+          </div>
+          <div class="form-layout">
+            {% include "partials/form_field.html" with field=form.notes field_class="field-group field-span-full" %}
+          </div>
+        </section>
+
+        <div class="action-row">
+          <button type="submit" class="button button-primary">{% trans "Invia richiesta" %}</button>
+          <a class="button button-ghost" href="{% url 'accounts:dashboard' %}">{% trans "Annulla e torna all'account" %}</a>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

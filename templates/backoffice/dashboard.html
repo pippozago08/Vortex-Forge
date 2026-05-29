@@ -1,0 +1,200 @@
+{% extends "backoffice/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Dashboard admin" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block panel_content %}
+  <div class="section-headline">
+    <div>
+      <p class="brand-eyebrow">{% trans "Panoramica" %}</p>
+      <h1>{% trans "Dashboard amministrativa" %}</h1>
+      <p class="section-copy">{% trans "Da qui controlli subito cosa richiede un intervento: richieste custom da approvare, preventivi gia inviati e pagamenti confermati." %}</p>
+    </div>
+    <div class="action-row">
+      <a class="button button-primary" href="{% url 'backoffice:requests' %}">{% trans "Vai alle richieste da approvare" %}</a>
+      <a class="button button-ghost" href="{% url 'backoffice:build_list' %}">{% trans "Gestisci le build" %}</a>
+    </div>
+  </div>
+
+  <div class="dashboard-highlight-strip">
+    <article class="request-fact">
+      <span>{% trans "Priorita" %}</span>
+      <strong>{% trans "Intervenire subito su richieste in approvazione e pagamenti da verificare" %}</strong>
+    </article>
+    <article class="request-fact">
+      <span>{% trans "Obiettivo" %}</span>
+      <strong>{% trans "Gestire tutto senza tabelle caotiche, con segnali chiari su stato e prossima azione" %}</strong>
+    </article>
+    <article class="request-fact">
+      <span>{% trans "Controllo" %}</span>
+      <strong>{% trans "Build, utenti, ban e richieste nello stesso flusso operativo" %}</strong>
+    </article>
+  </div>
+
+  <div class="dashboard-overview">
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Build totali" %}</p>
+      <h3>{{ build_total }}</h3>
+      <p>{% blocktrans with total=visible_build_total %}{{ total }} pubbliche e visibili.{% endblocktrans %}</p>
+    </article>
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Utenti" %}</p>
+      <h3>{{ user_total }}</h3>
+      <p>{% trans "Account registrati in piattaforma." %}</p>
+    </article>
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Ban attivi" %}</p>
+      <h3>{{ active_ban_total }}</h3>
+      <p>{% trans "Controlla temporanei e permanenti." %}</p>
+    </article>
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Richieste" %}</p>
+      <h3>{{ custom_request_total|add:purchase_request_total|add:contact_total }}</h3>
+      <p>{% trans "Tra custom, build e contatti." %}</p>
+    </article>
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Custom in approvazione" %}</p>
+      <h3>{{ approval_request_total }}</h3>
+      <p>{% trans "Da valutare e quotare." %}</p>
+      <a class="button button-ghost button-small" href="{% url 'backoffice:requests' %}">{% trans "Apri richieste" %}</a>
+    </article>
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Custom approvate" %}</p>
+      <h3>{{ approved_request_total }}</h3>
+      <p>{% trans "Pagabili ma non ancora concluse." %}</p>
+    </article>
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Custom pagate" %}</p>
+      <h3>{{ paid_custom_request_total }}</h3>
+      <p>{% trans "Flusso pagamento confermato." %}</p>
+    </article>
+  </div>
+
+  <div class="content-split dashboard-layout">
+    <details class="info-card admin-activity-card" data-admin-activity>
+      <summary class="admin-activity-summary">
+        <div>
+          <h2>{% trans "Ultime attivita admin" %}</h2>
+          <p class="section-copy">{% trans "Log sintetico delle azioni piu recenti, utile per capire chi ha fatto cosa senza dover entrare in ogni sezione." %}</p>
+        </div>
+        <span class="status-badge">{% blocktrans with total=admin_log_total %}{{ total }} azioni{% endblocktrans %}</span>
+        <span class="admin-activity-caret" aria-hidden="true"></span>
+      </summary>
+      <div class="admin-activity-controls">
+        <label class="admin-activity-control">
+          <span>{% trans "Mostra" %}</span>
+          <select data-admin-activity-filter>
+            <option value="all">{% trans "Tutte le attivita" %}</option>
+            <option value="bans">{% trans "Solo ban" %}</option>
+            <option value="payments">{% trans "Solo pagamenti" %}</option>
+            <option value="requests">{% trans "Solo richieste" %}</option>
+            <option value="request_approvals">{% trans "Solo approvazioni richieste" %}</option>
+            <option value="account_deletions">{% trans "Solo eliminazioni account" %}</option>
+            <option value="new_users">{% trans "Solo nuovi utenti" %}</option>
+            <option value="role_changes">{% trans "Solo nomine e retrocessioni" %}</option>
+          </select>
+        </label>
+        <label class="admin-activity-control">
+          <span>{% trans "Ordina" %}</span>
+          <select data-admin-activity-sort>
+            <option value="newest">{% trans "Data: piu recenti prima" %}</option>
+            <option value="oldest">{% trans "Data: meno recenti prima" %}</option>
+            <option value="importance">{% trans "Importanza: super admin, admin, utenti" %}</option>
+          </select>
+        </label>
+        <button
+          type="button"
+          class="button button-ghost admin-activity-expand"
+          data-admin-activity-expand
+          data-expanded-label="{% trans 'Riduci registro' %}"
+          data-collapsed-label="{% trans 'Ingrandisci registro' %}"
+        >
+          {% trans "Ingrandisci registro" %}
+        </button>
+      </div>
+      <div class="table-shell admin-activity-table">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>{% trans "Quando" %}</th>
+              <th>{% trans "Attore" %}</th>
+              <th>{% trans "Azione" %}</th>
+              <th>{% trans "Oggetto" %}</th>
+            </tr>
+          </thead>
+          <tbody data-admin-activity-rows>
+            {% for log in recent_logs %}
+              <tr
+                data-admin-activity-row
+                data-categories="{{ log.filter_categories }}"
+                data-timestamp="{{ log.created_timestamp }}"
+                data-actor-rank="{{ log.actor_rank }}"
+              >
+                <td data-label="{% trans 'Quando' %}">{{ log.created_at|date:"d/m/Y H:i" }}</td>
+                <td data-label="{% trans 'Attore' %}">
+                  {{ log.actor_display }}
+                </td>
+                <td data-label="{% trans 'Azione' %}">{{ log.display_description }}</td>
+                <td data-label="{% trans 'Oggetto' %}">
+                  {% if log.object_label %}
+                    {{ log.object_label }}
+                  {% elif log.object_type %}
+                    {{ log.object_type }}{% if log.object_id %} #{{ log.object_id }}{% endif %}
+                  {% else %}
+                    -
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="empty-panel compact admin-activity-empty" data-admin-activity-empty {% if recent_logs %}hidden{% endif %}>
+        {% trans "Nessuna attivita con queste caratteristiche." %}
+      </p>
+    </details>
+
+    <article class="info-card">
+      <div class="subsection-headline">
+        <div>
+          <h2>{% trans "Ultime richieste custom" %}</h2>
+          <p class="section-copy">{% trans "Per approvare una richiesta: aprila, inserisci il prezzo finale e premi il pulsante di approvazione." %}</p>
+        </div>
+      </div>
+      <div class="table-shell">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>{% trans "Cliente" %}</th>
+              <th>{% trans "Configurazione" %}</th>
+              <th>{% trans "Stato" %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in recent_custom_requests %}
+              <tr>
+                <td data-label="{% trans 'Cliente' %}">{{ item.user.email }}</td>
+                <td data-label="{% trans 'Configurazione' %}">
+                  <strong class="request-summary">{{ item.configuration_summary }}</strong>
+                  <p class="status-inline-note">{{ item.origin_label }}</p>
+                  <ul class="request-component-list compact">
+                    {% for component in item.component_lines|slice:":4" %}
+                      <li>{{ component }}</li>
+                    {% endfor %}
+                  </ul>
+                </td>
+                <td data-label="{% trans 'Stato' %}">
+                  <span class="status-badge status-{{ item.status_tone }}">{{ item.ui_status_label }}</span>
+                  <p class="status-inline-note">{{ item.approved_price_display }}</p>
+                  <a class="button button-ghost button-small" href="{% url 'backoffice:custom_request_review' item.pk %}">{% trans "Apri" %}</a>
+                </td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="3">{% trans "Nessuna richiesta custom." %}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </div>
+{% endblock %}

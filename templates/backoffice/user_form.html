@@ -1,0 +1,116 @@
+{% extends "backoffice/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Utente" %} | {{ target_user.display_name }}{% endblock %}
+
+{% block panel_content %}
+  <div class="section-headline">
+    <div>
+      <p class="brand-eyebrow">{% trans "Scheda utente" %}</p>
+      <h1>{{ target_user.display_name }}</h1>
+      <p class="section-copy">{% trans "Da qui gestisci ruolo, stato account e ban senza passare da una sezione separata." %}</p>
+    </div>
+  </div>
+
+  {% if active_ban %}
+    <div class="status-panel status-danger">{{ active_ban.summary_message }}</div>
+  {% endif %}
+
+  {% if can_manage_user %}
+    <div class="status-panel status-success">
+      {% trans "Solo il super admin puo scegliere se un account e Admin o Utente. Un admin normale non puo promuovere altri account." %}
+    </div>
+
+    <form method="post" class="form-panel">
+      {% csrf_token %}
+      <input type="hidden" name="action" value="save_user">
+      <div class="form-layout">
+        {% include "partials/form_field.html" with field=form.first_name %}
+        {% include "partials/form_field.html" with field=form.last_name %}
+        {% include "partials/form_field.html" with field=form.phone %}
+        {% if request.user.role == "super_admin" %}
+          {% include "partials/form_field.html" with field=form.role %}
+        {% endif %}
+        {% include "partials/form_field.html" with field=form.is_active %}
+        <div class="field-span-full">
+          <button type="submit" class="button button-primary">{% trans "Salva utente" %}</button>
+        </div>
+      </div>
+    </form>
+  {% endif %}
+
+  <section class="form-panel">
+    <div class="subsection-headline">
+      <div>
+        <h2>{% trans "Ban account" %}</h2>
+        <p class="section-copy">{% trans "Puoi scegliere ban permanente oppure temporaneo impostando una data di fine. Un utente bannato non puo accedere finche il ban resta attivo." %}</p>
+      </div>
+    </div>
+
+    {% if active_ban %}
+      <div class="status-panel status-danger">{{ active_ban.summary_message }}</div>
+      {% if can_revoke_ban %}
+        <form method="post" action="{% url 'backoffice:ban_revoke' active_ban.pk %}" class="inline-form">
+          {% csrf_token %}
+          <input type="text" name="reason" placeholder="{% trans 'Motivo revoca' %}">
+          <button type="submit" class="button button-ghost">{% trans "Revoca ban" %}</button>
+        </form>
+      {% endif %}
+    {% elif can_ban_user %}
+      <form method="post" class="stack-layout">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="create_ban">
+        {{ ban_form.user }}
+        <div class="form-layout">
+          {% include "partials/form_field.html" with field=ban_form.ban_type %}
+          {% include "partials/form_field.html" with field=ban_form.starts_at %}
+          {% include "partials/form_field.html" with field=ban_form.ends_at %}
+          {% include "partials/form_field.html" with field=ban_form.reason field_class="field-group field-span-full" %}
+          <div class="field-span-full">
+            <button type="submit" class="button button-danger">{% trans "Applica ban" %}</button>
+          </div>
+        </div>
+      </form>
+    {% else %}
+      <div class="status-panel">{% trans "Non puoi applicare ban a questo account." %}</div>
+    {% endif %}
+  </section>
+
+  <section class="form-panel">
+    <div class="subsection-headline">
+      <div>
+        <h2>{% trans "Storico ban" %}</h2>
+        <p class="section-copy">{% trans "Registro dei ban applicati a questo account, inclusi quelli scaduti o revocati." %}</p>
+      </div>
+    </div>
+    <div class="table-shell">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>{% trans "Tipo" %}</th>
+            <th>{% trans "Stato" %}</th>
+            <th>{% trans "Periodo" %}</th>
+            <th>{% trans "Da chi" %}</th>
+            <th>{% trans "Motivo" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ban in ban_history %}
+            <tr>
+              <td data-label="{% trans 'Tipo' %}">{{ ban.get_ban_type_display }}</td>
+              <td data-label="{% trans 'Stato' %}">{{ ban.translated_status }}</td>
+              <td data-label="{% trans 'Periodo' %}">
+                {{ ban.starts_at|date:"d/m/Y H:i" }}
+                {% if ban.ends_at %} - {{ ban.ends_at|date:"d/m/Y H:i" }}{% else %} - {% trans "permanente" %}{% endif %}
+              </td>
+              <td data-label="{% trans 'Da chi' %}">{% if ban.issued_by %}{{ ban.issued_by.display_name }}{% else %}{% trans "Sistema" %}{% endif %}</td>
+              <td data-label="{% trans 'Motivo' %}">{{ ban.reason|truncatechars:120 }}</td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="5">{% trans "Nessun ban registrato per questo account." %}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "backoffice/base.html" %}
+{% load i18n catalog_extras %}
+
+{% block title %}{% trans "Gestione build" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block panel_content %}
+  <div class="section-headline">
+    <div>
+      <p class="brand-eyebrow">{% trans "Catalogo" %}</p>
+      <h1>{% trans "Gestione build" %}</h1>
+    </div>
+    <a class="button button-primary" href="{% url 'backoffice:build_create' %}">{% trans "Nuova build" %}</a>
+  </div>
+
+  <div class="table-shell">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>{% trans "Build" %}</th>
+          <th>{% trans "Parametri filtri" %}</th>
+          <th>{% trans "Prezzo" %}</th>
+          <th>{% trans "Disponibilita" %}</th>
+          <th>{% trans "Visibilita" %}</th>
+          <th>{% trans "Azioni" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for build in builds %}
+          <tr>
+            <td data-label="{% trans 'Build' %}">
+              <div class="admin-build-cell">
+                <div class="admin-build-thumb">
+                  {% if build.primary_image %}
+                    {% image_size build.primary_image as thumb_size %}
+                    <img src="{{ build.primary_image.url }}" alt="{{ build.localized_name }}" {% if thumb_size %}width="{{ thumb_size.0 }}" height="{{ thumb_size.1 }}"{% endif %} loading="lazy" decoding="async">
+                  {% else %}
+                    <span>{% trans "Nessuna immagine" %}</span>
+                  {% endif %}
+                </div>
+                <div class="admin-build-copy">
+                  <strong>{{ build.localized_name }}</strong>
+                  <span>{{ build.slug }}</span>
+                </div>
+              </div>
+            </td>
+            <td data-label="{% trans 'Parametri filtri' %}">
+              <div class="meta-row">
+                <span class="meta-chip">CPU: {{ build.get_cpu_brand_display }}</span>
+                <span class="meta-chip">GPU: {{ build.get_gpu_brand_display }}</span>
+                <span class="meta-chip">{% trans "Marca case" %}: {{ build.get_case_brand_display }}</span>
+                <span class="meta-chip">{% trans "Uscita" %}: {{ build.release_date|date:"d/m/Y" }}</span>
+                <span class="meta-chip">RAM: {{ build.ram_gb }} GB</span>
+                <span class="meta-chip">VRAM: {{ build.vram_gb }} GB</span>
+                <span class="meta-chip">{% trans "Vendute" %}: {{ build.sold_count }}</span>
+              </div>
+            </td>
+            <td data-label="{% trans 'Prezzo' %}">
+              {% if build.price > 0 %}
+                {{ build.price }} EUR
+              {% else %}
+                {% trans "Prezzo su richiesta" %}
+              {% endif %}
+            </td>
+            <td data-label="{% trans 'Disponibilita' %}">{{ build.get_availability_status_display }}</td>
+            <td data-label="{% trans 'Visibilita' %}">
+              <div class="meta-row">
+                {% if build.is_visible and not build.is_archived %}
+                  <span class="meta-chip">{% trans "Pubblica" %}</span>
+                {% endif %}
+                {% if not build.is_visible %}
+                  <span class="meta-chip">{% trans "Nascosta" %}</span>
+                {% endif %}
+                {% if build.is_archived %}
+                  <span class="meta-chip">{% trans "Archiviata" %}</span>
+                {% endif %}
+              </div>
+            </td>
+            <td data-label="{% trans 'Azioni' %}" class="action-cell">
+              <a class="button button-ghost" href="{% url 'backoffice:build_edit' build.pk %}">{% trans "Modifica" %}</a>
+              <form method="post" action="{% url 'backoffice:build_toggle_visibility' build.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="button button-ghost">{% trans "Mostra o nascondi" %}</button>
+              </form>
+              <form method="post" action="{% url 'backoffice:build_toggle_archive' build.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="button button-ghost">{% trans "Archivia o ripristina" %}</button>
+              </form>
+              <form method="post" action="{% url 'backoffice:build_delete' build.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="button button-danger" onclick="return confirm('{% trans "Confermi l'eliminazione definitiva della build?" %}')">{% trans "Elimina definitivamente" %}</button>
+              </form>
+            </td>
+          </tr>
+        {% empty %}
+          <tr><td colspan="6">{% trans "Nessuna build presente." %}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

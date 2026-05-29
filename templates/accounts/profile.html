@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Profilo" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  <section class="wrapper auth-shell reveal-on-scroll">
+    <div class="auth-card-main card-shell wide">
+      <p class="brand-eyebrow">{% trans "Profilo utente" %}</p>
+      <h1>{% trans "Aggiorna i tuoi dati" %}</h1>
+      <form method="post" enctype="multipart/form-data" class="form-layout">
+        {% csrf_token %}
+        {% include "partials/form_field.html" with field=form.first_name %}
+        {% include "partials/form_field.html" with field=form.last_name %}
+        {% include "partials/form_field.html" with field=form.phone %}
+        {% include "partials/form_field.html" with field=form.avatar %}
+        <div class="field-span-full">
+          <button type="submit" class="button button-primary">{% trans "Salva profilo" %}</button>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

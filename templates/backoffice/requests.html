@@ -1,0 +1,383 @@
+{% extends "backoffice/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Richieste build" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block panel_content %}
+  <div class="section-headline">
+    <div>
+      <p class="brand-eyebrow">{% trans "Flusso richieste" %}</p>
+      <h1>{% trans "Richieste build" %}</h1>
+      <p class="section-copy">{% trans "Per approvare una richiesta vai nella sezione 'Richieste da approvare', apri la scheda, inserisci il prezzo finale e premi 'Approva richiesta e rendila pagabile'." %}</p>
+    </div>
+    <div class="action-row">
+      <a class="button button-primary" href="#approval-queue">{% trans "Vai alle richieste da approvare" %}</a>
+    </div>
+  </div>
+
+  <div class="dashboard-highlight-strip">
+    <article class="request-fact">
+      <span>{% trans "Da fare subito" %}</span>
+      <strong>{% trans "Apri le richieste in approvazione, definisci il prezzo finale e comunica il prossimo passo al cliente" %}</strong>
+    </article>
+    <article class="request-fact">
+      <span>{% trans "Lettura rapida" %}</span>
+      <strong>{% trans "Approvazione, approvate e pagate restano divise per evitare confusione tra preventivo e checkout" %}</strong>
+    </article>
+    <article class="request-fact">
+      <span>{% trans "Contatti legacy" %}</span>
+      <strong>{% trans "Le richieste vecchie non approvabili restano separate, cosi non sembrano parte del nuovo flusso" %}</strong>
+    </article>
+  </div>
+
+  <div class="status-panel status-info">
+    <strong>{% trans "Attenzione: non tutte le righe di questa pagina si approvano" %}</strong>
+    <p>{% trans "Solo la sezione '1. Richieste custom da approvare' contiene richieste approvabili. Le sezioni sulle build del catalogo e i messaggi contatto sono semplici contatti commerciali e non hanno un pulsante di approvazione." %}</p>
+  </div>
+
+  <div class="dashboard-overview">
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Da valutare ora" %}</p>
+      <h3>{{ approval_count }}</h3>
+      <p>{% trans "Richieste che richiedono un tuo intervento immediato." %}</p>
+    </article>
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Preventivi inviati" %}</p>
+      <h3>{{ approved_count }}</h3>
+      <p>{% trans "Il cliente vede gia il prezzo finale ma non ha ancora concluso il pagamento." %}</p>
+    </article>
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Pagamenti confermati" %}</p>
+      <h3>{{ paid_count }}</h3>
+      <p>{% trans "Richieste custom gia chiuse dal lato economico." %}</p>
+    </article>
+    <article class="info-card compact">
+      <p class="brand-eyebrow">{% trans "Modalita pagamento" %}</p>
+      <h3>{% if payment_runtime.provider == "simulated" %}{% trans "Test / simulata" %}{% else %}PayPal{% endif %}</h3>
+      <p>{% blocktrans with env=payment_runtime.paypal_environment %}Configurazione futura PayPal: {{ env }}.{% endblocktrans %}</p>
+    </article>
+  </div>
+
+  <article class="info-card">
+    <div class="subsection-headline">
+      <div>
+        <h2>{% trans "Panoramica pagamenti custom" %}</h2>
+        <p class="section-copy">{% trans "Questa sezione ti aiuta a distinguere subito i checkout aperti, i pagamenti riusciti e quelli falliti." %}</p>
+      </div>
+    </div>
+
+    <div class="request-key-facts">
+      <div class="request-fact">
+        <span>{% trans "Checkout aperti" %}</span>
+        <strong>{{ payment_pending_count }}</strong>
+      </div>
+      <div class="request-fact">
+        <span>{% trans "Pagamenti riusciti" %}</span>
+        <strong>{{ payment_success_count }}</strong>
+      </div>
+      <div class="request-fact">
+        <span>{% trans "Pagamenti falliti" %}</span>
+        <strong>{{ payment_failed_count }}</strong>
+      </div>
+      <div class="request-fact">
+        <span>{% trans "Provider attuale" %}</span>
+        <strong>{% if payment_runtime.provider == "simulated" %}{% trans "Simulato / dev" %}{% else %}PayPal{% endif %}</strong>
+      </div>
+    </div>
+
+    <div class="table-shell">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>{% trans "Pagamento" %}</th>
+            <th>{% trans "Richiesta" %}</th>
+            <th>{% trans "Cliente" %}</th>
+            <th>{% trans "Metodo" %}</th>
+            <th>{% trans "Importo" %}</th>
+            <th>{% trans "Stato" %}</th>
+            <th>{% trans "Riferimenti" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for payment in recent_payments %}
+            <tr>
+              <td data-label="{% trans 'Pagamento' %}">
+                <strong>{{ payment.reference_code }}</strong>
+              </td>
+              <td data-label="{% trans 'Richiesta' %}">
+                <a class="link-inline" href="{% url 'backoffice:custom_request_review' payment.custom_request.pk %}">{{ payment.custom_request.reference_code }}</a>
+              </td>
+              <td data-label="{% trans 'Cliente' %}">{{ payment.custom_request.user.email }}</td>
+              <td data-label="{% trans 'Metodo' %}">{{ payment.get_checkout_method_display }}</td>
+              <td data-label="{% trans 'Importo' %}">{{ payment.amount }} {{ payment.currency }}</td>
+              <td data-label="{% trans 'Stato' %}">
+                <span class="status-badge status-{{ payment.status_tone }}">{{ payment.get_status_display }}</span>
+              </td>
+              <td data-label="{% trans 'Riferimenti' %}">
+                <div class="table-action-stack">
+                  <span>{{ payment.external_order_id|default:"-" }}</span>
+                  <span>{{ payment.external_transaction_id|default:"-" }}</span>
+                </div>
+              </td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="7">{% trans "Nessun pagamento custom registrato." %}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <div class="stack-layout">
+    <article class="info-card" id="approval-queue">
+      <div class="subsection-headline">
+        <div>
+          <h2>{% trans "1. Richieste build da approvare" %}</h2>
+          <p class="section-copy">{% trans "Qui trovi sia richieste personalizzate sia richieste arrivate dalle build del catalogo. Apri la scheda, definisci il prezzo finale e poi approva o rifiuta." %}</p>
+        </div>
+        <span class="meta-chip">{{ approval_count }}</span>
+      </div>
+      <div class="table-shell">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>{% trans "Riferimento" %}</th>
+              <th>{% trans "Cliente" %}</th>
+              <th>{% trans "Richiesta" %}</th>
+              <th>{% trans "Budget" %}</th>
+              <th>{% trans "Stato" %}</th>
+              <th>{% trans "Prossimo passo" %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in approval_requests %}
+              <tr>
+                <td data-label="{% trans 'Riferimento' %}">
+                  <strong>{{ item.reference_code }}</strong>
+                </td>
+                <td data-label="{% trans 'Cliente' %}">{{ item.user.email }}</td>
+                <td data-label="{% trans 'Richiesta' %}">
+                  <strong class="request-summary">{{ item.configuration_summary }}</strong>
+                  <p class="status-inline-note">{{ item.origin_label }}</p>
+                  <ul class="request-component-list compact">
+                    {% for component in item.component_lines|slice:":4" %}
+                      <li>{{ component }}</li>
+                    {% endfor %}
+                  </ul>
+                </td>
+                <td data-label="{% trans 'Budget' %}">{{ item.budget_range_display }}</td>
+                <td data-label="{% trans 'Stato' %}">
+                  <span class="status-badge status-{{ item.status_tone }}">{{ item.ui_status_label }}</span>
+                  <p class="status-inline-note">{{ item.admin_status_message }}</p>
+                </td>
+                <td data-label="{% trans 'Prossimo passo' %}">
+                  <a class="button button-primary" href="{% url 'backoffice:custom_request_review' item.pk %}">{% trans "Apri e approva" %}</a>
+                </td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="6">{% trans "Nessuna richiesta build in attesa di approvazione. Le righe eventualmente mostrate nei contatti legacy non sono approvabili." %}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <article class="info-card">
+      <div class="subsection-headline">
+        <div>
+          <h2>{% trans "2. Richieste approvate" %}</h2>
+          <p class="section-copy">{% trans "Queste richieste hanno gia un preventivo approvato. Il cliente puo pagare oppure riprovare il pagamento se il primo tentativo e fallito." %}</p>
+        </div>
+        <span class="meta-chip">{{ approved_count }}</span>
+      </div>
+      <div class="table-shell">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>{% trans "Riferimento" %}</th>
+              <th>{% trans "Cliente" %}</th>
+              <th>{% trans "Prezzo finale" %}</th>
+              <th>{% trans "Stato" %}</th>
+              <th>{% trans "Prossimo passo" %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in approved_requests %}
+              <tr>
+                <td data-label="{% trans 'Riferimento' %}">
+                  <strong>{{ item.reference_code }}</strong>
+                  <p class="status-inline-note">{{ item.origin_label }}</p>
+                  <p class="status-inline-note">{{ item.configuration_summary }}</p>
+                </td>
+                <td data-label="{% trans 'Cliente' %}">{{ item.user.email }}</td>
+                <td data-label="{% trans 'Prezzo finale' %}">{{ item.approved_price_display }}</td>
+                <td data-label="{% trans 'Stato' %}">
+                  <span class="status-badge status-{{ item.status_tone }}">{{ item.ui_status_label }}</span>
+                  <p class="status-inline-note">{{ item.admin_status_message }}</p>
+                </td>
+                <td data-label="{% trans 'Prossimo passo' %}">
+                  <a class="button button-ghost" href="{% url 'backoffice:custom_request_review' item.pk %}">{% trans "Apri preventivo" %}</a>
+                </td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="5">{% trans "Nessuna richiesta approvata in attesa del cliente." %}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <article class="info-card">
+      <div class="subsection-headline">
+        <div>
+          <h2>{% trans "3. Richieste pagate" %}</h2>
+          <p class="section-copy">{% trans "Queste richieste hanno gia completato il pagamento. Qui puoi controllare importo, ordine e riepilogo finale." %}</p>
+        </div>
+        <span class="meta-chip">{{ paid_count }}</span>
+      </div>
+      <div class="table-shell">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>{% trans "Riferimento" %}</th>
+              <th>{% trans "Cliente" %}</th>
+              <th>{% trans "Importo" %}</th>
+              <th>{% trans "Stato" %}</th>
+              <th>{% trans "Prossimo passo" %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in paid_requests %}
+              <tr>
+                <td data-label="{% trans 'Riferimento' %}">
+                  <strong>{{ item.reference_code }}</strong>
+                  <p class="status-inline-note">{{ item.origin_label }}</p>
+                  <p class="status-inline-note">{{ item.configuration_summary }}</p>
+                </td>
+                <td data-label="{% trans 'Cliente' %}">{{ item.user.email }}</td>
+                <td data-label="{% trans 'Importo' %}">{{ item.approved_price_display }}</td>
+                <td data-label="{% trans 'Stato' %}">
+                  <span class="status-badge status-{{ item.status_tone }}">{{ item.ui_status_label }}</span>
+                  {% if item.latest_payment %}
+                    <p class="status-inline-note">{{ item.latest_payment.external_order_id|default:"-" }}</p>
+                  {% endif %}
+                </td>
+                <td data-label="{% trans 'Prossimo passo' %}">
+                  <a class="button button-ghost" href="{% url 'backoffice:custom_request_review' item.pk %}">{% trans "Apri riepilogo" %}</a>
+                </td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="5">{% trans "Nessuna richiesta pagata." %}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    {% if closed_count %}
+      <article class="info-card">
+        <div class="subsection-headline">
+          <div>
+            <h2>{% trans "Richieste chiuse" %}</h2>
+            <p class="section-copy">{% trans "Qui trovi le richieste rifiutate o annullate. Puoi comunque riaprirle se serve una nuova valutazione." %}</p>
+          </div>
+          <span class="meta-chip">{{ closed_count }}</span>
+        </div>
+        <div class="table-shell">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>{% trans "Riferimento" %}</th>
+                <th>{% trans "Cliente" %}</th>
+                <th>{% trans "Stato" %}</th>
+                <th>{% trans "Prossimo passo" %}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in closed_requests %}
+                <tr>
+                  <td data-label="{% trans 'Riferimento' %}"><strong>{{ item.reference_code }}</strong></td>
+                  <td data-label="{% trans 'Cliente' %}">{{ item.user.email }}</td>
+                  <td data-label="{% trans 'Stato' %}">
+                    <span class="status-badge status-{{ item.status_tone }}">{{ item.ui_status_label }}</span>
+                    <p class="status-inline-note">{{ item.admin_status_message }}</p>
+                  </td>
+                  <td data-label="{% trans 'Prossimo passo' %}">
+                    <a class="button button-ghost" href="{% url 'backoffice:custom_request_review' item.pk %}">{% trans "Apri richiesta" %}</a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </article>
+    {% endif %}
+
+    {% if purchase_requests %}
+    <article class="info-card" id="catalog-leads">
+      <div class="subsection-headline">
+        <div>
+          <h2>{% trans "4. Contatti legacy dalle build del catalogo" %}</h2>
+          <p class="section-copy">{% trans "Qui restano solo eventuali richieste vecchie non ancora collegate al nuovo flusso approvazione e pagamento." %}</p>
+        </div>
+      </div>
+      <div class="status-panel status-warning">
+        <strong>{% trans "Questa sezione non ha approvazione" %}</strong>
+        <p>{% trans "Qui non troverai il pulsante di approvazione perche queste righe sono richieste di contatto commerciale, non richieste custom da preventivare e approvare." %}</p>
+      </div>
+      <div class="table-shell">
+        <table class="data-table">
+          <thead><tr><th>{% trans "Build" %}</th><th>{% trans "Email" %}</th><th>{% trans "Telefono" %}</th><th>{% trans "Tipo" %}</th><th>{% trans "Stato" %}</th></tr></thead>
+          <tbody>
+            {% for item in purchase_requests %}
+              <tr>
+                <td data-label="{% trans 'Build' %}">{{ item.build.localized_name }}</td>
+                <td data-label="{% trans 'Email' %}">{{ item.email }}</td>
+                <td data-label="{% trans 'Telefono' %}">{{ item.phone }}</td>
+                <td data-label="{% trans 'Tipo' %}">
+                  <span class="status-badge status-warning">{% trans "Solo contatto" %}</span>
+                </td>
+                <td data-label="{% trans 'Stato' %}">{{ item.get_status_display }}</td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="5">{% trans "Nessun contatto proveniente dalle build del catalogo." %}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </article>
+    {% endif %}
+
+    {% if show_contact_sections %}
+    <article class="info-card">
+      <div class="subsection-headline">
+        <div>
+          <h2>{% trans "5. Messaggi contatto" %}</h2>
+          <p class="section-copy">{% trans "Anche questi non si approvano: sono messaggi generici inviati dal modulo contatti del sito." %}</p>
+        </div>
+      </div>
+      <div class="status-panel status-warning">
+        <strong>{% trans "Anche qui non c'e approvazione" %}</strong>
+        <p>{% trans "Questi messaggi servono solo per assistenza o contatto commerciale e non fanno parte del flusso richiesta custom." %}</p>
+      </div>
+      <div class="table-shell">
+        <table class="data-table">
+          <thead><tr><th>{% trans "Oggetto" %}</th><th>{% trans "Email" %}</th><th>{% trans "Stato" %}</th><th>{% trans "Data" %}</th></tr></thead>
+          <tbody>
+            {% for item in contact_messages %}
+              <tr>
+                <td data-label="{% trans 'Oggetto' %}">{{ item.subject }}</td>
+                <td data-label="{% trans 'Email' %}">{{ item.email }}</td>
+                <td data-label="{% trans 'Stato' %}">{{ item.get_status_display }}</td>
+                <td data-label="{% trans 'Data' %}">{{ item.created_at }}</td>
+              </tr>
+            {% empty %}
+              <tr><td colspan="4">{% trans "Nessun messaggio contatto." %}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </article>
+    {% endif %}
+  </div>
+{% endblock %}

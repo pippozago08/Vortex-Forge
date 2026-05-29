@@ -1,0 +1,173 @@
+{% load static i18n catalog_extras %}
+{% get_current_language as CURRENT_LANGUAGE %}
+<!DOCTYPE html>
+<html lang="{{ CURRENT_LANGUAGE }}" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ site_settings.site_name }}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{% trans "Piattaforma professionale per vendita e richieste di PC su misura." %}{% endblock %}">
+  <link rel="icon" type="image/png" href="{% static 'img/vortex-forge-logo.png' %}">
+  <link rel="apple-touch-icon" href="{% static 'img/vortex-forge-logo.png' %}">
+  <script>
+    (() => {
+      try {
+        const theme = window.localStorage.getItem("vortex-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch (error) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="{% static 'css/site.css' %}?v=deploy-final-1">
+  <script defer src="{% static 'js/site.js' %}?v=vertical-spacing-pass-1"></script>
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="site-body {% block body_class %}{% endblock %}">
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="ambient-grid" aria-hidden="true"></div>
+
+  <header class="site-header" data-site-header>
+    <div class="wrapper header-shell">
+      <div class="brand-menu-shell" data-brand-menu-shell>
+        <button
+          type="button"
+          class="brand-lockup brand-menu-toggle glow-exclude"
+          data-brand-menu-toggle
+          aria-expanded="false"
+          aria-controls="brand-anchor-menu"
+          aria-label="{% trans 'Apri il menu delle sezioni del sito' %}"
+        >
+          <span class="brand-emblem glow-exclude" aria-hidden="true">
+            <img
+              class="brand-logo"
+              src="{% static 'img/vortex-forge-logo.png' %}"
+              alt=""
+              width="88"
+              height="88"
+            >
+          </span>
+          <div class="brand-copy">
+            <span class="brand-eyebrow brand-kicker">{% trans "PC su misura" %}</span>
+            <strong class="brand-title">{{ site_settings.site_name }}</strong>
+          </div>
+        </button>
+
+        <nav class="brand-anchor-menu" id="brand-anchor-menu" data-brand-menu aria-label="{% trans 'Sezioni del sito' %}">
+          <a class="brand-anchor-link" href="{% url 'core:home' %}#hero-section">{% trans "Inizio" %}</a>
+          <a class="brand-anchor-link" href="{% url 'core:home' %}#service-section">{% trans "Servizio" %}</a>
+          <a class="brand-anchor-link" href="{% url 'catalog:build_list' %}">{% trans "Build" %}</a>
+          <a class="brand-anchor-link" href="{% url 'core:home' %}#process-section">{% trans "Processo" %}</a>
+          <a class="brand-anchor-link" href="{% url 'core:home' %}#custom-section">{% trans "Personalizza" %}</a>
+          <a class="brand-anchor-link" href="{% url 'core:home' %}#contacts-section">{% trans "Contatti" %}</a>
+        </nav>
+      </div>
+
+      <div class="header-tools">
+        <form action="{% url 'set_language' %}" method="post" class="language-switch" data-language-form>
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <span class="sr-only">{% trans "Seleziona lingua" %}</span>
+          <button type="submit" name="language" value="it" class="lang-chip {% if CURRENT_LANGUAGE == 'it' %}is-active{% endif %}">IT</button>
+          <button type="submit" name="language" value="en" class="lang-chip {% if CURRENT_LANGUAGE == 'en' %}is-active{% endif %}">EN</button>
+        </form>
+
+        <button
+          type="button"
+          class="theme-toggle"
+          data-theme-toggle
+          data-light-label="{% trans 'Tema chiaro' %}"
+          data-dark-label="{% trans 'Tema scuro' %}"
+          aria-label="{% trans 'Cambia tema' %}"
+        >
+          <span class="theme-toggle-dot"></span>
+          <span class="theme-toggle-label">{% trans "Tema scuro" %}</span>
+        </button>
+
+        {% if request.user.is_authenticated %}
+          {% if request.user.has_backoffice_access %}
+            <a class="button button-ghost" href="{% url 'backoffice:dashboard' %}">{% trans "Dashboard admin" %}</a>
+          {% endif %}
+          <div class="user-session-stack">
+            <a class="user-chip user-chip-link {% if request.user.avatar %}user-chip-with-avatar{% endif %}" href="{% url 'accounts:dashboard' %}">
+              {% if request.user.avatar %}
+                {% image_size request.user.avatar as avatar_size %}
+                <span class="user-chip-avatar" aria-hidden="true">
+                  <img
+                    src="{{ request.user.avatar.url }}"
+                    alt=""
+                    {% if avatar_size %}width="{{ avatar_size.0 }}" height="{{ avatar_size.1 }}"{% endif %}
+                  >
+                </span>
+              {% endif %}
+              <span class="user-chip-copy">
+                <span class="user-chip-label">{% trans "Account" %}</span>
+                <strong>{{ request.user.get_full_name|default:request.user.username }}</strong>
+              </span>
+            </a>
+            <form method="post" action="{% url 'accounts:logout' %}" class="inline-action-form">
+              {% csrf_token %}
+              <button type="submit" class="button button-ghost">{% trans "Esci" %}</button>
+            </form>
+          </div>
+        {% else %}
+          <a class="button button-ghost" href="{% url 'accounts:login' %}">{% trans "Accedi" %}</a>
+          <a class="button button-primary" href="{% url 'accounts:register' %}">{% trans "Registrati" %}</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  {% include "partials/messages.html" %}
+
+  <main class="site-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper footer-shell">
+      <section class="footer-brand">
+        <p class="brand-eyebrow">{% trans "Affidabilita" %}</p>
+        <h2>{{ site_settings.site_name }}</h2>
+        <p>{{ site_settings.localized_trust_note }}</p>
+        <div class="trust-row">
+          <span class="trust-pill">{% trans "Sito protetto" %}</span>
+          <span class="trust-pill">{% trans "Connessione sicura" %}</span>
+          <span class="trust-pill">{% trans "Checkout demo sicuro" %}</span>
+          <span class="trust-pill">{% trans "Assistenza clienti" %}</span>
+        </div>
+      </section>
+
+      <section>
+        <p class="brand-eyebrow">{% trans "Dati aziendali" %}</p>
+        <ul class="footer-list">
+          <li>IT +39 351 984 4148</li>
+          <li>{{ site_settings.company_address }}</li>
+          <li>{{ site_settings.support_email }}</li>
+          <li>{{ site_settings.company_name }}</li>
+          <li>{{ site_settings.vat_number }}</li>
+        </ul>
+      </section>
+
+      <section>
+        <p class="brand-eyebrow">{% trans "Link utili" %}</p>
+        <ul class="footer-list">
+          <li><a href="{% url 'core:privacy' %}">{% trans "Privacy Policy" %}</a></li>
+          <li><a href="{% url 'core:terms' %}">{% trans "Termini e Condizioni" %}</a></li>
+          <li><a href="{% url 'core:cookies' %}">{% trans "Cookie Policy" %}</a></li>
+          <li><a href="{% url 'core:home' %}#contacts-section">{% trans "Contatti" %}</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="wrapper footer-bottom">
+      <p>{% blocktrans with year=current_year company=site_settings.company_name %}Copyright {{ year }} {{ company }}. Tutti i diritti riservati.{% endblocktrans %}</p>
+      <p>{% trans "Configurazioni curate, account sicuri e gestione professionale del catalogo." %}</p>
+    </div>
+  </footer>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

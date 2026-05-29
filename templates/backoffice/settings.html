@@ -1,0 +1,34 @@
+{% extends "backoffice/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Impostazioni sito" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block panel_content %}
+  <div class="section-headline">
+    <div>
+      <p class="brand-eyebrow">{% trans "Impostazioni" %}</p>
+      <h1>{% trans "Dati principali del sito" %}</h1>
+    </div>
+  </div>
+
+  <form method="post" class="form-panel">
+    {% csrf_token %}
+    <div class="form-layout">
+      {% include "partials/form_field.html" with field=form.site_name %}
+      {% include "partials/form_field.html" with field=form.company_name %}
+      {% include "partials/form_field.html" with field=form.support_email %}
+      {% include "partials/form_field.html" with field=form.support_phone %}
+      {% include "partials/form_field.html" with field=form.vat_number %}
+      {% include "partials/form_field.html" with field=form.company_address field_class="field-group field-span-full" %}
+      {% include "partials/form_field.html" with field=form.hero_title field_class="field-group field-span-full" %}
+      {% include "partials/form_field.html" with field=form.hero_title_en field_class="field-group field-span-full" %}
+      {% include "partials/form_field.html" with field=form.hero_subtitle field_class="field-group field-span-full" %}
+      {% include "partials/form_field.html" with field=form.hero_subtitle_en field_class="field-group field-span-full" %}
+      {% include "partials/form_field.html" with field=form.trust_note field_class="field-group field-span-full" %}
+      {% include "partials/form_field.html" with field=form.trust_note_en field_class="field-group field-span-full" %}
+      <div class="field-span-full">
+        <button type="submit" class="button button-primary">{% trans "Salva impostazioni" %}</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

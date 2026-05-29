@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Contatti" %} | {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+  <section class="wrapper section-shell reveal-on-scroll">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Contatti" %}</p>
+        <h1>{% trans "Parla con il team commerciale" %}</h1>
+        <p class="section-copy">{% trans "Questa pagina deve dare subito fiducia: recapiti chiari, form leggibile e informazioni aziendali ordinate." %}</p>
+      </div>
+      <div class="contact-inline">
+        <span class="meta-chip">{{ site_settings.support_phone }}</span>
+        <span class="meta-chip">{{ site_settings.support_email }}</span>
+      </div>
+    </div>
+
+    <div class="dashboard-overview contact-overview">
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Telefono" %}</p>
+        <h3>{{ site_settings.support_phone }}</h3>
+        <p>{% trans "Per richieste rapide e supporto commerciale." %}</p>
+      </article>
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Email" %}</p>
+        <h3>{{ site_settings.support_email }}</h3>
+        <p>{% trans "Per approvazioni, preventivi e aggiornamenti strutturati." %}</p>
+      </article>
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Sede" %}</p>
+        <h3>{{ site_settings.company_name }}</h3>
+        <p>{{ site_settings.company_address }}</p>
+      </article>
+    </div>
+
+    <div class="content-split">
+      <article class="info-card">
+        <p class="brand-eyebrow">{% trans "Sede e supporto" %}</p>
+        <h2>{{ site_settings.company_name }}</h2>
+        <ul class="footer-list">
+          <li>{{ site_settings.company_address }}</li>
+          <li>{{ site_settings.vat_number }}</li>
+          <li>{% trans "Assistenza clienti dedicata e richieste tracciate." %}</li>
+        </ul>
+      </article>
+
+      <form method="post" class="info-card form-layout compact">
+        {% csrf_token %}
+        {% include "partials/form_field.html" with field=form.name %}
+        {% include "partials/form_field.html" with field=form.email %}
+        {% include "partials/form_field.html" with field=form.phone %}
+        {% include "partials/form_field.html" with field=form.subject %}
+        {% include "partials/form_field.html" with field=form.message field_class="field-group field-span-full" %}
+        <div class="field-span-full">
+          <button type="submit" class="button button-primary">{% trans "Invia messaggio" %}</button>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 420" fill="none">
+  <defs>
+    <linearGradient id="cpuFrame" x1="44" y1="54" x2="276" y2="370" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101A13"/>
+      <stop offset="1" stop-color="#09100B"/>
+    </linearGradient>
+    <linearGradient id="cpuGlow" x1="100" y1="120" x2="220" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7FF82"/>
+      <stop offset="1" stop-color="#6CC51A"/>
+    </linearGradient>
+  </defs>
+  <rect x="58" y="58" width="204" height="304" rx="38" fill="url(#cpuFrame)" stroke="rgba(183,255,79,0.3)" stroke-width="4"/>
+  <rect x="96" y="116" width="128" height="128" rx="28" fill="#111A13" stroke="rgba(183,255,79,0.22)" stroke-width="3"/>
+  <rect x="114" y="134" width="92" height="92" rx="22" fill="url(#cpuGlow)"/>
+  <path d="M126 154h68M126 182h68M126 210h68M154 146v68M182 146v68" stroke="#0D1510" stroke-opacity=".18" stroke-width="6" stroke-linecap="round"/>
+  <rect x="84" y="274" width="152" height="18" rx="9" fill="#142019"/>
+  <rect x="104" y="306" width="112" height="12" rx="6" fill="rgba(183,255,79,0.22)"/>
+  <g stroke="#84D81D" stroke-width="6" stroke-linecap="round">
+    <path d="M88 92V70"/><path d="M120 92V62"/><path d="M152 92V56"/><path d="M184 92V62"/><path d="M216 92V70"/>
+    <path d="M88 328v22"/><path d="M120 328v30"/><path d="M152 328v36"/><path d="M184 328v30"/><path d="M216 328v22"/>
+    <path d="M76 108H54"/><path d="M76 144H46"/><path d="M76 180H40"/><path d="M76 216H46"/><path d="M76 252H54"/>
+    <path d="M244 108h22"/><path d="M244 144h30"/><path d="M244 180h36"/><path d="M244 216h30"/><path d="M244 252h22"/>
+  </g>
+</svg>

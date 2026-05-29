@@ -1,0 +1,264 @@
+{% extends "backoffice/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ custom_request.reference_code }} | {{ site_settings.site_name }}{% endblock %}
+
+{% block panel_content %}
+  <div class="section-headline">
+    <div>
+      <p class="brand-eyebrow">{% trans "Revisione richiesta build" %}</p>
+      <h1>{{ custom_request.reference_code }}</h1>
+      <p class="section-copy">{{ custom_request.user.email }} - {{ custom_request.configuration_summary }}</p>
+      <p class="status-inline-note">{{ custom_request.origin_label }}</p>
+    </div>
+    <div class="action-row">
+      <a class="button button-ghost" href="{% url 'backoffice:requests' %}">{% trans "Torna alla lista richieste" %}</a>
+    </div>
+  </div>
+
+  <div class="dashboard-highlight-strip">
+    <article class="request-fact">
+      <span>{% trans "Scopo della pagina" %}</span>
+      <strong>{% trans "Capire subito richiesta, budget, storico pagamenti e azione amministrativa corretta" %}</strong>
+    </article>
+    <article class="request-fact">
+      <span>{% trans "Ordine consigliato" %}</span>
+      <strong>{% trans "Controlla componenti e note, salva prezzo finale, poi approva oppure chiudi la richiesta" %}</strong>
+    </article>
+    <article class="request-fact">
+      <span>{% trans "Risultato" %}</span>
+      <strong>{% trans "Il cliente vedra stato, preventivo e checkout aggiornati senza passaggi manuali aggiuntivi" %}</strong>
+    </article>
+  </div>
+
+  <div class="status-hero card-shell">
+    <div class="status-hero-main">
+      <span class="status-badge status-{{ custom_request.status_tone }}">{{ custom_request.ui_status_label }}</span>
+      <h2>{% trans "Stato attuale della richiesta" %}</h2>
+      <p>{{ custom_request.admin_status_message }}</p>
+    </div>
+    <div class="status-hero-side">
+      <div class="request-fact">
+        <span>{% trans "Budget cliente" %}</span>
+        <strong>{{ custom_request.budget_range_display }}</strong>
+      </div>
+      <div class="request-fact">
+        <span>{% trans "Prezzo finale" %}</span>
+        <strong>{{ custom_request.approved_price_display }}</strong>
+      </div>
+      <div class="request-fact">
+        <span>{% trans "Pagamento" %}</span>
+        <strong>{% if custom_request.latest_payment %}{{ custom_request.latest_payment.get_status_display }}{% else %}{% trans "Nessun tentativo" %}{% endif %}</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-split">
+    <article class="info-card">
+      <div class="subsection-headline">
+        <div>
+          <h2>{% trans "Richiesta del cliente" %}</h2>
+          <p class="section-copy">{% trans "Qui trovi i dettagli inviati dal cliente: componenti, budget e note." %}</p>
+        </div>
+      </div>
+
+      <div class="request-key-facts">
+        <div class="request-fact">
+          <span>{% trans "Cliente" %}</span>
+          <strong>{{ custom_request.user.email }}</strong>
+        </div>
+        <div class="request-fact">
+          <span>{% trans "Origine" %}</span>
+          <strong>{{ custom_request.origin_label }}</strong>
+        </div>
+        <div class="request-fact">
+          <span>{% trans "Creata il" %}</span>
+          <strong>{{ custom_request.created_at }}</strong>
+        </div>
+        <div class="request-fact">
+          <span>{% trans "Ultima revisione" %}</span>
+          <strong>{{ custom_request.reviewed_at|default:"-" }}</strong>
+        </div>
+        <div class="request-fact">
+          <span>{% trans "Revisore" %}</span>
+          <strong>{{ custom_request.reviewed_by|default:"-" }}</strong>
+        </div>
+      </div>
+
+      <div class="form-panel">
+        <div class="subsection-headline">
+          <h2>{% trans "Componenti richiesti" %}</h2>
+        </div>
+        <ul class="request-component-list">
+          {% for label, value in custom_request.component_items %}
+            <li><strong>{{ label }}:</strong> {{ value }}</li>
+          {% empty %}
+            <li>{% trans "Nessun componente strutturato indicato." %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {% if custom_request.notes %}
+        <div class="form-panel">
+          <div class="subsection-headline">
+            <h2>{% trans "Note del cliente" %}</h2>
+          </div>
+          <p>{{ custom_request.notes|linebreaksbr }}</p>
+        </div>
+      {% endif %}
+
+      <div class="form-panel">
+        <div class="subsection-headline">
+          <h2>{% trans "Storico pagamenti" %}</h2>
+        </div>
+        <div class="table-shell">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>{% trans "Pagamento" %}</th>
+                <th>{% trans "Metodo" %}</th>
+                <th>{% trans "Data" %}</th>
+                <th>{% trans "Provider" %}</th>
+                <th>{% trans "Importo" %}</th>
+                <th>{% trans "Stato" %}</th>
+                <th>{% trans "Order / Transaction" %}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for payment in payment_history %}
+                <tr>
+                  <td data-label="{% trans 'Pagamento' %}"><strong>{{ payment.reference_code }}</strong></td>
+                  <td data-label="{% trans 'Metodo' %}">{{ payment.get_checkout_method_display }}</td>
+                  <td data-label="{% trans 'Data' %}">{{ payment.initiated_at }}</td>
+                  <td data-label="{% trans 'Provider' %}">{{ payment.provider_environment_display }}</td>
+                  <td data-label="{% trans 'Importo' %}">{{ payment.amount }} {{ payment.currency }}</td>
+                  <td data-label="{% trans 'Stato' %}">
+                    <span class="status-badge status-{{ payment.status_tone }}">{{ payment.get_status_display }}</span>
+                  </td>
+                  <td data-label="{% trans 'Order / Transaction' %}">
+                    <div class="table-action-stack">
+                      <span>{{ payment.external_order_id|default:"-" }}</span>
+                      <span>{{ payment.external_transaction_id|default:"-" }}</span>
+                    </div>
+                  </td>
+                </tr>
+              {% empty %}
+                <tr><td colspan="7">{% trans "Nessun pagamento registrato." %}</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <article class="info-card">
+      <div class="subsection-headline">
+        <div>
+          <h2>{% trans "Cosa puoi fare adesso" %}</h2>
+          <p class="section-copy">{% trans "Prima salva il prezzo finale e il messaggio per il cliente. Poi scegli l'azione principale piu adatta allo stato corrente." %}</p>
+        </div>
+      </div>
+
+      <div class="status-panel status-{{ custom_request.status_tone }}">
+        <strong>{{ custom_request.ui_status_label }}</strong>
+        <p>{{ custom_request.admin_status_message }}</p>
+      </div>
+
+      <div class="form-panel">
+        <div class="subsection-headline">
+          <div>
+            <h2>{% trans "Riepilogo checkout" %}</h2>
+            <p class="section-copy">{% trans "Qui vedi l'ultimo stato di pagamento con i riferimenti principali utili per supporto e verifica." %}</p>
+          </div>
+        </div>
+
+        {% if latest_payment %}
+          <div class="payment-record-grid">
+            <div class="payment-record">
+              <span>{% trans "Pagamento" %}</span>
+              <strong>{{ latest_payment.reference_code }}</strong>
+            </div>
+            <div class="payment-record">
+              <span>{% trans "Metodo" %}</span>
+              <strong>{{ latest_payment.get_checkout_method_display }}</strong>
+            </div>
+            <div class="payment-record">
+              <span>{% trans "Provider" %}</span>
+              <strong>{{ latest_payment.provider_environment_display }}</strong>
+            </div>
+            <div class="payment-record">
+              <span>{% trans "Order ID" %}</span>
+              <strong>{{ latest_payment.external_order_id|default:"-" }}</strong>
+            </div>
+            <div class="payment-record">
+              <span>{% trans "Transaction ID" %}</span>
+              <strong>{{ latest_payment.external_transaction_id|default:"-" }}</strong>
+            </div>
+            <div class="payment-record">
+              <span>{% trans "Importo" %}</span>
+              <strong>{{ latest_payment.amount }} {{ latest_payment.currency }}</strong>
+            </div>
+            <div class="payment-record">
+              <span>{% trans "Stato checkout" %}</span>
+              <strong>{{ latest_payment.get_status_display }}</strong>
+            </div>
+          </div>
+
+          {% if active_payment %}
+            <p class="section-copy">{% trans "C'e un checkout ancora aperto o in conferma. Il cliente si trova nella fase finale del pagamento dev." %}</p>
+          {% endif %}
+        {% else %}
+          <div class="status-panel status-warning">
+            <strong>{% trans "Nessun checkout creato" %}</strong>
+            <p>{% trans "Il cliente non ha ancora avviato il checkout. Questa sezione si popola automaticamente dal primo tentativo di pagamento." %}</p>
+          </div>
+        {% endif %}
+      </div>
+
+      <form method="post" class="form-panel">
+        {% csrf_token %}
+        <div class="form-layout">
+          {% include "partials/form_field.html" with field=form.approved_price %}
+          {% include "partials/form_field.html" with field=form.admin_notes field_class="field-group field-span-full" %}
+        </div>
+
+        <div class="action-stack">
+          {% if "approve" in available_actions %}
+            <button type="submit" name="action" value="approve" class="button button-primary button-wide">{% trans "Approva richiesta e rendila pagabile" %}</button>
+          {% endif %}
+
+          {% if "update_quote" in available_actions %}
+            <button type="submit" name="action" value="update_quote" class="button button-ghost button-wide">{% trans "Salva o aggiorna il preventivo" %}</button>
+          {% endif %}
+
+          {% if "save_notes" in available_actions %}
+            <button type="submit" name="action" value="save_notes" class="button button-ghost button-wide">{% trans "Salva il messaggio per il cliente" %}</button>
+          {% endif %}
+
+          <div class="action-row">
+            {% if "reject" in available_actions %}
+              <button type="submit" name="action" value="reject" class="button button-danger">{% trans "Rifiuta richiesta" %}</button>
+            {% endif %}
+            {% if "cancel" in available_actions %}
+              <button type="submit" name="action" value="cancel" class="button button-ghost">{% trans "Annulla richiesta" %}</button>
+            {% endif %}
+            {% if "reopen" in available_actions %}
+              <button type="submit" name="action" value="reopen" class="button button-ghost">{% trans "Rimetti in approvazione" %}</button>
+            {% endif %}
+          </div>
+        </div>
+      </form>
+
+      <div class="form-panel">
+        <div class="subsection-headline">
+          <h2>{% trans "Promemoria rapido" %}</h2>
+        </div>
+        <ul class="request-component-list compact">
+          <li>{% trans "Approva solo quando prezzo finale e messaggio per il cliente sono corretti." %}</li>
+          <li>{% trans "Dopo l'approvazione il cliente vede il prezzo finale e il pulsante per pagare." %}</li>
+          <li>{% trans "Se il pagamento fallisce, la richiesta resta gestibile e il cliente puo riprovare." %}</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+{% endblock %}

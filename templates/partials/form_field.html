@@ -1,0 +1,33 @@
+{% load i18n %}
+
+<div class="{{ field_class|default:'field-group' }}">
+  {% if field.field.widget.input_type == "checkbox" %}
+    <label class="checkbox-field">
+      {{ field }}
+      <span>{{ field.label }}</span>
+    </label>
+  {% elif field.field.widget.input_type == "password" %}
+    {{ field.label_tag }}
+    <div class="password-field" data-password-field>
+      <div class="password-input-shell">
+        {{ field }}
+        <button type="button" class="password-eye-button" data-password-hold aria-label="{% trans 'Tieni premuto per vedere la password' %}" title="{% trans 'Tieni premuto per vedere la password' %}">
+          <span class="password-eye-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <label class="checkbox-field password-checkbox">
+        <input type="checkbox" data-password-checkbox>
+        <span>{% trans "Mostra password" %}</span>
+      </label>
+    </div>
+  {% else %}
+    {{ field.label_tag }}
+    {{ field }}
+  {% endif %}
+  {% if field.help_text %}
+    <small class="field-help">{{ field.help_text }}</small>
+  {% endif %}
+  {% if field.errors %}
+    <small class="field-error">{{ field.errors|striptags }}</small>
+  {% endif %}
+</div>

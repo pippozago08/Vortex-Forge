@@ -1,0 +1,3776 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Vortex Forge\\n"
+"POT-Creation-Date: 2026-03-22 22:30+0100\\n"
+"PO-Revision-Date: 2026-03-22 22:30+0100\\n"
+"Language: en\\n"
+"MIME-Version: 1.0\\n"
+"Content-Type: text/plain; charset=UTF-8\\n"
+"Content-Transfer-Encoding: 8bit\\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\\n"
+
+msgid "Accedi"
+msgstr "Log in"
+
+msgid "Accedi al tuo account."
+msgstr "Log in to your account."
+
+msgid "Accesso attivo"
+msgstr "Active session"
+
+msgid "Accesso effettuato con successo."
+msgstr "Logged in successfully."
+
+msgid "Accesso limitato"
+msgstr "Restricted access"
+
+msgid "Accesso sicuro"
+msgstr "Secure access"
+
+msgid "Account"
+msgstr "Account"
+
+msgid "Account attivo e pronto all'uso."
+msgstr "Account active and ready to use."
+
+msgid "Account bannato"
+msgstr "Banned account"
+
+msgid "Account creato correttamente."
+msgstr "Account created successfully."
+
+msgid "Account limitato"
+msgstr "Restricted account"
+
+msgid "Account registrati in piattaforma."
+msgstr "Accounts registered on the platform."
+
+msgid "Account sicuri con reset password, ruoli e gestione ban."
+msgstr "Secure accounts with password reset, roles, and ban management."
+
+msgid "Admin autorizzato"
+msgstr "Authorized admin"
+
+msgid "Affidabilita"
+msgstr "Trust"
+
+msgid "Aggiorna i tuoi dati"
+msgstr "Update your details"
+
+msgid "Aggiornata build %(name)s"
+msgstr "Updated build %(name)s"
+
+msgid "Aggiornate le impostazioni del sito"
+msgstr "Updated site settings"
+
+msgid "Aggiornato utente %(email)s"
+msgstr "Updated user %(email)s"
+
+msgid "Aggiungi immagine"
+msgstr "Add image"
+
+msgid "Aggiunta immagine a %(name)s"
+msgstr "Added image to %(name)s"
+
+msgid "Alcuni cookie servono a proteggere login, sessioni e richieste sensibili tramite le funzionalita native del framework."
+msgstr "Some cookies protect logins, sessions, and sensitive requests through the framework's native security features."
+
+msgid "Anteprima immagine build"
+msgstr "Build image preview"
+
+msgid "Anteprima immagine principale"
+msgstr "Primary image preview"
+
+msgid "Applica ban"
+msgstr "Apply ban"
+
+msgid "Apri catalogo"
+msgstr "Open catalog"
+
+msgid "Apri scheda build"
+msgstr "Open build page"
+
+msgid "Archivia o ripristina"
+msgstr "Archive or restore"
+
+msgid "Archiviata"
+msgstr "Archived"
+
+msgid "Archiviazione build %(name)s: %(value)s"
+msgstr "Build archive status %(name)s: %(value)s"
+
+msgid "Area cliente"
+msgstr "Customer area"
+
+msgid "Assistenza clienti"
+msgstr "Customer support"
+
+msgid "Assistenza clienti dedicata e richieste tracciate."
+msgstr "Dedicated customer support and tracked requests."
+
+msgid "Attivo"
+msgstr "Active"
+
+msgid "Attore"
+msgstr "Actor"
+
+msgid "Azione"
+msgstr "Action"
+
+msgid "Azioni"
+msgstr "Actions"
+
+msgid "Backoffice"
+msgstr "Back office"
+
+msgid "Badge evidenza"
+msgstr "Highlight badge"
+
+msgid "Ban"
+msgstr "Ban"
+
+msgid "Ban attivi"
+msgstr "Active bans"
+
+msgid "Ban creato correttamente."
+msgstr "Ban created successfully."
+
+msgid "Ban revocato manualmente."
+msgstr "Ban revoked manually."
+
+msgid "Base pronta per il deploy"
+msgstr "Deployment-ready foundation"
+
+msgid "Budget"
+msgstr "Budget"
+
+msgid "Budget massimo"
+msgstr "Maximum budget"
+
+msgid "Build"
+msgstr "Build"
+
+msgid "Build aggiornata."
+msgstr "Build updated."
+
+msgid "Build creata correttamente."
+msgstr "Build created successfully."
+
+msgid "Build curate, pronte per essere presentate e vendute."
+msgstr "Curated builds ready to be showcased and sold."
+
+msgid "Configurazioni curate, account sicuri e gestione professionale del catalogo."
+msgstr "Curated configurations, secure accounts, and professional catalog management."
+
+msgid "Build in evidenza"
+msgstr "Featured build"
+
+msgid "Build online"
+msgstr "Live builds"
+
+msgid "Build totali"
+msgstr "Total builds"
+
+msgid "CPU desiderata"
+msgstr "Desired CPU"
+
+msgid "Cambia tema"
+msgstr "Change theme"
+
+msgid "Catalogo"
+msgstr "Catalog"
+
+msgid "Catalogo e disponibilita"
+msgstr "Catalog and availability"
+
+msgid "Catalogo reale gestito da pannello amministrativo protetto."
+msgstr "Real catalog managed from a protected admin panel."
+
+msgid "Categoria"
+msgstr "Category"
+
+msgid "Categoria EN"
+msgstr "Category EN"
+
+msgid "Categoria IT"
+msgstr "Category IT"
+
+msgid "Categorie attive"
+msgstr "Active categories"
+
+msgid "Chiusa"
+msgstr "Closed"
+
+msgid "Cliente"
+msgstr "Customer"
+
+msgid "Codice di verifica"
+msgstr "Verification code"
+
+msgid "Codice di verifica non corretto."
+msgstr "Invalid verification code."
+
+msgid "Cognome"
+msgstr "Last name"
+
+msgid "Colori coerenti, contrasto migliorato, animazioni leggere e responsive curato su mobile e desktop."
+msgstr "Consistent colors, stronger contrast, subtle animations, and careful responsive behavior on mobile and desktop."
+
+msgid "Compila il form con componenti, budget e note. La richiesta sara salvata nel tuo account e nel pannello admin."
+msgstr "Fill out the form with components, budget, and notes. The request will be saved in your account and in the admin panel."
+
+msgid "Componenti EN"
+msgstr "Components EN"
+
+msgid "Componenti"
+msgstr "Components"
+
+msgid "Componenti IT"
+msgstr "Components IT"
+
+msgid "Componenti principali"
+msgstr "Main components"
+
+msgid "Condizioni generali iniziali per uso del sito, richieste commerciali e accesso alle aree riservate."
+msgstr "Initial general terms for using the site, commercial requests, and access to restricted areas."
+
+msgid "Conferma il codice ricevuto"
+msgstr "Confirm the received code"
+
+msgid "Conferma nuova password"
+msgstr "Confirm new password"
+
+msgid "Conferma password"
+msgstr "Confirm password"
+
+msgid "Configurazione"
+msgstr "Configuration"
+
+msgid "Configurazione su misura"
+msgstr "Tailored configuration"
+
+msgid "Connessione sicura"
+msgstr "Secure connection"
+
+msgid "Conservazione"
+msgstr "Retention"
+
+msgid "Consigliata"
+msgstr "Recommended"
+
+msgid "Richiesta build personalizzata inviata correttamente. La vedrai nel tuo account con stato in approvazione."
+msgstr "Custom build request sent successfully. You will see it in your account with approval status."
+
+msgid "Budget minimo"
+msgstr "Minimum budget"
+
+msgid "Valuta"
+msgstr "Currency"
+
+msgid "Le richieste custom vengono gestite in euro."
+msgstr "Custom requests are handled in euro."
+
+msgid "Indica il tetto massimo di spesa per il preventivo."
+msgstr "Set the maximum spending limit for the quote."
+
+msgid "Inserisci un budget massimo maggiore di zero."
+msgstr "Enter a maximum budget greater than zero."
+
+msgid "Il budget minimo non puo superare il budget massimo."
+msgstr "The minimum budget cannot exceed the maximum budget."
+
+msgid "Compila il form con tutti i componenti principali, il tuo budget in euro e le note finali. La richiesta verra salvata nel tuo account e passera prima in approvazione admin: il pagamento comparira solo dopo l'approvazione."
+msgstr "Fill out the form with the main components, your budget in euro, and final notes. The request will be saved in your account and will go through admin approval first: payment will appear only after approval."
+
+msgid "Indica un budget massimo chiaro. Se vuoi, puoi aggiungere anche un budget minimo di partenza. Tutte le richieste custom vengono gestite in euro."
+msgstr "Set a clear maximum budget. If you want, you can also add a starting minimum budget. All custom requests are handled in euro."
+
+msgid "Come funziona"
+msgstr "How it works"
+
+msgid "Fase 1"
+msgstr "Step 1"
+
+msgid "Invio richiesta"
+msgstr "Request submitted"
+
+msgid "La tua configurazione viene salvata nel database e collegata al tuo account."
+msgstr "Your configuration is saved in the database and linked to your account."
+
+msgid "Fase 2"
+msgstr "Step 2"
+
+msgid "Valutazione admin"
+msgstr "Admin review"
+
+msgid "Admin e super admin analizzano componenti, budget e note per approvare la build."
+msgstr "Admins and super admins review components, budget, and notes to approve the build."
+
+msgid "Fase 3"
+msgstr "Step 3"
+
+msgid "Pagamento"
+msgstr "Payment"
+
+msgid "Solo dopo l'approvazione comparira il prezzo finale e il pulsante di pagamento."
+msgstr "Only after approval will the final price and payment button appear."
+
+msgid "Pagamento build personalizzata"
+msgstr "Custom build payment"
+
+msgid "Pagamento custom"
+msgstr "Custom payment"
+
+msgid "Stato richiesta"
+msgstr "Request status"
+
+msgid "Budget cliente"
+msgstr "Customer budget"
+
+msgid "Provider attivo"
+msgstr "Active provider"
+
+msgid "Dev test"
+msgstr "Dev test"
+
+msgid "Note del team"
+msgstr "Team notes"
+
+msgid "Riepilogo componenti"
+msgstr "Component summary"
+
+msgid "Configurazione da definire tramite note e approvazione del team."
+msgstr "Configuration to be defined through notes and team approval."
+
+msgid "Azioni pagamento"
+msgstr "Payment actions"
+
+msgid "La richiesta e stata rifiutata. Nessun pagamento disponibile."
+msgstr "The request was rejected. No payment is available."
+
+msgid "La richiesta e stata annullata. Nessun pagamento disponibile."
+msgstr "The request was cancelled. No payment is available."
+
+msgid "Pagamento gia confermato. Non sono richieste ulteriori azioni."
+msgstr "Payment already confirmed. No further action is required."
+
+msgid "Avvia pagamento"
+msgstr "Start payment"
+
+msgid "Modalita sviluppo attiva: scegli l'esito del checkout simulato."
+msgstr "Development mode is active: choose the outcome of the simulated checkout."
+
+msgid "Simula pagamento riuscito"
+msgstr "Simulate successful payment"
+
+msgid "Simula pagamento fallito"
+msgstr "Simulate failed payment"
+
+msgid "Ultimo tentativo"
+msgstr "Latest attempt"
+
+msgid "Provider"
+msgstr "Provider"
+
+msgid "Importo"
+msgstr "Amount"
+
+msgid "Storico pagamenti"
+msgstr "Payment history"
+
+msgid "Nessun tentativo di pagamento registrato."
+msgstr "No payment attempts recorded."
+
+msgid "Richieste gia pagate."
+msgstr "Requests already paid."
+
+msgid "Pagamenti custom"
+msgstr "Custom payments"
+
+msgid "Riferimento"
+msgstr "Reference"
+
+msgid "Prezzo finale"
+msgstr "Final price"
+
+msgid "Azione"
+msgstr "Action"
+
+msgid "Paga"
+msgstr "Pay"
+
+msgid "Completa pagamento"
+msgstr "Complete payment"
+
+msgid "Riepilogo pagamento"
+msgstr "Payment summary"
+
+msgid "Apri riepilogo"
+msgstr "Open summary"
+
+msgid "Richieste build e contatti"
+msgstr "Build requests and contacts"
+
+msgid "Le richieste custom sono divise per stato operativo: approvazione, approvate e pagate."
+msgstr "Custom requests are split by operational status: approval, approved, and paid."
+
+msgid "Approvazione"
+msgstr "Approval"
+
+msgid "Richieste in attesa di valutazione."
+msgstr "Requests waiting for review."
+
+msgid "Approvate"
+msgstr "Approved"
+
+msgid "Richieste approvate ma non ancora pagate."
+msgstr "Requests approved but not yet paid."
+
+msgid "Pagate"
+msgstr "Paid"
+
+msgid "Build custom con pagamento confermato."
+msgstr "Custom builds with confirmed payment."
+
+msgid "Simulato"
+msgstr "Simulated"
+
+msgid "Valuta richiesta"
+msgstr "Review request"
+
+msgid "Nessuna richiesta in approvazione."
+msgstr "No requests waiting for approval."
+
+msgid "Nessuna richiesta approvata in attesa di pagamento."
+msgstr "No approved requests waiting for payment."
+
+msgid "Nessuna richiesta pagata."
+msgstr "No paid requests."
+
+msgid "Rifiutate o annullate"
+msgstr "Rejected or cancelled"
+
+msgid "Riapri / gestisci"
+msgstr "Reopen / manage"
+
+msgid "Revisione richiesta custom"
+msgstr "Custom request review"
+
+msgid "Torna alle richieste"
+msgstr "Back to requests"
+
+msgid "Valuta gestita"
+msgstr "Managed currency"
+
+msgid "Diventa pagabile solo dopo approvazione."
+msgstr "It becomes payable only after approval."
+
+msgid "Componenti richiesti"
+msgstr "Requested components"
+
+msgid "Nessun componente strutturato indicato."
+msgstr "No structured components provided."
+
+msgid "Note cliente"
+msgstr "Customer notes"
+
+msgid "Cronologia pagamento"
+msgstr "Payment timeline"
+
+msgid "Nessun pagamento registrato."
+msgstr "No payment recorded."
+
+msgid "Approva e rendi pagabile"
+msgstr "Approve and make payable"
+
+msgid "Aggiorna prezzo finale"
+msgstr "Update final price"
+
+msgid "Rifiuta richiesta"
+msgstr "Reject request"
+
+msgid "Annulla richiesta"
+msgstr "Cancel request"
+
+msgid "Rimetti in approvazione"
+msgstr "Move back to approval"
+
+msgid "Salva note admin"
+msgstr "Save admin notes"
+
+msgid "Riepilogo revisione"
+msgstr "Review summary"
+
+msgid "Creata il"
+msgstr "Created on"
+
+msgid "Ultima revisione"
+msgstr "Latest review"
+
+msgid "Revisore"
+msgstr "Reviewer"
+
+msgid "Pagamento confermato il"
+msgstr "Payment confirmed on"
+
+msgid "In fase di approvazione"
+msgstr "Pending approval"
+
+msgid "Approvata"
+msgstr "Approved"
+
+msgid "Pagamento in attesa"
+msgstr "Payment pending"
+
+msgid "Pagata"
+msgstr "Paid"
+
+msgid "Pagamento fallito"
+msgstr "Payment failed"
+
+msgid "Rifiutata"
+msgstr "Rejected"
+
+msgid "Annullata"
+msgstr "Cancelled"
+
+msgid "Da definire"
+msgstr "To be defined"
+
+msgid "%(max)s %(currency)s massimo"
+msgstr "%(max)s %(currency)s maximum"
+
+msgid "In fase di approvazione dei venditori..."
+msgstr "Pending seller approval..."
+
+msgid "Build approvata. Puoi procedere con il pagamento."
+msgstr "Build approved. You can proceed to payment."
+
+msgid "Pagamento avviato. Completa il checkout per confermare la build."
+msgstr "Payment started. Complete the checkout to confirm the build."
+
+msgid "Pagamento confermato. La tua build personalizzata risulta pagata."
+msgstr "Payment confirmed. Your custom build is marked as paid."
+
+msgid "Il pagamento non e andato a buon fine. Puoi riprovare quando vuoi."
+msgstr "The payment did not go through. You can try again whenever you want."
+
+msgid "La richiesta e stata rifiutata. Controlla le note del team."
+msgstr "The request was rejected. Check the team's notes."
+
+msgid "La richiesta e stata annullata."
+msgstr "The request was cancelled."
+
+msgid "Simulato / sviluppo"
+msgstr "Simulated / development"
+
+msgid "PayPal Business"
+msgstr "PayPal Business"
+
+msgid "Prezzo finale approvato"
+msgstr "Approved final price"
+
+msgid "Note amministrative"
+msgstr "Administrative notes"
+
+msgid "Note interne, dettagli preventivo, motivazione rifiuto o aggiornamenti per il cliente"
+msgstr "Internal notes, quote details, rejection reason, or customer updates"
+
+msgid "Inserisci un prezzo finale maggiore di zero."
+msgstr "Enter a final price greater than zero."
+
+msgid "Configurazione PayPal mancante nelle variabili ambiente."
+msgstr "PayPal configuration is missing from environment variables."
+
+msgid "Il provider PayPal e gia predisposto a livello architetturale, ma il checkout reale non e ancora attivato. Mantieni PAYMENT_PROVIDER=simulated finche non colleghi le API Orders di PayPal."
+msgstr "The PayPal provider is already prepared at the architectural level, but the real checkout is not active yet. Keep PAYMENT_PROVIDER=simulated until you connect the PayPal Orders APIs."
+
+msgid "Il pagamento selezionato non usa il provider simulato."
+msgstr "The selected payment does not use the simulated provider."
+
+msgid "Questo tentativo di pagamento non puo piu essere completato."
+msgstr "This payment attempt can no longer be completed."
+
+msgid "Checkout simulato pronto. Completa il test con esito positivo o negativo."
+msgstr "Simulated checkout ready. Complete the test with a positive or negative outcome."
+
+msgid "Non puoi pagare una richiesta che non ti appartiene."
+msgstr "You cannot pay for a request that does not belong to you."
+
+msgid "La richiesta non e ancora pronta per il pagamento."
+msgstr "The request is not ready for payment yet."
+
+msgid "Prezzo finale non disponibile."
+msgstr "Final price not available."
+
+msgid "Nessun pagamento attivo da completare."
+msgstr "No active payment to complete."
+
+msgid "Azione di pagamento non riconosciuta."
+msgstr "Unrecognized payment action."
+
+msgid "Checkout avviato."
+msgstr "Checkout started."
+
+msgid "Pagamento simulato completato con successo."
+msgstr "Simulated payment completed successfully."
+
+msgid "Pagamento simulato fallito. Puoi riprovare dal riepilogo pagamento."
+msgstr "Simulated payment failed. You can retry from the payment summary."
+
+msgid "Inserisci il prezzo finale prima di approvare o aggiornare il preventivo."
+msgstr "Enter the final price before approving or updating the quote."
+
+msgid "Richiesta approvata e resa pagabile per il cliente."
+msgstr "Request approved and made payable for the customer."
+
+msgid "Prezzo finale e note aggiornati."
+msgstr "Final price and notes updated."
+
+msgid "Richiesta rifiutata."
+msgstr "Request rejected."
+
+msgid "Richiesta annullata."
+msgstr "Request cancelled."
+
+msgid "Richiesta riportata in fase di approvazione."
+msgstr "Request moved back to approval."
+
+msgid "Note amministrative aggiornate."
+msgstr "Administrative notes updated."
+
+msgid "Il team sta controllando componenti, budget e fattibilita. Per ora non devi fare nulla."
+msgstr "The team is checking components, budget, and feasibility. You do not need to do anything right now."
+
+msgid "La richiesta e pronta: ora puoi aprire il riepilogo e procedere con il pagamento."
+msgstr "The request is ready: you can now open the summary and proceed with payment."
+
+msgid "Hai gia avviato il pagamento. Apri il riepilogo per completarlo."
+msgstr "You already started the payment. Open the summary to complete it."
+
+msgid "Pagamento confermato. La tua build personalizzata e stata registrata come pagata."
+msgstr "Payment confirmed. Your custom build has been recorded as paid."
+
+msgid "L'ultimo tentativo non e andato a buon fine. Puoi riprovare dal riepilogo pagamento."
+msgstr "The last attempt was unsuccessful. You can try again from the payment summary."
+
+msgid "La richiesta non e stata approvata. Controlla le note del team per capire il motivo."
+msgstr "The request was not approved. Check the team's notes to understand why."
+
+msgid "La richiesta e stata chiusa e non e piu pagabile."
+msgstr "The request has been closed and can no longer be paid."
+
+msgid "In approvazione"
+msgstr "Pending approval"
+
+msgid "Pagamento da completare"
+msgstr "Payment to complete"
+
+msgid "Pagamento da ripetere"
+msgstr "Payment to retry"
+
+msgid "Questa richiesta richiede un tuo intervento: controlla i componenti, definisci il prezzo finale e poi approva o rifiuta."
+msgstr "This request needs your action: review the components, define the final price, then approve or reject it."
+
+msgid "Preventivo inviato. Il cliente vede il prezzo finale e puo pagare."
+msgstr "Quote sent. The customer can see the final price and pay."
+
+msgid "Il cliente ha gia iniziato il pagamento. Attendi l'esito finale o controlla lo storico."
+msgstr "The customer has already started the payment. Wait for the final outcome or check the history."
+
+msgid "Pagamento confermato. La richiesta e conclusa dal lato economico."
+msgstr "Payment confirmed. The request is financially completed."
+
+msgid "Il cliente non ha completato il pagamento. Puoi lasciare il preventivo attivo oppure aggiornarlo."
+msgstr "The customer did not complete the payment. You can keep the quote active or update it."
+
+msgid "La richiesta e stata rifiutata. Puoi comunque riaprirla se necessario."
+msgstr "The request was rejected. You can still reopen it if needed."
+
+msgid "La richiesta e stata annullata. Puoi riaprirla se serve una nuova valutazione."
+msgstr "The request was cancelled. You can reopen it if a new review is needed."
+
+msgid "Facoltativo. Inseriscilo solo se vuoi indicare una fascia minima di partenza."
+msgstr "Optional. Use it only if you want to indicate a starting minimum range."
+
+msgid "Obbligatorio. E il limite massimo di spesa che il team dovra rispettare."
+msgstr "Required. This is the maximum spending limit the team should respect."
+
+msgid "Per ora tutte le richieste personalizzate vengono gestite in euro."
+msgstr "For now all custom requests are handled in euro."
+
+msgid "Usa questo spazio per spiegare meglio come userai il PC e quali priorita hai."
+msgstr "Use this space to explain how you will use the PC and what your priorities are."
+
+msgid "Come vorresti usare il PC e altre richieste"
+msgstr "How you would like to use the PC and other requests"
+
+msgid "Questo importo comparira al cliente quando approvi la richiesta."
+msgstr "This amount will be shown to the customer when you approve the request."
+
+msgid "Questo messaggio viene mostrato al cliente nella scheda richiesta e nella pagina pagamento."
+msgstr "This message is shown to the customer in the request view and on the payment page."
+
+msgid "Prezzo finale da mostrare al cliente"
+msgstr "Final price shown to the customer"
+
+msgid "Messaggio per il cliente e note del preventivo"
+msgstr "Customer message and quote notes"
+
+msgid "Spiega il preventivo, eventuali limiti, tempi o motivi del rifiuto"
+msgstr "Explain the quote, any limits, timelines, or the reason for rejection"
+
+msgid "Richiesta inviata correttamente. Ora la trovi nel tuo account con stato In approvazione."
+msgstr "Request sent successfully. You can now find it in your account with Pending approval status."
+
+msgid "Pagamento avviato. Ora completa il passaggio successivo."
+msgstr "Payment started. Now complete the next step."
+
+msgid "Pagamento registrato correttamente in modalita test."
+msgstr "Payment recorded successfully in test mode."
+
+msgid "Il test di pagamento e fallito. Puoi riprovare dal riepilogo della richiesta."
+msgstr "The payment test failed. You can retry from the request summary."
+
+msgid "Richiesta approvata. Il cliente ora vede il prezzo finale e puo pagare."
+msgstr "Request approved. The customer now sees the final price and can pay."
+
+msgid "Preventivo aggiornato. Il nuovo prezzo finale e stato salvato."
+msgstr "Quote updated. The new final price has been saved."
+
+msgid "Richiesta rifiutata. Il cliente non vedra nessun pagamento attivo."
+msgstr "Request rejected. The customer will not see any active payment."
+
+msgid "Richiesta riportata in approvazione."
+msgstr "Request moved back to approval."
+
+msgid "Messaggio e note del preventivo aggiornati."
+msgstr "Message and quote notes updated."
+
+msgid "Compila la richiesta con i componenti che conosci gia, il tuo budget e le note finali. Dopo l'invio la richiesta passera al team, che la valutera prima di rendere disponibile il pagamento."
+msgstr "Fill out the request with the components you already know, your budget, and final notes. After submission, the request goes to the team, which will review it before making payment available."
+
+msgid "Passo 1"
+msgstr "Step 1"
+
+msgid "Invia la richiesta"
+msgstr "Send the request"
+
+msgid "Inserisci componenti, budget e note in modo semplice. Puoi lasciare vuoti i campi che non hai ancora deciso."
+msgstr "Enter components, budget, and notes in a simple way. You can leave empty any fields you have not decided yet."
+
+msgid "Passo 2"
+msgstr "Step 2"
+
+msgid "Il team la valuta"
+msgstr "The team reviews it"
+
+msgid "Admin e super admin controllano la configurazione, definiscono il preventivo finale e aggiornano lo stato."
+msgstr "Admins and super admins review the configuration, define the final quote, and update the status."
+
+msgid "Passo 3"
+msgstr "Step 3"
+
+msgid "Paghi solo se approvata"
+msgstr "You pay only if approved"
+
+msgid "Finche la richiesta e in approvazione non compare alcun pagamento. Il pulsante compare solo dopo l'approvazione."
+msgstr "While the request is pending approval, no payment appears. The button shows up only after approval."
+
+msgid "1. Componenti che conosci gia"
+msgstr "1. Components you already know"
+
+msgid "Inserisci solo i componenti che hai gia deciso. Se qualcosa non e definito, spiegalo nelle note finali."
+msgstr "Enter only the components you have already chosen. If something is not defined yet, explain it in the final notes."
+
+msgid "2. Budget"
+msgstr "2. Budget"
+
+msgid "Il budget massimo e obbligatorio. Il budget minimo e facoltativo e serve solo se vuoi indicare una fascia di partenza."
+msgstr "The maximum budget is required. The minimum budget is optional and is only useful if you want to indicate a starting range."
+
+msgid "3. Note finali"
+msgstr "3. Final notes"
+
+msgid "Qui puoi spiegare l'uso del PC, lo stile che preferisci, la priorita tra prestazioni e silenziosita o altre richieste importanti."
+msgstr "Here you can explain the PC use case, the style you prefer, the priority between performance and quiet operation, or other important requests."
+
+msgid "Invia richiesta"
+msgstr "Send request"
+
+msgid "Annulla e torna all'account"
+msgstr "Cancel and return to account"
+
+msgid "Da qui controlli lo stato delle richieste personalizzate, vedi il prezzo finale quando viene approvato e accedi al pagamento solo quando e disponibile."
+msgstr "From here you can check the status of your custom requests, see the final price when it is approved, and access payment only when it is available."
+
+msgid "Nuova richiesta custom"
+msgstr "New custom request"
+
+msgid "Totale richieste"
+msgstr "Total requests"
+
+msgid "Tutte le tue richieste build personalizzate."
+msgstr "All your custom build requests."
+
+msgid "Il team le sta ancora valutando."
+msgstr "The team is still reviewing them."
+
+msgid "Da pagare"
+msgstr "To pay"
+
+msgid "Richieste approvate o con pagamento da ripetere."
+msgstr "Approved requests or requests with a payment to retry."
+
+msgid "Richieste con pagamento gia confermato."
+msgstr "Requests with payment already confirmed."
+
+msgid "Le tue richieste personalizzate"
+msgstr "Your custom requests"
+
+msgid "Ogni richiesta mostra stato, budget, prezzo finale e il prossimo passo da compiere."
+msgstr "Each request shows status, budget, final price, and the next step to take."
+
+msgid "Configurazione descritta nelle note della richiesta."
+msgstr "Configuration described in the request notes."
+
+msgid "Messaggio del team"
+msgstr "Team message"
+
+msgid "Le tue note"
+msgstr "Your notes"
+
+msgid "Vai al pagamento"
+msgstr "Go to payment"
+
+msgid "Continua pagamento"
+msgstr "Continue payment"
+
+msgid "Riprova pagamento"
+msgstr "Retry payment"
+
+msgid "Vedi riepilogo pagamento"
+msgstr "View payment summary"
+
+msgid "Vedi esito richiesta"
+msgstr "View request outcome"
+
+msgid "Vedi dettagli richiesta"
+msgstr "View request details"
+
+msgid "Quando invierai la prima richiesta custom la troverai qui, con stato e prossimo passo sempre visibili."
+msgstr "When you send your first custom request, you will find it here with the status and next step always visible."
+
+msgid "Crea la prima richiesta"
+msgstr "Create your first request"
+
+msgid "Profilo e stato account"
+msgstr "Profile and account status"
+
+msgid "Dati rapidi del tuo profilo e stato generale dell'accesso."
+msgstr "Quick profile details and overall access status."
+
+msgid "Come leggere gli stati"
+msgstr "How to read statuses"
+
+msgid "Una guida rapida per capire subito cosa succede in ogni fase."
+msgstr "A quick guide to immediately understand what happens in each stage."
+
+msgid "Il team sta ancora valutando la tua richiesta. Nessun pagamento disponibile."
+msgstr "The team is still reviewing your request. No payment is available."
+
+msgid "Il prezzo finale e pronto. Puoi aprire la richiesta e pagare."
+msgstr "The final price is ready. You can open the request and pay."
+
+msgid "Il pagamento e registrato correttamente."
+msgstr "The payment is recorded correctly."
+
+msgid "L'ultimo tentativo non e riuscito. Puoi riprovare dalla scheda richiesta."
+msgstr "The last attempt failed. You can retry from the request page."
+
+msgid "Qui trovi le richieste inviate direttamente dalle build gia pubblicate nel catalogo."
+msgstr "Here you find requests sent directly from builds already published in the catalog."
+
+msgid "Qui gestisci soprattutto le richieste custom: prima quelle da approvare, poi quelle gia approvate e infine quelle gia pagate."
+msgstr "Here you mainly manage custom requests: first the ones to approve, then the already approved ones, and finally the already paid ones."
+
+msgid "Da valutare ora"
+msgstr "Needs review now"
+
+msgid "Richieste che richiedono un tuo intervento immediato."
+msgstr "Requests that need your immediate action."
+
+msgid "Preventivi inviati"
+msgstr "Quotes sent"
+
+msgid "Il cliente vede gia il prezzo finale ma non ha ancora concluso il pagamento."
+msgstr "The customer can already see the final price but has not completed payment yet."
+
+msgid "Pagamenti confermati"
+msgstr "Confirmed payments"
+
+msgid "Richieste custom gia chiuse dal lato economico."
+msgstr "Custom requests already completed financially."
+
+msgid "Modalita pagamento"
+msgstr "Payment mode"
+
+msgid "Test / simulata"
+msgstr "Test / simulated"
+
+msgid "Configurazione futura PayPal: %(env)s."
+msgstr "Future PayPal configuration: %(env)s."
+
+msgid "1. Richieste da approvare"
+msgstr "1. Requests to approve"
+
+msgid "Queste richieste sono in attesa di una tua decisione. Apri la scheda, definisci il prezzo finale e poi approva o rifiuta."
+msgstr "These requests are waiting for your decision. Open the page, define the final price, then approve or reject."
+
+msgid "Richiesta"
+msgstr "Request"
+
+msgid "Prossimo passo"
+msgstr "Next step"
+
+msgid "Apri e valuta"
+msgstr "Open and review"
+
+msgid "Nessuna richiesta in attesa di approvazione."
+msgstr "No requests waiting for approval."
+
+msgid "2. Richieste approvate"
+msgstr "2. Approved requests"
+
+msgid "Queste richieste hanno gia un preventivo approvato. Il cliente puo pagare oppure riprovare il pagamento se il primo tentativo e fallito."
+msgstr "These requests already have an approved quote. The customer can pay or retry if the first payment attempt failed."
+
+msgid "Apri preventivo"
+msgstr "Open quote"
+
+msgid "Nessuna richiesta approvata in attesa del cliente."
+msgstr "No approved requests waiting for the customer."
+
+msgid "3. Richieste pagate"
+msgstr "3. Paid requests"
+
+msgid "Queste richieste hanno gia completato il pagamento. Qui puoi controllare importo, ordine e riepilogo finale."
+msgstr "These requests have already completed payment. Here you can check amount, order, and final summary."
+
+msgid "Apri riepilogo"
+msgstr "Open summary"
+
+msgid "Richieste chiuse"
+msgstr "Closed requests"
+
+msgid "Qui trovi le richieste rifiutate o annullate. Puoi comunque riaprirle se serve una nuova valutazione."
+msgstr "Here you find rejected or cancelled requests. You can still reopen them if a new review is needed."
+
+msgid "Queste richieste non fanno parte del flusso custom: sono contatti inviati dalle build gia pubblicate."
+msgstr "These requests are not part of the custom flow: they are contacts sent from builds already published."
+
+msgid "Messaggi generici inviati dal modulo contatti del sito."
+msgstr "General messages sent from the site's contact form."
+
+msgid "Torna alla lista richieste"
+msgstr "Back to request list"
+
+msgid "Stato attuale della richiesta"
+msgstr "Current request status"
+
+msgid "Nessun tentativo"
+msgstr "No attempt"
+
+msgid "Richiesta del cliente"
+msgstr "Customer request"
+
+msgid "Qui trovi i dettagli inviati dal cliente: componenti, budget e note."
+msgstr "Here you can find the details sent by the customer: components, budget, and notes."
+
+msgid "Cosa puoi fare adesso"
+msgstr "What you can do now"
+
+msgid "Prima salva il prezzo finale e il messaggio per il cliente. Poi scegli l'azione principale piu adatta allo stato corrente."
+msgstr "First save the final price and the message for the customer. Then choose the main action that fits the current status."
+
+msgid "Approva richiesta e rendila pagabile"
+msgstr "Approve request and make it payable"
+
+msgid "Salva o aggiorna il preventivo"
+msgstr "Save or update the quote"
+
+msgid "Salva il messaggio per il cliente"
+msgstr "Save the message for the customer"
+
+msgid "Promemoria rapido"
+msgstr "Quick reminder"
+
+msgid "Approva solo quando prezzo finale e messaggio per il cliente sono corretti."
+msgstr "Approve only when the final price and the message for the customer are correct."
+
+msgid "Dopo l'approvazione il cliente vede il prezzo finale e il pulsante per pagare."
+msgstr "After approval the customer sees the final price and the button to pay."
+
+msgid "Se il pagamento fallisce, la richiesta resta gestibile e il cliente puo riprovare."
+msgstr "If the payment fails, the request remains manageable and the customer can retry."
+
+msgid "Richiesta personalizzata"
+msgstr "Custom request"
+
+msgid "Qui trovi il riepilogo della richiesta, il prezzo finale e il prossimo passo disponibile in questo momento."
+msgstr "Here you can find the request summary, the final price, and the next step available right now."
+
+msgid "Situazione attuale"
+msgstr "Current situation"
+
+msgid "Budget indicato"
+msgstr "Budget provided"
+
+msgid "Metodo"
+msgstr "Method"
+
+msgid "Riepilogo richiesta"
+msgstr "Request summary"
+
+msgid "Configurazione descritta soprattutto nelle note inviate al team."
+msgstr "Configuration described mainly in the notes sent to the team."
+
+msgid "Prossimo passo"
+msgstr "Next step"
+
+msgid "Qui vedi subito se puoi pagare adesso oppure se devi solo attendere un aggiornamento del team."
+msgstr "Here you immediately see whether you can pay now or whether you only need to wait for an update from the team."
+
+msgid "La richiesta e ancora in valutazione. In questa fase non devi fare nulla e non compare alcun pagamento."
+msgstr "The request is still under review. At this stage you do not need to do anything and no payment appears."
+
+msgid "Richiesta rifiutata"
+msgstr "Request rejected"
+
+msgid "Il team non ha approvato la richiesta. Nessun pagamento e disponibile."
+msgstr "The team did not approve the request. No payment is available."
+
+msgid "Richiesta annullata"
+msgstr "Request cancelled"
+
+msgid "La richiesta e stata chiusa. Nessun pagamento e disponibile."
+msgstr "The request has been closed. No payment is available."
+
+msgid "Pagamento confermato"
+msgstr "Payment confirmed"
+
+msgid "Il pagamento risulta gia registrato correttamente."
+msgstr "The payment is already recorded correctly."
+
+msgid "La richiesta e approvata e il prezzo finale e pronto. Puoi avviare il pagamento dal pulsante qui sotto."
+msgstr "The request is approved and the final price is ready. You can start the payment with the button below."
+
+msgid "Modalita test attiva"
+msgstr "Test mode active"
+
+msgid "Questo ambiente non usa soldi reali. Scegli semplicemente l'esito del test di pagamento."
+msgstr "This environment does not use real money. Simply choose the outcome of the payment test."
+
+msgid "Conferma test riuscito"
+msgstr "Confirm successful test"
+
+msgid "Simula errore di pagamento"
+msgstr "Simulate payment error"
+
+msgid "Ultimo tentativo registrato"
+msgstr "Latest recorded attempt"
+
+msgid "Cronologia completa dei tentativi registrati per questa richiesta."
+msgstr "Complete history of attempts recorded for this request."
+
+msgid "Da qui controlli subito cosa richiede un intervento: richieste custom da approvare, preventivi gia inviati e pagamenti confermati."
+msgstr "From here you can immediately see what needs action: custom requests to approve, quotes already sent, and confirmed payments."
+
+msgid "Contatta l'assistenza"
+msgstr "Contact support"
+
+msgid "Contatti"
+msgstr "Contact"
+
+msgid "Contatto"
+msgstr "Contact"
+
+msgid "Contenuti in inglese"
+msgstr "English content"
+
+msgid "Contenuti in italiano"
+msgstr "Italian content"
+
+msgid "Controlla i dati inseriti e riprova."
+msgstr "Check the entered data and try again."
+
+msgid "Controlla temporanei e permanenti."
+msgstr "Review temporary and permanent bans."
+
+msgid "Cookie Policy"
+msgstr "Cookie Policy"
+
+msgid "Cookie di sicurezza"
+msgstr "Security cookies"
+
+msgid "Cookie tecnici"
+msgstr "Technical cookies"
+
+msgid "Copyright {{ year }} {{ company }}. Tutti i diritti riservati."
+msgstr "Copyright {{ year }} {{ company }}. All rights reserved."
+
+msgid "Crea account"
+msgstr "Create account"
+
+msgid "Crea il tuo profilo in pochi minuti."
+msgstr "Create your profile in just a few minutes."
+
+msgid "Crea un ban"
+msgstr "Create a ban"
+
+msgid "Creata build %(name)s"
+msgstr "Created build %(name)s"
+
+msgid "Creato ban per %(email)s"
+msgstr "Created ban for %(email)s"
+
+msgid "Credenziali non valide."
+msgstr "Invalid credentials."
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Dashboard admin"
+msgstr "Admin dashboard"
+
+msgid "Dashboard amministrativa"
+msgstr "Administrative dashboard"
+
+msgid "Data"
+msgstr "Date"
+
+msgid "Dati aziendali"
+msgstr "Company details"
+
+msgid "Dati principali del sito"
+msgstr "Main site details"
+
+msgid "Dati raccolti"
+msgstr "Collected data"
+
+msgid "Descrizione breve EN"
+msgstr "Short description EN"
+
+msgid "Descrizione"
+msgstr "Description"
+
+msgid "Descrizione breve IT"
+msgstr "Short description IT"
+
+msgid "Descrizione breve dell'immagine"
+msgstr "Short image description"
+
+msgid "Descrizione completa EN"
+msgstr "Full description EN"
+
+msgid "Descrizione completa IT"
+msgstr "Full description IT"
+
+msgid "Descrizione completa della build"
+msgstr "Full build description"
+
+msgid "Devi accedere per inviare una richiesta su questa build."
+msgstr "You must log in to send a request for this build."
+
+msgid "Diritti dell'utente"
+msgstr "User rights"
+
+msgid "Disattivazione"
+msgstr "Disabling"
+
+msgid "Disponibile"
+msgstr "Available"
+
+msgid "Disponibilita"
+msgstr "Availability"
+
+msgid "Documentazione legale"
+msgstr "Legal documentation"
+
+msgid "Editor build"
+msgstr "Build editor"
+
+msgid "Elimina"
+msgstr "Delete"
+
+msgid "Eliminata immagine build %(name)s"
+msgstr "Deleted build image %(name)s"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Email account"
+msgstr "Account email"
+
+msgid "Email assistenza"
+msgstr "Support email"
+
+msgid "English build name"
+msgstr "Build name in English"
+
+msgid "English category"
+msgstr "Category in English"
+
+msgid "English short description"
+msgstr "Short description in English"
+
+msgid "Entra per gestire richieste build, profilo e pannello amministrativo se autorizzato."
+msgstr "Log in to manage build requests, your profile, and the admin panel if authorized."
+
+msgid "Es. 2 TB NVMe Gen4"
+msgstr "E.g. 2 TB NVMe Gen4"
+
+msgid "Es. 32 GB DDR5"
+msgstr "E.g. 32 GB DDR5"
+
+msgid "Es. AIO 360 mm o custom loop"
+msgstr "E.g. 360 mm AIO or custom loop"
+
+msgid "Es. RTX 5080"
+msgstr "E.g. RTX 5080"
+
+msgid "Es. Ryzen 7 9800X3D"
+msgstr "E.g. Ryzen 7 9800X3D"
+
+msgid "Es. marco.rossi"
+msgstr "E.g. john.smith"
+
+msgid "Esci"
+msgstr "Log out"
+
+msgid "Esiste gia un account con questa email."
+msgstr "An account with this email already exists."
+
+msgid "Esperienza"
+msgstr "Experience"
+
+msgid "Esperienza responsive, chiara e pronta per la pubblicazione."
+msgstr "Responsive, clear experience ready for launch."
+
+msgid "Finalita del trattamento"
+msgstr "Purposes of processing"
+
+msgid "Fine"
+msgstr "End"
+
+msgid "Fine ban"
+msgstr "Ban end"
+
+msgid "Flusso richieste"
+msgstr "Request flow"
+
+msgid "Full English description"
+msgstr "Full English description"
+
+msgid "GPU desiderata"
+msgstr "Desired GPU"
+
+msgid "Galleria immagini"
+msgstr "Image gallery"
+
+msgid "PC su misura"
+msgstr "Custom PCs"
+
+msgid "Gestione ban"
+msgstr "Ban management"
+
+msgid "Gestione build"
+msgstr "Build management"
+
+msgid "Gestione del consenso"
+msgstr "Consent management"
+
+msgid "Gestione sito"
+msgstr "Site management"
+
+msgid "Gestione utenti"
+msgstr "User management"
+
+msgid "Gestisci"
+msgstr "Manage"
+
+msgid "Hai gia un account?"
+msgstr "Already have an account?"
+
+msgid ""
+"Hai richiesto il reset della password.\n"
+"\n"
+"Codice di verifica: %(code)s\n"
+"Link di verifica: %(url)s\n"
+"\n"
+"Il codice scade alle %(date)s."
+msgstr ""
+"You requested a password reset.\n"
+"\n"
+"Verification code: %(code)s\n"
+"Verification link: %(url)s\n"
+"\n"
+"The code expires at %(date)s."
+
+msgid "Home"
+msgstr "Home"
+
+msgid "I dati vengono conservati per il tempo necessario a fornire il servizio, tutelare la sicurezza e rispettare eventuali obblighi di legge."
+msgstr "Data is retained for the time required to provide the service, protect security, and comply with legal obligations."
+
+msgid "I dati vengono trattati per gestione account, richieste commerciali, assistenza clienti, sicurezza del sito, adempimenti amministrativi e miglioramento del servizio."
+msgstr "Data is processed for account management, commercial requests, customer support, site security, administrative duties, and service improvement."
+
+msgid "Identita e prezzo"
+msgstr "Identity and pricing"
+
+msgid "Il gestore adotta misure ragionevoli per mantenere accuratezza e continuita del servizio, ma non garantisce assenza assoluta di interruzioni o errori."
+msgstr "The operator adopts reasonable measures to maintain service accuracy and continuity, but does not guarantee the absolute absence of interruptions or errors."
+
+msgid "Il mio account"
+msgstr "My account"
+
+msgid "Il servizio e regolato dalla legge italiana, salvo norme imperative di tutela del consumatore eventualmente applicabili."
+msgstr "The service is governed by Italian law, except where mandatory consumer protection rules apply."
+
+msgid "Il sito presenta configurazioni PC, raccoglie richieste personalizzate, richieste di acquisto e comunicazioni commerciali verso il gestore."
+msgstr "The site showcases PC configurations and collects custom requests, purchase requests, and commercial communications for the operator."
+
+msgid "Il sito utilizza cookie tecnici e di sessione per autenticazione, sicurezza, preferenze di interfaccia e funzionamento delle aree riservate."
+msgstr "The site uses technical and session cookies for authentication, security, interface preferences, and restricted-area functionality."
+
+msgid "Il super admin non puo essere bannato."
+msgstr "The super admin cannot be banned."
+
+msgid "Il titolare del trattamento e il gestore del sito Vortex Forge. I dati aziendali aggiornati sono riportati nel footer e nelle impostazioni del sito."
+msgstr "The data controller is the operator of the Vortex Forge site. Updated company details are shown in the footer and site settings."
+
+msgid "Il tuo account"
+msgstr "Your account"
+
+msgid "Il tuo account e stato bannato fino al %(date)s. Motivo: %(reason)s"
+msgstr "Your account has been banned until %(date)s. Reason: %(reason)s"
+
+msgid "Il tuo account e stato bannato in modo permanente. Motivo: %(reason)s"
+msgstr "Your account has been permanently banned. Reason: %(reason)s"
+
+msgid "Il tuo nome"
+msgstr "Your name"
+
+msgid "Immagine"
+msgstr "Image"
+
+msgid "Immagine aggiuntiva salvata."
+msgstr "Additional image saved."
+
+msgid "Immagine build"
+msgstr "Build image"
+
+msgid "Immagine principale"
+msgstr "Primary image"
+
+msgid "Immagine profilo"
+msgstr "Profile image"
+
+msgid "Immagine rimossa."
+msgstr "Image removed."
+
+msgid "Immagini build"
+msgstr "Build images"
+
+msgid "Imposta una password sicura"
+msgstr "Set a secure password"
+
+msgid "Impostazione sito"
+msgstr "Site setting"
+
+msgid "Impostazioni"
+msgstr "Settings"
+
+msgid "Impostazioni salvate."
+msgstr "Settings saved."
+
+msgid "Impostazioni sito"
+msgstr "Site settings"
+
+msgid "In evidenza"
+msgstr "Featured"
+
+msgid "In gestione"
+msgstr "In progress"
+
+msgid "In lavorazione"
+msgstr "In progress"
+
+msgid "In offerta"
+msgstr "On sale"
+
+msgid "In revisione"
+msgstr "Under review"
+
+msgid "Indirizzo azienda"
+msgstr "Company address"
+
+msgid "Informativa iniziale dedicata ai cookie tecnici e funzionali presenti nella piattaforma."
+msgstr "Initial notice dedicated to the technical and functional cookies used on the platform."
+
+msgid "Informativa strutturata per una piattaforma professionale, pronta per essere rifinita con i dati legali definitivi del titolare."
+msgstr "Structured notice for a professional platform, ready to be refined with the data controller's final legal details."
+
+msgid "Inglese"
+msgstr "English"
+
+msgid "Inizio"
+msgstr "Start"
+
+msgid "Inizio ban"
+msgstr "Ban start"
+
+msgid "Inserisci il codice a 6 cifre"
+msgstr "Enter the 6-digit code"
+
+msgid "Inserisci l'email del tuo account. Riceverai un link sicuro e un codice di verifica."
+msgstr "Enter your account email. You will receive a secure link and a verification code."
+
+msgid "Inserisci la password"
+msgstr "Enter your password"
+
+msgid "Inserisci richieste, tempi o preferenze di contatto"
+msgstr "Enter requirements, timing, or contact preferences"
+
+msgid "Interfaccia tech e leggibile"
+msgstr "Readable tech interface"
+
+msgid "Invia email di reset"
+msgstr "Send reset email"
+
+msgid "Invia messaggio"
+msgstr "Send message"
+
+msgid "Invia richiesta build"
+msgstr "Send build request"
+
+msgid "Invia richiesta custom"
+msgstr "Send custom request"
+
+msgid "Inviata"
+msgstr "Submitted"
+
+msgid "Italiano"
+msgstr "Italian"
+
+msgid "L'utente e responsabile delle credenziali, delle informazioni inserite e dell'uso lecito del proprio account."
+msgstr "The user is responsible for their credentials, the information entered, and the lawful use of their account."
+
+msgid "L'utente puo gestire i cookie tramite le impostazioni del browser, tenendo conto che alcune funzioni protette potrebbero non operare correttamente."
+msgstr "The user can manage cookies through browser settings, keeping in mind that some protected functions may not work correctly."
+
+msgid "L'utente puo richiedere accesso, rettifica, cancellazione, limitazione, opposizione e portabilita nei limiti previsti dalla normativa applicabile."
+msgstr "The user may request access, rectification, deletion, restriction, objection, and portability within the limits provided by applicable law."
+
+msgid "L'utente trova subito catalogo, build custom, contatti e area account senza passaggi confusi."
+msgstr "Users immediately find the catalog, custom builds, contacts, and their account area without confusing steps."
+
+msgid "La modalita dark o light e la lingua selezionata vengono salvate per offrire una navigazione coerente tra una visita e l'altra."
+msgstr "The selected dark or light mode and language are saved to provide a consistent browsing experience between visits."
+
+msgid "La password deve contenere almeno 10 caratteri."
+msgstr "Password must contain at least 10 characters."
+
+msgid "La password deve contenere almeno un carattere speciale."
+msgstr "Password must contain at least one special character."
+
+msgid "La password deve contenere almeno un numero."
+msgstr "Password must contain at least one number."
+
+msgid "La password deve contenere almeno una lettera."
+msgstr "Password must contain at least one letter."
+
+msgid "La richiesta di reset non e valida o e scaduta."
+msgstr "The reset request is invalid or has expired."
+
+msgid "Le nostre build"
+msgstr "Our builds"
+
+msgid "Le password non coincidono."
+msgstr "Passwords do not match."
+
+msgid "Le password vengono validate lato server e archiviate solo in forma hashata."
+msgstr "Passwords are validated server-side and stored only as hashes."
+
+msgid "La password viene validata lato server e archiviata solo in forma hashata."
+msgstr "The password is validated server-side and stored only as a hash."
+
+msgid "Legge applicabile"
+msgstr "Applicable law"
+
+msgid "Limitazioni di responsabilita"
+msgstr "Limitations of liability"
+
+msgid "Link utili"
+msgstr "Useful links"
+
+msgid "Log amministrativi"
+msgstr "Admin logs"
+
+msgid "Log amministrativo"
+msgstr "Admin log"
+
+msgid "Menu principale"
+msgstr "Main menu"
+
+msgid "Messaggi contatto"
+msgstr "Contact messages"
+
+msgid "Messaggio"
+msgstr "Message"
+
+msgid "Messaggio contatto"
+msgstr "Contact message"
+
+msgid "Messaggio fiducia EN"
+msgstr "Trust message EN"
+
+msgid "Messaggio fiducia IT"
+msgstr "Trust message IT"
+
+msgid "Messaggio fiducia in italiano"
+msgstr "Trust message in Italian"
+
+msgid "Messaggio inviato correttamente. Ti ricontatteremo al piu presto."
+msgstr "Message sent successfully. We will get back to you as soon as possible."
+
+msgid "Minimo 10 caratteri"
+msgstr "Minimum 10 characters"
+
+msgid "Minimo 10 caratteri con almeno una lettera e un numero."
+msgstr "Minimum 10 characters with at least one letter and one number."
+
+msgid "Moderazione"
+msgstr "Moderation"
+
+msgid "Modifica"
+msgstr "Edit"
+
+msgid "Modifica build"
+msgstr "Edit build"
+
+msgid "Modifica profilo"
+msgstr "Edit profile"
+
+msgid "Mostra o nascondi"
+msgstr "Show or hide"
+
+msgid "Motivo"
+msgstr "Reason"
+
+msgid "Motivo dettagliato del ban"
+msgstr "Detailed ban reason"
+
+msgid "Motivo revoca"
+msgstr "Revocation reason"
+
+msgid "Nascosta"
+msgstr "Hidden"
+
+msgid "Navigazione backoffice"
+msgstr "Back office navigation"
+
+msgid "Nessun ban registrato."
+msgstr "No bans registered."
+
+msgid "Nessun messaggio contatto."
+msgstr "No contact messages."
+
+msgid "Nessun utente."
+msgstr "No users."
+
+msgid "Nessuna"
+msgstr "None"
+
+msgid "Nessuna attivita registrata."
+msgstr "No activity recorded."
+
+msgid "Nessuna build disponibile per il filtro selezionato."
+msgstr "No builds available for the selected filter."
+
+msgid "Nessuna build presente."
+msgstr "No builds available."
+
+msgid "Nessuna immagine"
+msgstr "No image"
+
+msgid "Nessuna build pubblicata al momento. Accedi al pannello admin per inserire i primi prodotti."
+msgstr "No builds are published yet. Log in to the admin panel to add the first products."
+
+msgid "Nessuna immagine aggiuntiva."
+msgstr "No additional images."
+
+msgid "Nessuna immagine principale caricata"
+msgstr "No primary image uploaded"
+
+msgid "Nessuna richiesta build inviata."
+msgstr "No build requests sent."
+
+msgid "Nessuna richiesta build."
+msgstr "No build requests."
+
+msgid "Nessuna richiesta custom."
+msgstr "No custom requests."
+
+msgid "Nessuna richiesta personalizzata."
+msgstr "No custom requests."
+
+msgid "No"
+msgstr "No"
+
+msgid "Nome"
+msgstr "First name"
+
+msgid "Nome azienda"
+msgstr "Company name"
+
+msgid "Nome build"
+msgstr "Build name"
+
+msgid "Nome build EN"
+msgstr "Build name EN"
+
+msgid "Nome build IT"
+msgstr "Build name IT"
+
+msgid "Nome e cognome"
+msgstr "Full name"
+
+msgid "Nome sito"
+msgstr "Site name"
+
+msgid "Nome utente"
+msgstr "Username"
+
+msgid "Non disponibile"
+msgstr "Unavailable"
+
+msgid "Non e disponibile un dettaglio del ban, ma l'accesso al profilo risulta limitato."
+msgstr "A detailed ban record is not available, but access to the profile is restricted."
+
+msgid "Non inserito"
+msgstr "Not provided"
+
+msgid "Note aggiuntive"
+msgstr "Additional notes"
+
+msgid "Numero di telefono"
+msgstr "Phone number"
+
+msgid "Nuova"
+msgstr "New"
+
+msgid "Nuova build"
+msgstr "New build"
+
+msgid "Nuova password"
+msgstr "New password"
+
+msgid "Nuova password sicura"
+msgstr "New secure password"
+
+msgid "Nuova richiesta"
+msgstr "New request"
+
+msgid "Nuovo"
+msgstr "New"
+
+msgid "Nuovo account"
+msgstr "New account"
+
+msgid "Nuovo ban"
+msgstr "New ban"
+
+msgid "Nuovo cliente"
+msgstr "New customer"
+
+msgid "Oggetto"
+msgstr "Subject"
+
+msgid "Oggetto del servizio"
+msgstr "Scope of the service"
+
+msgid "Oggetto della richiesta"
+msgstr "Request subject"
+
+msgid "One component per line in English"
+msgstr "One component per line in English"
+
+msgid "Ordine"
+msgstr "Order"
+
+msgid "PC professionali"
+msgstr "Professional PCs"
+
+msgid "Pagamenti sicuri"
+msgstr "Secure payments"
+
+msgid "Pannello admin"
+msgstr "Admin panel"
+
+msgid "Panoramica"
+msgstr "Overview"
+
+msgid "Parla con il team commerciale"
+msgstr "Speak with the sales team"
+
+msgid "Partita IVA"
+msgstr "VAT number"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Password aggiornata correttamente. Ora puoi accedere."
+msgstr "Password updated successfully. You can now log in."
+
+msgid "Password dimenticata"
+msgstr "Forgot password"
+
+msgid "Password dimenticata?"
+msgstr "Forgot password?"
+
+msgid "Perche sceglierci"
+msgstr "Why choose us"
+
+msgid "Permanente"
+msgstr "Permanent"
+
+msgid "Personalizza il tuo PC"
+msgstr "Customize your PC"
+
+msgid "Piattaforma professionale per vendita e richieste di PC su misura."
+msgstr "Professional platform for selling custom PCs and handling requests."
+
+msgid "Piu venduta"
+msgstr "Best seller"
+
+msgid "Preferenze utente"
+msgstr "User preferences"
+
+msgid "Preordine"
+msgstr "Pre-order"
+
+msgid "Preventivo inviato"
+msgstr "Quote sent"
+
+msgid "Prezzi, disponibilita, immagini e componenti possono variare e restano soggetti a conferma commerciale prima della conclusione della vendita."
+msgstr "Prices, availability, images, and components may vary and remain subject to commercial confirmation before the sale is completed."
+
+msgid "Prezzo"
+msgstr "Price"
+
+msgid "Prezzo su richiesta"
+msgstr "Price on request"
+
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+msgid "Profilo"
+msgstr "Profile"
+
+msgid "Profilo aggiornato correttamente."
+msgstr "Profile updated successfully."
+
+msgid "Profilo utente"
+msgstr "User profile"
+
+msgid "Programmato"
+msgstr "Scheduled"
+
+msgid "Pronta"
+msgstr "Ready"
+
+msgid "Pubblica"
+msgstr "Public"
+
+msgid "Puo gestire ban"
+msgstr "Can manage bans"
+
+msgid "Puo gestire build"
+msgstr "Can manage builds"
+
+msgid "Puo gestire impostazioni"
+msgstr "Can manage settings"
+
+msgid "Puo gestire utenti"
+msgstr "Can manage users"
+
+msgid "Puo vedere richieste e contatti"
+msgstr "Can view requests and contacts"
+
+msgid "Quando"
+msgstr "When"
+
+msgid "Questa build verra salvata come pubblica sul sito. Prezzo e altre informazioni commerciali verranno gestiti automaticamente."
+msgstr "This build will be saved as public on the site. Price and other commercial information will be managed automatically."
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Raccogliamo dati di registrazione, richieste build, messaggi di contatto, log di sicurezza e informazioni tecniche necessarie al corretto funzionamento della piattaforma."
+msgstr "We collect registration data, build requests, contact messages, security logs, and technical information required for the platform to work properly."
+
+msgid "Raffreddamento"
+msgstr "Cooling"
+
+msgid "Registrati"
+msgstr "Register"
+
+msgid "Registrati per inviare richieste personalizzate, seguire i contatti e salvare il tuo account cliente."
+msgstr "Register to send custom requests, track contacts, and save your customer account."
+
+msgid "Registrazione cliente"
+msgstr "Customer registration"
+
+msgid "Reset password"
+msgstr "Password reset"
+
+msgid "Reset password %(site)s"
+msgstr "%(site)s password reset"
+
+msgid "Revoca"
+msgstr "Revoke"
+
+msgid "Revocato"
+msgstr "Revoked"
+
+msgid "Revocato ban per %(email)s"
+msgstr "Revoked ban for %(email)s"
+
+msgid "Riassunto breve della build"
+msgstr "Short build summary"
+
+msgid "Richiedi il reset"
+msgstr "Request reset"
+
+msgid "Richiedi questa build"
+msgstr "Request this build"
+
+msgid "Richiedi una build personalizzata"
+msgstr "Request a custom build"
+
+msgid "Richiedi una build su misura"
+msgstr "Request a tailored build"
+
+msgid "Richiesta acquisto build"
+msgstr "Build purchase request"
+
+msgid "Richiesta build personalizzata"
+msgstr "Custom build request"
+
+msgid "Richiesta build personalizzata inviata correttamente."
+msgstr "Custom build request sent successfully."
+
+msgid "Richiesta commerciale"
+msgstr "Sales request"
+
+msgid "Richiesta per la build inviata. Ti contatteremo a breve."
+msgstr "Request for the build sent. We will contact you shortly."
+
+msgid "Richiesta reset password"
+msgstr "Password reset request"
+
+msgid "Richieste"
+msgstr "Requests"
+
+msgid "Richieste acquisto build"
+msgstr "Build purchase requests"
+
+msgid "Richieste build"
+msgstr "Build requests"
+
+msgid "Richieste build personalizzate"
+msgstr "Custom build requests"
+
+msgid "Richieste custom, contatti e build salvati in database."
+msgstr "Custom requests, contacts, and builds stored in the database."
+
+msgid "Richieste e contatti"
+msgstr "Requests and contacts"
+
+msgid "Richieste gestite con ordine"
+msgstr "Requests handled clearly"
+
+msgid "Richieste personalizzate"
+msgstr "Custom requests"
+
+msgid "Richieste reset password"
+msgstr "Password reset requests"
+
+msgid "Richieste sulle build"
+msgstr "Build-related requests"
+
+msgid "Specifiche Build"
+msgstr "Build Specs"
+
+msgid "Ripeti la nuova password"
+msgstr "Repeat the new password"
+
+msgid "Ripeti la password"
+msgstr "Repeat the password"
+
+msgid "Risolto"
+msgstr "Resolved"
+
+msgid "Ruolo"
+msgstr "Role"
+
+msgid "Salva build"
+msgstr "Save build"
+
+msgid "Salva impostazioni"
+msgstr "Save settings"
+
+msgid "Salva password"
+msgstr "Save password"
+
+msgid "Salva prima la build per abilitare la galleria immagini."
+msgstr "Save the build first to enable the image gallery."
+
+msgid "Salva profilo"
+msgstr "Save profile"
+
+msgid "Salva utente"
+msgstr "Save user"
+
+msgid "Scaduto"
+msgstr "Expired"
+
+msgid "Scheda utente"
+msgstr "User profile sheet"
+
+msgid "Scopri la build"
+msgstr "Explore build"
+
+msgid "Scopri le build"
+msgstr "Explore builds"
+
+msgid "Se in futuro verranno introdotti cookie statistici o marketing, sara necessario integrare una gestione consenso conforme."
+msgstr "If statistical or marketing cookies are introduced in the future, compliant consent management will need to be added."
+
+msgid "Se l'indirizzo esiste, abbiamo inviato una email con codice e link per il reset password."
+msgstr "If the address exists, we have sent an email with a code and a link for password reset."
+
+msgid "Se attivo, la build compare nel catalogo pubblico."
+msgstr "If enabled, the build appears in the public catalog."
+
+msgid "Se attivo, la build viene nascosta dal sito senza essere eliminata."
+msgstr "If enabled, the build is hidden from the site without being deleted."
+
+msgid "Sede e supporto"
+msgstr "Headquarters and support"
+
+msgid "Seleziona lingua"
+msgstr "Select language"
+
+msgid "Senza descrizione"
+msgstr "No description"
+
+msgid "Servizio"
+msgstr "Service"
+
+msgid "Sessioni sicure, password hashate, rotte protette e dati sensibili separati in variabili ambiente."
+msgstr "Secure sessions, hashed passwords, protected routes, and sensitive data separated into environment variables."
+
+msgid "Si"
+msgstr "Yes"
+
+msgid "Si,No"
+msgstr "Yes,No"
+
+msgid "Sicurezza"
+msgstr "Security"
+
+msgid "Sistema"
+msgstr "System"
+
+msgid "Sito protetto"
+msgstr "Protected site"
+
+msgid "Sottotitolo hero EN"
+msgstr "Hero subtitle EN"
+
+msgid "Sottotitolo hero IT"
+msgstr "Hero subtitle IT"
+
+msgid "Spiega come possiamo aiutarti"
+msgstr "Tell us how we can help"
+
+msgid "Stato"
+msgstr "Status"
+
+msgid "Stato account"
+msgstr "Account status"
+
+msgid "Stato archivio della build aggiornato."
+msgstr "Build archive status updated."
+
+msgid "Le nuove build vengono create visibili sul sito e non archiviate, salvo modifica manuale."
+msgstr "New builds are created visible on the site and not archived, unless you change that manually."
+
+msgid "Stato commerciale"
+msgstr "Commercial status"
+
+msgid "Storage"
+msgstr "Storage"
+
+msgid "Strumenti riservati per build, utenti, ban, richieste e impostazioni generali."
+msgstr "Restricted tools for builds, users, bans, requests, and general settings."
+
+msgid "Super admin"
+msgstr "Super admin"
+
+msgid "Supporto"
+msgstr "Support"
+
+msgid "Telefono"
+msgstr "Phone"
+
+msgid "Telefono assistenza"
+msgstr "Support phone"
+
+msgid "Tema chiaro"
+msgstr "Light theme"
+
+msgid "Tema scuro"
+msgstr "Dark theme"
+
+msgid "Temporaneo"
+msgstr "Temporary"
+
+msgid "Tentativi login"
+msgstr "Login attempts"
+
+msgid "Tentativo login"
+msgstr "Login attempt"
+
+msgid "Termini e Condizioni"
+msgstr "Terms and Conditions"
+
+msgid "Testo alternativo"
+msgstr "Alt text"
+
+msgid "Tipo"
+msgstr "Type"
+
+msgid "Tipo di ban"
+msgstr "Ban type"
+
+msgid "Titolare del trattamento"
+msgstr "Data controller"
+
+msgid "Titolo hero EN"
+msgstr "Hero title EN"
+
+msgid "Titolo hero IT"
+msgstr "Hero title IT"
+
+msgid "Torna alla lista"
+msgstr "Back to list"
+
+msgid "Tra custom, build e contatti."
+msgstr "Across custom requests, builds, and contacts."
+
+msgid "Troppi tentativi di accesso. Riprova tra qualche minuto."
+msgstr "Too many login attempts. Try again in a few minutes."
+
+msgid "Trust message in English"
+msgstr "Trust message in English"
+
+msgid "Tutte"
+msgstr "All"
+
+msgid "Ultime attivita admin"
+msgstr "Latest admin activity"
+
+msgid "Ultime richieste custom"
+msgstr "Latest custom requests"
+
+msgid "Un ban temporaneo richiede una data di fine."
+msgstr "A temporary ban requires an end date."
+
+msgid "Una componente per riga"
+msgstr "One component per line"
+
+msgid "Una componente per riga in inglese"
+msgstr "One component per line in English"
+
+msgid "Uso previsto, stile del case, RGB, monitor, streaming..."
+msgstr "Intended use, case style, RGB, monitor, streaming..."
+
+msgid "Utente"
+msgstr "User"
+
+msgid "Utente aggiornato."
+msgstr "User updated."
+
+msgid "Utente attivo"
+msgstr "Active user"
+
+msgid "Utenti"
+msgstr "Users"
+
+msgid "Vedi tutto"
+msgstr "View all"
+
+msgid "Verifica"
+msgstr "Verify"
+
+msgid "Verifica codice"
+msgstr "Verify code"
+
+msgid "Verifica reset"
+msgstr "Reset verification"
+
+msgid "Verifica reset non valida. Ripeti la procedura."
+msgstr "Invalid reset verification. Repeat the procedure."
+
+msgid "Visibile sul sito"
+msgstr "Visible on site"
+
+msgid "Visibilita"
+msgstr "Visibility"
+
+msgid "Visibilita build %(name)s: %(value)s"
+msgstr "Build visibility %(name)s: %(value)s"
+
+msgid "Visibilita della build aggiornata."
+msgstr "Build visibility updated."
+
+msgid "Vortex Forge"
+msgstr "Vortex Forge"
+
+msgid "nome@azienda.it"
+msgstr "name@company.com"
+
+msgid "{{ total }} pubbliche e visibili."
+msgstr "{{ total }} public and visible."
+
+msgid "CPU (Processore)"
+msgstr "CPU (Processor)"
+
+msgid "GPU (Scheda video/grafica)"
+msgstr "GPU (Graphics card)"
+
+msgid "Alimentatore"
+msgstr "Power supply"
+
+msgid "Dissipatore (Ad aria o liquido)"
+msgstr "Cooler (Air or liquid)"
+
+msgid "Archiviazione (Consigliato SSD o HDD)"
+msgstr "Storage (Recommended SSD or HDD)"
+
+msgid "Scheda madre"
+msgstr "Motherboard"
+
+msgid "Ventole aggiuntive"
+msgstr "Additional fans"
+
+msgid "Scheda di rete aggiuntiva 2.5 Gb +"
+msgstr "Additional network card 2.5 Gb +"
+
+msgid "Note aggiuntive sulla build"
+msgstr "Additional build notes"
+
+msgid "Immagini aggiuntive"
+msgstr "Additional images"
+
+msgid "Le immagini selezionate verranno salvate insieme alla build."
+msgstr "The selected images will be saved together with the build."
+
+msgid "Immagine galleria"
+msgstr "Gallery image"
+
+msgid "Apri galleria build"
+msgstr "Open build gallery"
+
+msgid "Apri immagine %(number)s"
+msgstr "Open image %(number)s"
+
+msgid "Chiudi galleria"
+msgstr "Close gallery"
+
+msgid "Galleria build"
+msgstr "Build gallery"
+
+msgid "Chiudi"
+msgstr "Close"
+
+msgid "Immagine precedente"
+msgstr "Previous image"
+
+msgid "Immagine successiva"
+msgstr "Next image"
+
+msgid "Componenti non ancora specificati."
+msgstr "Components have not been specified yet."
+
+msgid "Compila il form con tutti i componenti principali, budget e note. La richiesta verra salvata nel tuo account e nel pannello admin in modo ordinato e leggibile."
+msgstr "Fill out the form with all the main components, budget, and notes. The request will be saved in your account and in the admin panel in a clear and organized way."
+
+msgid "Componenti principali"
+msgstr "Main components"
+
+msgid "Inserisci i componenti che desideri. Se alcuni non sono ancora definiti, puoi lasciarli vuoti e spiegare meglio nelle note."
+msgstr "Enter the components you want. If some are not defined yet, you can leave them empty and explain the request better in the notes."
+
+msgid "Budget e note"
+msgstr "Budget and notes"
+
+msgid "Torna al tuo account"
+msgstr "Back to your account"
+
+msgid "Configurazione da definire"
+msgstr "Configuration to be defined"
+
+msgid "Es. 850W 80+ Gold"
+msgstr "E.g. 850W 80+ Gold"
+
+msgid "Es. Dissipatore ad aria dual tower o AIO 360 mm"
+msgstr "E.g. Dual-tower air cooler or 360 mm AIO"
+
+msgid "Es. 2 TB SSD NVMe o 4 TB HDD"
+msgstr "E.g. 2 TB NVMe SSD or 4 TB HDD"
+
+msgid "Es. Mid Tower airflow"
+msgstr "E.g. Airflow mid-tower"
+
+msgid "Es. B650 / X870 / Z890"
+msgstr "E.g. B650 / X870 / Z890"
+
+msgid "Es. 3x 140 mm PWM"
+msgstr "E.g. 3x 140 mm PWM"
+
+msgid "Es. 2.5 GbE o Wi-Fi 7"
+msgstr "E.g. 2.5 GbE or Wi-Fi 7"
+
+msgid "Inserisci almeno un componente richiesto oppure spiega la configurazione desiderata nelle note."
+msgstr "Enter at least one requested component or explain the desired configuration in the notes."
+
+msgid "Non puoi applicare un ban a questo account."
+msgstr "You cannot ban this account."
+
+msgid "Il super admin puo promuovere, ridurre o gestire tutti gli account. Un admin autorizzato puo gestire solo utenti normali."
+msgstr "The super admin can promote, reduce, or manage all accounts. An authorized admin can manage normal users only."
+
+msgid "Il super admin puo bannare utenti e admin. Un admin autorizzato puo bannare solo utenti normali. Il super admin non puo essere bannato."
+msgstr "The super admin can ban users and admins. An authorized admin can ban normal users only. The super admin cannot be banned."
+
+msgid "Inserisci il prezzo finale della build in euro."
+msgstr "Enter the final build price in euros."
+
+msgid "La build verra salvata come pubblica sul sito. Prezzo e disponibilita restano modificabili in qualsiasi momento."
+msgstr "The build will be saved as public on the site. Price and availability can be changed at any time."
+
+msgid "Zona eliminazione"
+msgstr "Deletion area"
+
+msgid "Questa azione elimina definitivamente la build e la sua galleria dal catalogo."
+msgstr "This action permanently deletes the build and its gallery from the catalog."
+
+msgid "Confermi l'eliminazione definitiva della build?"
+msgstr "Do you confirm the permanent deletion of this build?"
+
+msgid "Elimina definitivamente"
+msgstr "Delete permanently"
+
+msgid "Eliminata build %(name)s"
+msgstr "Deleted build %(name)s"
+
+msgid "Build eliminata definitivamente."
+msgstr "Build deleted permanently."
+
+msgid "Checkout build personalizzata"
+msgstr "Custom build checkout"
+
+msgid "Questa pagina raccoglie tutto il checkout della tua richiesta: riepilogo, stato, prezzo finale e conferma pagamento in modalita sviluppo."
+msgstr "This page gathers the full checkout for your request: summary, status, final price, and payment confirmation in development mode."
+
+msgid "Stato del checkout"
+msgstr "Checkout status"
+
+msgid "Valuta"
+msgstr "Currency"
+
+msgid "Metodo previsto"
+msgstr "Planned method"
+
+msgid "Checkout dev / simulato"
+msgstr "Dev / simulated checkout"
+
+msgid "Riepilogo ordine"
+msgstr "Order summary"
+
+msgid "Controlli la richiesta approvata, il prezzo finale e i riferimenti principali prima di iniziare il checkout."
+msgstr "Review the approved request, final price, and main references before starting checkout."
+
+msgid "Conferma pagamento"
+msgstr "Payment confirmation"
+
+msgid "In ambiente dev questa fase simula il punto in cui in futuro si aprira il checkout PayPal Business."
+msgstr "In development mode, this step simulates the point where PayPal Business checkout will open in the future."
+
+msgid "Esito finale"
+msgstr "Final outcome"
+
+msgid "Vedi subito se il pagamento risulta confermato o se deve essere ripetuto."
+msgstr "See immediately whether the payment is confirmed or needs to be repeated."
+
+msgid "Riepilogo completo della richiesta"
+msgstr "Full request summary"
+
+msgid "Questi sono i dati usati per il checkout: cliente, componenti richiesti, budget iniziale e prezzo finale approvato."
+msgstr "These are the details used for checkout: customer, requested components, initial budget, and approved final price."
+
+msgid "Riferimento richiesta"
+msgstr "Request reference"
+
+msgid "Prezzo finale approvato"
+msgstr "Approved final price"
+
+msgid "Riferimento pagamento"
+msgstr "Payment reference"
+
+msgid "Non ancora creato"
+msgstr "Not created yet"
+
+msgid "Simulato / dev"
+msgstr "Simulated / dev"
+
+msgid "Note importanti del team"
+msgstr "Important notes from the team"
+
+msgid "Qui trovi il passaggio attivo del pagamento. La logica e gia pronta per un futuro checkout PayPal, ma al momento usa una simulazione professionale per sviluppo."
+msgstr "Here you can see the active payment step. The flow is already prepared for future PayPal checkout, but it currently uses a professional development simulation."
+
+msgid "Modalita sviluppo attiva"
+msgstr "Development mode active"
+
+msgid "Nessun denaro reale viene addebitato. In futuro questo blocco verra collegato alle API di PayPal Business mantenendo lo stesso flusso di riepilogo, ordine e conferma."
+msgstr "No real money is charged. In the future this block will connect to PayPal Business APIs while keeping the same summary, order, and confirmation flow."
+
+msgid "In approvazione dei venditori"
+msgstr "Awaiting seller approval"
+
+msgid "Il team non ha ancora approvato il preventivo finale. Appena la richiesta verra approvata, qui comparira il pulsante per procedere al pagamento."
+msgstr "The team has not approved the final quote yet. As soon as the request is approved, the button to proceed with payment will appear here."
+
+msgid "Questa richiesta e chiusa e non puo proseguire verso il checkout. Puoi comunque consultare il riepilogo e le note del team."
+msgstr "This request is closed and cannot continue to checkout. You can still review the summary and the team's notes."
+
+msgid "Checkout pronto"
+msgstr "Checkout ready"
+
+msgid "Il prezzo finale e stato approvato. Controlla il riepilogo e avvia il checkout per creare il riferimento ordine e passare alla conferma pagamento."
+msgstr "The final price has been approved. Review the summary and start checkout to create the order reference and move to payment confirmation."
+
+msgid "Da pagare adesso"
+msgstr "Due now"
+
+msgid "Dopo questo passaggio entrerai nella fase di conferma pagamento simulato, con riferimento ordine e riepilogo del tentativo creato."
+msgstr "After this step you will enter the simulated payment confirmation stage, with order reference and a summary of the created payment attempt."
+
+msgid "Il checkout dev e stato creato. In un'integrazione reale, questo e il punto in cui il cliente verrebbe reindirizzato a PayPal per autorizzare il pagamento."
+msgstr "The dev checkout has been created. In a real integration, this is where the customer would be redirected to PayPal to authorize payment."
+
+msgid "Creato il"
+msgstr "Created on"
+
+msgid "Provider attivo"
+msgstr "Active provider"
+
+msgid "Esito da simulare"
+msgstr "Outcome to simulate"
+
+msgid "Scegli l'esito del test. Questo sostituisce temporaneamente il ritorno del provider di pagamento."
+msgstr "Choose the test outcome. This temporarily replaces the payment provider callback."
+
+msgid "Esito del test pagamento"
+msgstr "Payment test outcome"
+
+msgid "Autorizzazione completata con successo"
+msgstr "Authorization completed successfully"
+
+msgid "Autorizzazione rifiutata o interrotta"
+msgstr "Authorization declined or interrupted"
+
+msgid "Confermo di voler eseguire il test di pagamento su questa richiesta"
+msgstr "I confirm that I want to run the payment test for this request"
+
+msgid "Nel checkout reale questa fase verra sostituita dal ritorno di PayPal dopo l'autorizzazione del pagamento."
+msgstr "In the real checkout, this step will be replaced by PayPal returning after payment authorization."
+
+msgid "Questa conferma serve solo in ambiente di sviluppo e non addebita denaro reale."
+msgstr "This confirmation is only for development and does not charge real money."
+
+msgid "Conferma pagamento simulato"
+msgstr "Confirm simulated payment"
+
+msgid "Pagamento registrato con successo"
+msgstr "Payment recorded successfully"
+
+msgid "Il checkout risulta completato. Qui sotto trovi il riepilogo del pagamento con riferimenti utili per te e per il team."
+msgstr "The checkout has been completed. Below you will find the payment summary with useful references for you and the team."
+
+msgid "Completato il"
+msgstr "Completed on"
+
+msgid "Importo registrato"
+msgstr "Recorded amount"
+
+msgid "Rivedi il riepilogo checkout"
+msgstr "Review checkout summary"
+
+msgid "Pagamento non completato"
+msgstr "Payment not completed"
+
+msgid "L'ultimo tentativo non e andato a buon fine. Nessun importo e stato confermato e puoi riprovare il checkout quando vuoi."
+msgstr "The latest attempt was not successful. No amount has been confirmed and you can retry checkout whenever you want."
+
+msgid "Ultimo aggiornamento"
+msgstr "Latest update"
+
+msgid "Riavvia il checkout dev"
+msgstr "Restart dev checkout"
+
+msgid "Cronologia completa dei tentativi registrati per questa richiesta, con riferimenti e stato di ogni passaggio."
+msgstr "Full history of payment attempts recorded for this request, with references and status for each step."
+
+msgid "Pagamento"
+msgstr "Payment"
+
+msgid "Order / Transaction"
+msgstr "Order / Transaction"
+
+msgid "Pagamenti e tentativi recenti"
+msgstr "Recent payments and attempts"
+
+msgid "Qui controlli velocemente i pagamenti riusciti, quelli da riprovare e gli eventuali checkout ancora in corso."
+msgstr "Here you can quickly review successful payments, those to retry, and any checkout still in progress."
+
+msgid "Riusciti"
+msgstr "Succeeded"
+
+msgid "Da ripetere"
+msgstr "To retry"
+
+msgid "In corso"
+msgstr "In progress"
+
+msgid "Pagabili ora"
+msgstr "Payable now"
+
+msgid "Apri checkout"
+msgstr "Open checkout"
+
+msgid "Nessun pagamento registrato finora."
+msgstr "No payments recorded yet."
+
+msgid "Panoramica pagamenti custom"
+msgstr "Custom payment overview"
+
+msgid "Questa sezione ti aiuta a distinguere subito i checkout aperti, i pagamenti riusciti e quelli falliti."
+msgstr "This section helps you immediately distinguish open checkouts, successful payments, and failed payments."
+
+msgid "Checkout aperti"
+msgstr "Open checkouts"
+
+msgid "Pagamenti riusciti"
+msgstr "Successful payments"
+
+msgid "Pagamenti falliti"
+msgstr "Failed payments"
+
+msgid "Riferimenti"
+msgstr "References"
+
+msgid "Nessun pagamento custom registrato."
+msgstr "No custom payments recorded."
+
+msgid "Riepilogo checkout"
+msgstr "Checkout summary"
+
+msgid "Qui vedi l'ultimo stato di pagamento con i riferimenti principali utili per supporto e verifica."
+msgstr "Here you can see the latest payment status with the main references useful for support and verification."
+
+msgid "Stato checkout"
+msgstr "Checkout status"
+
+msgid "C'e un checkout ancora aperto o in conferma. Il cliente si trova nella fase finale del pagamento dev."
+msgstr "There is still an open or confirming checkout. The customer is in the final stage of the dev payment."
+
+msgid "Nessun checkout creato"
+msgstr "No checkout created"
+
+msgid "Il cliente non ha ancora avviato il checkout. Questa sezione si popola automaticamente dal primo tentativo di pagamento."
+msgstr "The customer has not started checkout yet. This section will fill automatically from the first payment attempt."
+
+msgid "Checkout dev avviato. Completa ora il passaggio di conferma pagamento."
+msgstr "Dev checkout started. Complete the payment confirmation step now."
+
+msgid "Pagamento test registrato correttamente. Ora trovi il riepilogo completo nella schermata checkout."
+msgstr "Test payment recorded correctly. You can now find the full summary on the checkout screen."
+
+msgid "Il checkout dev ha restituito un esito negativo. Puoi riprovare quando vuoi dalla stessa pagina."
+msgstr "The dev checkout returned a negative result. You can retry whenever you want from the same page."
+
+msgid "La tua build personalizzata e stata approvata.\n\nRiferimento: %(reference)s\nPrezzo finale: %(price)s\nStato: %(status)s\nCheckout: %(url)s\n\nApri la pagina checkout per controllare il riepilogo completo e procedere al pagamento."
+msgstr "Your custom build has been approved.\n\nReference: %(reference)s\nFinal price: %(price)s\nStatus: %(status)s\nCheckout: %(url)s\n\nOpen the checkout page to review the full summary and proceed with payment."
+
+msgid "Il pagamento della tua build personalizzata e stato confermato.\n\nRiferimento: %(reference)s\nPagamento: %(payment_reference)s\nImporto: %(amount)s %(currency)s\nProvider: %(provider)s\nOrder ID: %(order_id)s\nTransaction ID: %(transaction_id)s\nDashboard: %(url)s"
+msgstr "The payment for your custom build has been confirmed.\n\nReference: %(reference)s\nPayment: %(payment_reference)s\nAmount: %(amount)s %(currency)s\nProvider: %(provider)s\nOrder ID: %(order_id)s\nTransaction ID: %(transaction_id)s\nDashboard: %(url)s"
+
+msgid "Una build personalizzata risulta pagata.\n\nRiferimento: %(reference)s\nPagamento: %(payment_reference)s\nCliente: %(email)s\nImporto: %(amount)s %(currency)s\nOrdine esterno: %(order_id)s\nTransaction ID: %(transaction_id)s\nDashboard: %(url)s"
+msgstr "A custom build appears as paid.\n\nReference: %(reference)s\nPayment: %(payment_reference)s\nCustomer: %(email)s\nAmount: %(amount)s %(currency)s\nExternal order: %(order_id)s\nTransaction ID: %(transaction_id)s\nDashboard: %(url)s"
+
+msgid "Qui trovi un checkout dev molto piu vicino a una pagina pagamento reale: riepilogo ordine, scelta del metodo, conferma finale e storico completo."
+msgstr "Here you get a dev checkout that is much closer to a real payment page: order summary, method selection, final confirmation, and full history."
+
+msgid "Metodo selezionato"
+msgstr "Selected method"
+
+msgid "Da scegliere"
+msgstr "To be selected"
+
+msgid "Ordine e metodo"
+msgstr "Order and method"
+
+msgid "Controlli il riepilogo della richiesta e scegli come vorrai pagare in futuro."
+msgstr "Review the request summary and choose how you want to pay in the future."
+
+msgid "Autorizzazione"
+msgstr "Authorization"
+
+msgid "Questa fase simula il passaggio a un provider esterno come PayPal o un gateway carte."
+msgstr "This step simulates the handoff to an external provider such as PayPal or a card gateway."
+
+msgid "Esito pagamento"
+msgstr "Payment outcome"
+
+msgid "Questi dati accompagnano il checkout: cliente, componenti, budget iniziale, prezzo finale e riferimenti ordine."
+msgstr "These details accompany the checkout: customer, components, initial budget, final price, and order references."
+
+msgid "Checkout protetto"
+msgstr "Secure checkout"
+
+msgid "Questa sezione simula una vera esperienza di pagamento, ma resta in modalita sviluppo finche non collegheremo il provider reale."
+msgstr "This section simulates a real payment experience, but remains in development mode until the real provider is connected."
+
+msgid "Ambiente sviluppo"
+msgstr "Development environment"
+
+msgid "Le opzioni PayPal, Mastercard, Visa e American Express sono gia pronte a livello visivo e di flusso. In futuro il metodo scelto portera al checkout ufficiale corretto."
+msgstr "The PayPal, Mastercard, Visa, and American Express options are already prepared visually and in the flow. In the future, the selected method will lead to the correct official checkout."
+
+msgid "Il preventivo non e ancora approvato. Appena il team confermera il prezzo finale, qui potrai scegliere il metodo di pagamento e procedere al checkout."
+msgstr "The quote has not been approved yet. As soon as the team confirms the final price, you will be able to choose the payment method and proceed to checkout here."
+
+msgid "Questa richiesta non puo proseguire verso il pagamento. Puoi comunque consultare il riepilogo ordine e le note del team."
+msgstr "This request cannot continue to payment. You can still review the order summary and the team's notes."
+
+msgid "Scegli il metodo di pagamento"
+msgstr "Choose the payment method"
+
+msgid "Il prezzo finale e pronto. Seleziona il metodo preferito per creare il checkout e passare alla fase di autorizzazione."
+msgstr "The final price is ready. Select the preferred method to create the checkout and move to the authorization step."
+
+msgid "Wallet protetto"
+msgstr "Secure wallet"
+
+msgid "In futuro il cliente verra reindirizzato al checkout ufficiale PayPal Business."
+msgstr "In the future, the customer will be redirected to the official PayPal Business checkout."
+
+msgid "Carta di credito o debito"
+msgstr "Credit or debit card"
+
+msgid "Flusso pronto per un futuro gateway carta con circuito Mastercard."
+msgstr "Flow ready for a future card gateway using the Mastercard network."
+
+msgid "Flusso pronto per un futuro gateway carta con circuito Visa."
+msgstr "Flow ready for a future card gateway using the Visa network."
+
+msgid "Carta dedicata"
+msgstr "Dedicated card"
+
+msgid "Flusso pronto per un futuro checkout carta dedicato ad American Express."
+msgstr "Flow ready for a future card checkout dedicated to American Express."
+
+msgid "Procedi al checkout protetto"
+msgstr "Proceed to secure checkout"
+
+msgid "Il metodo scelto verra salvato nel tentativo di pagamento e in futuro decidera il reindirizzamento al checkout esterno corretto."
+msgstr "The chosen method will be saved in the payment attempt and will determine the redirect to the correct external checkout in the future."
+
+msgid "Conferma autorizzazione pagamento"
+msgstr "Confirm payment authorization"
+
+msgid "Questo e il passaggio che in futuro aprira la pagina esterna del provider selezionato. In ambiente dev lo completi direttamente qui."
+msgstr "This is the step that will open the external page of the selected provider in the future. In dev mode, you complete it directly here."
+
+msgid "Gateway di test"
+msgstr "Test gateway"
+
+msgid "Merchant"
+msgstr "Merchant"
+
+msgid "Metodo"
+msgstr "Method"
+
+msgid "Importo da autorizzare"
+msgstr "Amount to authorize"
+
+msgid "Conferma finale"
+msgstr "Final confirmation"
+
+msgid "Usa questo passaggio per simulare il ritorno del provider e concludere il test di pagamento."
+msgstr "Use this step to simulate the provider callback and complete the payment test."
+
+msgid "Nel live questo pulsante verra sostituito dal ritorno automatico del provider selezionato dopo la sua pagina di checkout ufficiale."
+msgstr "In live mode, this button will be replaced by the automatic return from the selected provider after its official checkout page."
+
+msgid "Il checkout risulta completato. Qui sotto trovi il riepilogo finale con metodo, riferimenti e stato confermato."
+msgstr "The checkout is completed. Below you will find the final summary with method, references, and confirmed status."
+
+msgid "L'ultimo tentativo non e andato a buon fine. Puoi ripartire dal checkout e scegliere anche un metodo diverso prima di riprovare."
+msgstr "The latest attempt was not successful. You can restart from checkout and even choose a different method before trying again."
+
+msgid "Riavvia il checkout"
+msgstr "Restart checkout"
+
+msgid "Cronologia completa dei tentativi registrati per questa richiesta, con metodo scelto, riferimenti e stato di ogni passaggio."
+msgstr "Full history of attempts recorded for this request, with chosen method, references, and the status of each step."
+
+msgid "Metodo di pagamento"
+msgstr "Payment method"
+
+msgid "Per ora il sito non addebita denaro reale: il metodo scelto serve a simulare il checkout che in futuro aprira la destinazione corretta."
+msgstr "For now, the site does not charge real money: the chosen method is used to simulate the checkout that will open the correct destination in the future."
+
+msgid "Scenario test"
+msgstr "Test scenario"
+
+msgid "Autorizzazione riuscita"
+msgstr "Successful authorization"
+
+msgid "Autorizzazione rifiutata"
+msgstr "Authorization declined"
+
+msgid "Confermo di voler completare questo checkout di test"
+msgstr "I confirm that I want to complete this test checkout"
+
+msgid "Nel checkout reale questa scelta non comparira: l'esito arrivera direttamente dal provider selezionato."
+msgstr "In real checkout, this choice will not appear: the outcome will arrive directly from the selected provider."
+
+msgid "PayPal"
+msgstr "PayPal"
+
+msgid "Mastercard"
+msgstr "Mastercard"
+
+msgid "Visa"
+msgstr "Visa"
+
+msgid "American Express"
+msgstr "American Express"
+
+msgid "In futuro aprira il checkout ufficiale PayPal Business."
+msgstr "In the future, the official PayPal Business checkout will open."
+
+msgid "In futuro verra aperto il gateway carta corretto per il circuito selezionato."
+msgstr "In the future, the correct card gateway will open for the selected card network."
+
+msgid "Autorizza con PayPal"
+msgstr "Authorize with PayPal"
+
+msgid "Autorizza pagamento con carta"
+msgstr "Authorize card payment"
+
+msgid "Scheda video"
+msgstr "Graphics card"
+
+msgid "Gestisce ray tracing, frame elevati e carichi grafici pesanti con una presenza scenica forte gia al primo impatto."
+msgstr "Handles ray tracing, high frame rates, and heavy graphics workloads with a strong visual impact from the first glance."
+
+msgid "Processore"
+msgstr "Processor"
+
+msgid "Porta fluidita nelle attivita pesanti, ottima risposta nei picchi di carico e margine vero per streaming, editing e multitasking."
+msgstr "Delivers smooth performance in heavy workloads, strong responsiveness under peak load, and real headroom for streaming, editing, and multitasking."
+
+msgid "Tiene la CPU stabile anche sotto carico e aggiunge un look curato con impatto immediato."
+msgstr "Keeps the CPU stable even under load and adds an immediate polished look."
+
+msgid "Da struttura alla build con VRM robusti, connettivita moderna e una base solida per componenti di fascia alta."
+msgstr "Gives the build structure with robust VRMs, modern connectivity, and a solid base for high-end components."
+
+msgid "Memoria"
+msgstr "Memory"
+
+msgid "Tiene alti transfer rate e buona reattivita quando il sistema deve gestire software creativi, progetti e attivita in parallelo."
+msgstr "Maintains high transfer rates and strong responsiveness when the system handles creative software, projects, and parallel workloads."
+
+msgid "Riduce tempi di caricamento e da una sensazione piu immediata a sistema operativo, software e librerie pesanti."
+msgstr "Reduces loading times and makes the operating system, software, and heavy libraries feel much more immediate."
+
+msgid "Archivio veloce"
+msgstr "Fast storage"
+
+msgid "E perfetto per librerie software, progetti pesanti e un archivio piu reattivo per i file usati ogni giorno."
+msgstr "It is ideal for software libraries, heavy projects, and more responsive storage for files used every day."
+
+msgid "Alimentazione"
+msgstr "Power"
+
+msgid "Da margine vero alla configurazione, tiene la build pulita e resta adatto anche a schede video e CPU molto spinte."
+msgstr "Adds real headroom to the configuration, keeps the build clean, and stays suitable even for demanding GPUs and CPUs."
+
+msgid "Case"
+msgstr "Case"
+
+msgid "Apre spazio a raffreddamento, cable management e presenza scenica, lasciando la build ordinata e leggibile."
+msgstr "Creates room for cooling, cable management, and visual presence while keeping the build clean and easy to read."
+
+msgid "Ventole"
+msgstr "Fans"
+
+msgid "Migliora il ricambio d'aria e completa il look della build con una luce uniforme e una resa piu curata."
+msgstr "Improves airflow and completes the build with more uniform lighting and a more polished finish."
+
+msgid "Configurazioni curate e credibili"
+msgstr "Curated, credible configurations"
+
+msgid "La pagina mostra build pronte, componenti chiari e un accesso immediato al percorso giusto."
+msgstr "The page shows ready-made builds, clear components, and immediate access to the right path."
+
+msgid "Flusso"
+msgstr "Flow"
+
+msgid "Preventivo prima del pagamento"
+msgstr "Quote before payment"
+
+msgid "Il cliente paga solo quando il team conferma la richiesta e salva il prezzo finale."
+msgstr "The customer pays only when the team confirms the request and saves the final price."
+
+msgid "Storico, stato e contatti sempre leggibili"
+msgstr "History, status, and contacts always clear"
+
+msgid "Ogni passaggio resta sotto controllo nell'account e nel pannello amministrativo."
+msgstr "Every step remains under control in the account and admin panel."
+
+msgid "Percorso cliente"
+msgstr "Customer journey"
+
+msgid "Esplora o personalizza"
+msgstr "Explore or customize"
+
+msgid "Puoi partire da una build gia pronta oppure configurare una richiesta da zero nello stesso sito."
+msgstr "You can start from a ready-made build or configure a request from scratch on the same site."
+
+msgid "Il team approva il preventivo"
+msgstr "The team approves the quote"
+
+msgid "Admin e super admin valutano la richiesta, impostano il prezzo finale e lasciano eventuali note utili."
+msgstr "Admins and super admins review the request, set the final price, and leave any useful notes."
+
+msgid "Checkout solo quando pronto"
+msgstr "Checkout only when ready"
+
+msgid "Il pagamento compare solo dopo approvazione, con stato chiaro e riepilogo ordine completo."
+msgstr "Payment appears only after approval, with clear status and a complete order summary."
+
+msgid "Una piattaforma unica per presentare, configurare e approvare PC su misura."
+msgstr "A single platform to showcase, configure, and approve custom PCs."
+
+msgid "La parte pubblica vive in una sola pagina chiara: chi arriva vede subito prodotti, processo, richiesta custom e contatti senza saltare tra sezioni scollegate."
+msgstr "The public experience lives on a single clear page: visitors immediately see products, process, custom requests, and contacts without jumping between disconnected sections."
+
+msgid "Schede curate e componenti leggibili"
+msgstr "Well-crafted pages and readable components"
+
+msgid "Ogni build mette in evidenza immagine, prezzo, disponibilita e componenti senza costringere il cliente a cercare le informazioni importanti."
+msgstr "Each build highlights image, price, availability, and components without forcing the customer to hunt for important information."
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Richiesta su misura con logica commerciale reale"
+msgstr "Tailored request with real commercial logic"
+
+msgid "Il cliente inserisce componenti, budget e note in modo chiaro. Il team poi approva il preventivo prima di mostrare il pagamento."
+msgstr "The customer enters components, budget, and notes clearly. The team then approves the quote before showing payment."
+
+msgid "Contatti e account pensati per il follow-up"
+msgstr "Contacts and account flow built for follow-up"
+
+msgid "Dalla prima richiesta fino al checkout, tutto resta tracciato con stati leggibili e azioni coerenti."
+msgstr "From the first request to checkout, everything stays tracked with readable statuses and coherent actions."
+
+msgid "Hardware"
+msgstr "Hardware"
+
+msgid "Componenti reali, raccontati come parte di un prodotto curato."
+msgstr "Real components, presented as part of a curated product."
+
+msgid "Queste immagini danno peso visivo alla proposta e aiutano a far percepire il livello delle configurazioni che il sito vuole rappresentare."
+msgstr "These images add visual weight to the offer and help convey the level of configurations the site is meant to represent."
+
+msgid "Configurazioni gia pronte da esplorare nella stessa pagina."
+msgstr "Ready-made configurations to explore on the same page."
+
+msgid "Il catalogo pubblico resta qui: niente salti inutili, solo schede chiare con CTA dirette verso la build o verso una richiesta personalizzata."
+msgstr "The public catalog stays here: no unnecessary jumps, just clear cards with direct CTAs to the build or to a custom request."
+
+msgid "Build disponibili"
+msgstr "Available builds"
+
+msgid "Se una configurazione non basta, puoi scendere subito alla sezione personalizzata qui sotto."
+msgstr "If one configuration is not enough, you can move straight down to the custom section below."
+
+msgid "Richiesta custom"
+msgstr "Custom request"
+
+msgid "Nessuna build pubblicata al momento"
+msgstr "No builds published at the moment"
+
+msgid "Il catalogo verra mostrato qui non appena il team inserira le prime configurazioni visibili dal backoffice."
+msgstr "The catalog will appear here as soon as the team adds the first visible configurations from the back office."
+
+msgid "Processo"
+msgstr "Process"
+
+msgid "Un flusso semplice per il cliente, ma abbastanza solido per vendere davvero."
+msgstr "A simple flow for the customer, but solid enough to sell for real."
+
+msgid "Scelta iniziale"
+msgstr "Starting point"
+
+msgid "Il cliente esplora le build oppure parte direttamente da una richiesta personalizzata."
+msgstr "The customer explores builds or starts directly from a custom request."
+
+msgid "Revisione commerciale"
+msgstr "Commercial review"
+
+msgid "Il team controlla la richiesta, prepara il preventivo finale e aggiorna lo stato in modo leggibile."
+msgstr "The team reviews the request, prepares the final quote, and updates the status in a readable way."
+
+msgid "Checkout abilitato"
+msgstr "Checkout enabled"
+
+msgid "Il pagamento compare solo quando la richiesta e approvata, con riepilogo chiaro e metodo selezionato."
+msgstr "Payment appears only when the request is approved, with a clear summary and selected method."
+
+msgid "Storico e supporto"
+msgstr "History and support"
+
+msgid "Cliente e amministrazione possono sempre rivedere riferimenti, esiti e note senza perdere contesto."
+msgstr "Customers and admins can always review references, outcomes, and notes without losing context."
+
+msgid "Invia una richiesta su misura senza lasciare la homepage."
+msgstr "Send a tailored request without leaving the homepage."
+
+msgid "Questa sezione raccoglie componenti, budget e note. Dopo l'invio il team valutera la richiesta e solo allora il checkout comparira nel tuo account."
+msgstr "This section collects components, budget, and notes. After submission, the team will review the request and only then will checkout appear in your account."
+
+msgid "Apri il tuo account"
+msgstr "Open your account"
+
+msgid "Accedi per continuare"
+msgstr "Log in to continue"
+
+msgid "Obiettivo"
+msgstr "Goal"
+
+msgid "Raccogliere una richiesta completa e leggibile"
+msgstr "Collect a complete and readable request"
+
+msgid "Disponibile solo dopo approvazione admin"
+msgstr "Available only after admin approval"
+
+msgid "Suggerimento"
+msgstr "Suggestion"
+
+msgid "Indica i componenti gia decisi e usa le note per priorita, dubbi o stile desiderato"
+msgstr "List the components you already decided on and use notes for priorities, doubts, or preferred style"
+
+msgid "Prima di iniziare"
+msgstr "Before you start"
+
+msgid "Cosa aiuta davvero il team a quotare bene"
+msgstr "What really helps the team quote accurately"
+
+msgid "Budget massimo realistico."
+msgstr "A realistic maximum budget."
+
+msgid "Uso del PC: gaming, editing, rendering, workstation o misto."
+msgstr "PC use: gaming, editing, rendering, workstation, or mixed."
+
+msgid "Preferenze su estetica, rumore, raffreddamento e dimensioni."
+msgstr "Preferences on aesthetics, noise, cooling, and size."
+
+msgid "Compili componenti, budget e note. I campi non ancora decisi possono restare vuoti."
+msgstr "You fill in components, budget, and notes. Fields that are not decided yet can stay empty."
+
+msgid "Admin e super admin definiscono il prezzo finale, salvano eventuali note e aggiornano lo stato."
+msgstr "Admins and super admins define the final price, save any notes, and update the status."
+
+msgid "Il checkout compare solo quando la richiesta e pronta. Prima non vedrai alcun pulsante di pagamento."
+msgstr "Checkout appears only when the request is ready. Before that, you will not see any payment button."
+
+msgid "Il budget massimo e obbligatorio. Il minimo e facoltativo e serve solo se vuoi indicare una fascia di partenza."
+msgstr "The maximum budget is required. The minimum is optional and only helps if you want to indicate a starting range."
+
+msgid "Accedi per inviare la richiesta personalizzata"
+msgstr "Log in to send your custom request"
+
+msgid "Il login serve a collegare la richiesta al tuo account, mostrarti gli stati e attivare il checkout solo quando il team la approva."
+msgstr "Login is needed to link the request to your account, show you the statuses, and enable checkout only when the team approves it."
+
+msgid "Parla con il team commerciale senza cambiare pagina."
+msgstr "Talk to the sales team without changing page."
+
+msgid "Numero, email, sede e modulo messaggi vivono qui, cosi il percorso pubblico resta davvero unico e coerente."
+msgstr "Phone, email, office address, and the message form all live here, so the public flow remains truly unified and coherent."
+
+msgid "Per supporto commerciale e prime richieste rapide."
+msgstr "For sales support and first quick requests."
+
+msgid "Per comunicazioni strutturate, approvazioni e aggiornamenti."
+msgstr "For structured communication, approvals, and updates."
+
+msgid "Sede"
+msgstr "Office"
+
+msgid "Flusso account, approvazioni e checkout strutturato."
+msgstr "Structured account, approval, and checkout flow."
+
+msgid "Apri sezioni"
+msgstr "Open sections"
+
+msgid "Personalizza"
+msgstr "Customize"
+
+msgid "Apri il menu delle sezioni del sito"
+msgstr "Open the site sections menu"
+
+msgid "Sezioni del sito"
+msgstr "Site sections"
+
+msgid "Richieste e pagamenti sempre sotto controllo"
+msgstr "Requests and payments always under control"
+
+msgid "Accesso protetto, stati chiari e recupero password integrato"
+msgstr "Protected access, clear statuses, and integrated password recovery"
+
+msgid "Storico richieste e pagamenti sempre disponibile."
+msgstr "Your request and payment history is always available."
+
+msgid "Accesso al checkout solo dopo approvazione del team."
+msgstr "Checkout becomes available only after team approval."
+
+msgid "Profilo cliente e dati di contatto modificabili in autonomia."
+msgstr "Customer profile and contact details can be updated independently."
+
+msgid "Subito dopo"
+msgstr "Right away"
+
+msgid "Puoi inviare richieste custom e seguire ogni stato dal tuo account"
+msgstr "You can send custom requests and track every status from your account"
+
+msgid "Consiglio"
+msgstr "Tip"
+
+msgid "Usa un'email che controlli spesso: il team la usera per approvazioni e aggiornamenti importanti"
+msgstr "Use an email you check often: the team will use it for approvals and important updates"
+
+msgid "Perche registrarti"
+msgstr "Why register"
+
+msgid "Un profilo pensato per seguire richieste, preventivi e pagamenti senza confusione."
+msgstr "A profile designed to follow requests, quotes, and payments without confusion."
+
+msgid "Richieste personalizzate salvate con riferimento chiaro."
+msgstr "Custom requests saved with a clear reference."
+
+msgid "Stati leggibili: approvazione, preventivo pronto, pagamento, esito."
+msgstr "Readable statuses: approval, quote ready, payment, outcome."
+
+msgid "Storico sempre disponibile senza dover riscrivere tutto a ogni contatto."
+msgstr "History always available without rewriting everything for every contact."
+
+msgid "Qui il cliente deve capire subito quali configurazioni sono gia pronte, quali sono in evidenza e quando conviene invece passare a una richiesta su misura."
+msgstr "Customers should immediately understand which configurations are ready, which ones are featured, and when it makes more sense to move to a tailored request."
+
+msgid "Contatta il team"
+msgstr "Contact the team"
+
+msgid "Build visibili"
+msgstr "Visible builds"
+
+msgid "Filtri chiari, schede leggibili e CTA immediate per passare alla build o alla richiesta custom."
+msgstr "Clear filters, readable cards, and immediate CTAs to open a build or switch to a custom request."
+
+msgid "Selezione componenti"
+msgstr "Component selection"
+
+msgid "Una build credibile parte da hardware riconoscibile e ben contestualizzato."
+msgstr "A credible build starts with recognizable hardware presented in the right context."
+
+msgid "Le immagini laterali e il relativo copy devono aiutare a dare peso commerciale al catalogo, senza togliere attenzione ai prodotti centrali."
+msgstr "The side visuals and their copy should add commercial weight to the catalog without stealing focus from the main products."
+
+msgid "Non trovi la combinazione giusta nel catalogo?"
+msgstr "Not finding the right combination in the catalog?"
+
+msgid "Usa la richiesta personalizzata per indicare componenti, fascia di budget e priorita tra prestazioni, silenziosita o estetica."
+msgstr "Use the custom request to specify components, budget range, and your priorities between performance, quiet operation, or aesthetics."
+
+msgid "Apri il configuratore"
+msgstr "Open the configurator"
+
+msgid "Scheda build"
+msgstr "Build page"
+
+msgid "Questa pagina deve aiutare subito a capire immagine della build, componenti principali, disponibilita e come entrare nel flusso di approvazione."
+msgstr "This page should immediately clarify the build image, key components, availability, and how to enter the approval flow."
+
+msgid "Torna alle build"
+msgstr "Back to builds"
+
+msgid "Flusso approvazione"
+msgstr "Approval flow"
+
+msgid "La richiesta entra in approvazione nel pannello admin. Dopo l'approvazione il cliente la trova nel proprio account e puo aprire il checkout completo."
+msgstr "The request enters approval in the admin panel. After approval, the customer finds it in their account and can open the full checkout."
+
+msgid "Cosa succede dopo l'invio"
+msgstr "What happens after submission"
+
+msgid "Questa parte deve chiarire al cliente che non sta comprando subito: prima il team controlla la richiesta, poi conferma il prezzo finale."
+msgstr "This section should make it clear that the customer is not buying immediately: first the team reviews the request, then confirms the final price."
+
+msgid "I dati di contatto e il messaggio entrano nel flusso approvazione, non restano in un semplice elenco messaggi."
+msgstr "Contact details and the message enter the approval flow instead of staying in a simple message list."
+
+msgid "Il team definisce il prezzo finale, salva eventuali note e rende la richiesta pagabile solo se approvata."
+msgstr "The team defines the final price, saves any notes, and makes the request payable only if approved."
+
+msgid "Checkout ordinato"
+msgstr "Structured checkout"
+
+msgid "Quando la build e pronta, il cliente trova il checkout direttamente nel proprio account con storico e stato aggiornati."
+msgstr "When the build is ready, the customer finds the checkout directly in their account with updated history and status."
+
+msgid "Invia richiesta e passa in approvazione"
+msgstr "Send request and move to approval"
+
+msgid "Nessun pagamento immediato: il prezzo finale comparira solo dopo la revisione del team."
+msgstr "No immediate payment: the final price appears only after the team's review."
+
+msgid "Devi accedere per richiedere questa build"
+msgstr "You need to log in to request this build"
+
+msgid "L'accesso serve a collegare la richiesta al tuo account, mostrarti lo stato e sbloccare il checkout solo quando il team la approva."
+msgstr "Login links the request to your account, shows you the status, and unlocks checkout only when the team approves it."
+
+msgid "Alternativa"
+msgstr "Alternative"
+
+msgid "Hai bisogno di qualcosa di piu personalizzato rispetto a questa build?"
+msgstr "Do you need something more tailored than this build?"
+
+msgid "Se vuoi cambiare componenti o partire da esigenze diverse, passa direttamente alla richiesta custom completa."
+msgstr "If you want to change components or start from different needs, move directly to the full custom request."
+
+msgid "Apri richiesta custom"
+msgstr "Open custom request"
+
+msgid "Continua a vedere le build"
+msgstr "Keep browsing builds"
+
+msgid "Raccogliere una richiesta chiara, poi approvarla con preventivo reale."
+msgstr "Collect a clear request, then approve it with a real quote."
+
+msgid "Disponibile solo dopo approvazione admin."
+msgstr "Available only after admin approval."
+
+msgid "Compila solo i componenti gia decisi e usa le note per priorita o dubbi."
+msgstr "Fill in only the components already decided and use notes for priorities or doubts."
+
+msgid "Cosa rende utile una richiesta ben scritta"
+msgstr "What makes a well-written request useful"
+
+msgid "Budget massimo realistico, cosi il preventivo resta coerente."
+msgstr "A realistic maximum budget keeps the quote consistent."
+
+msgid "Uso principale del PC: gaming, editing video, rendering, streaming o workstation."
+msgstr "Main PC use: gaming, video editing, rendering, streaming, or workstation work."
+
+msgid "Preferenze estetiche o limiti pratici: colore, ingombro, silenziosita o raffreddamento."
+msgstr "Aesthetic preferences or practical limits: color, footprint, quiet operation, or cooling."
+
+msgid "Questa pagina deve sembrare un checkout vero: riepilogo ordine, prezzo finale, metodo scelto, stato attuale e storico di ogni tentativo."
+msgstr "This page should feel like a real checkout: order summary, final price, chosen method, current status, and history of every attempt."
+
+msgid "Vedi subito se il pagamento e confermato oppure se va ripetuto."
+msgstr "See immediately whether the payment is confirmed or needs to be retried."
+
+msgid "Origine"
+msgstr "Source"
+
+msgid "Order ID"
+msgstr "Order ID"
+
+msgid "Note del cliente"
+msgstr "Customer notes"
+
+msgid "Stato attuale"
+msgstr "Current status"
+
+msgid "Conferma e procedi al pagamento"
+msgstr "Confirm and proceed to payment"
+
+msgid "Secure Card"
+msgstr "Secure Card"
+
+msgid "Autorizza pagamento"
+msgstr "Authorize payment"
+
+msgid "Transaction ID"
+msgstr "Transaction ID"
+
+msgid "Torna alla dashboard"
+msgstr "Back to dashboard"
+
+msgid "Questa pagina deve dare subito fiducia: recapiti chiari, form leggibile e informazioni aziendali ordinate."
+msgstr "This page should build trust immediately: clear contact details, a readable form, and well-ordered company information."
+
+msgid "Per richieste rapide e supporto commerciale."
+msgstr "For quick requests and sales support."
+
+msgid "Per approvazioni, preventivi e aggiornamenti strutturati."
+msgstr "For approvals, quotes, and structured updates."
+
+msgid "Vista rapida"
+msgstr "Quick view"
+
+msgid "Richieste, pagamenti e stati sempre nello stesso punto"
+msgstr "Requests, payments, and statuses always in one place"
+
+msgid "Percorso"
+msgstr "Flow"
+
+msgid "Invii la richiesta, aspetti l'approvazione, paghi solo quando il preventivo e pronto"
+msgstr "You send the request, wait for approval, and pay only when the quote is ready"
+
+msgid "Capire in pochi secondi cosa richiede attenzione e qual e il prossimo passo"
+msgstr "Understand in seconds what needs attention and what the next step is"
+
+msgid "Le tue richieste build"
+msgstr "Your build requests"
+
+msgid "Qui trovi sia le richieste personalizzate sia quelle inviate dalle build del catalogo, sempre con stato, prezzo finale e prossimo passo."
+msgstr "Here you find both custom requests and requests sent from catalog builds, always with status, final price, and next step."
+
+msgid "Il team sta ancora valutando la richiesta. Nessun checkout disponibile."
+msgstr "The team is still reviewing the request. No checkout is available yet."
+
+msgid "Il prezzo finale e pronto. Da qui puoi aprire il checkout e completare il pagamento."
+msgstr "The final price is ready. From here you can open checkout and complete the payment."
+
+msgid "Il pagamento e registrato correttamente e la richiesta resta disponibile nello storico."
+msgstr "The payment is recorded correctly and the request remains available in your history."
+
+msgid "Nessuna richiesta build"
+msgstr "No build requests yet"
+
+msgid "Quando invierai la prima richiesta custom o una richiesta da una build del catalogo, la troverai qui con stato e prossimo passo sempre visibili."
+msgstr "When you send your first custom request or a request from a catalog build, you will find it here with status and next step always visible."
+
+msgid "Contatti legacy sulle build del catalogo"
+msgstr "Legacy contacts on catalog builds"
+
+msgid "Questa sezione resta solo per eventuali contatti vecchi non ancora collegati al nuovo flusso approvazione e pagamento."
+msgstr "This section remains only for any older contacts not yet linked to the new approval and payment flow."
+
+msgid "Qui trovi una selezione rapida. Il catalogo completo ha filtri dedicati per confrontare prezzo, componenti, data e marche."
+msgstr "Here you find a quick selection. The full catalog has dedicated filters to compare price, components, date, and brands."
+
+msgid "Apri il catalogo completo se vuoi confrontare tutte le configurazioni pronte."
+msgstr "Open the full catalog if you want to compare every ready-made configuration."
+
+msgid "Vai al catalogo build"
+msgstr "Go to build catalog"
+
+msgid "Catalogo build"
+msgstr "Build catalog"
+
+msgid "Trova la configurazione pronta piu adatta."
+msgstr "Find the most suitable ready-made configuration."
+
+msgid "Filtra il catalogo per processore, scheda video, prezzo, data, marca e caratteristiche principali prima di aprire la scheda completa."
+msgstr "Filter the catalog by processor, graphics card, price, date, brand, and key specs before opening the full build page."
+
+msgid "Filtri catalogo"
+msgstr "Catalog filters"
+
+msgid "Restringi le build come in un catalogo prodotto."
+msgstr "Narrow down builds like in a product catalog."
+
+msgid "Risultati"
+msgstr "Results"
+
+msgid "Tutte le categorie"
+msgstr "All categories"
+
+msgid "Tutti i processori"
+msgstr "All processors"
+
+msgid "Tutte le schede video"
+msgstr "All graphics cards"
+
+msgid "Marca"
+msgstr "Brand"
+
+msgid "Tutte le marche"
+msgstr "All brands"
+
+msgid "Ordina per"
+msgstr "Sort by"
+
+msgid "Predefinito"
+msgstr "Default"
+
+msgid "Prezzo crescente"
+msgstr "Price low to high"
+
+msgid "Prezzo decrescente"
+msgstr "Price high to low"
+
+msgid "Best seller prima"
+msgstr "Best sellers first"
+
+msgid "Best seller dopo"
+msgstr "Best sellers last"
+
+msgid "Data uscita recente"
+msgstr "Newest release date"
+
+msgid "Data uscita meno recente"
+msgstr "Oldest release date"
+
+msgid "RAM massima"
+msgstr "Maximum RAM"
+
+msgid "VRAM massima"
+msgstr "Maximum VRAM"
+
+msgid "Applica filtri"
+msgstr "Apply filters"
+
+msgid "Reset filtri"
+msgstr "Reset filters"
+
+msgid "%(counter)s filtro attivo"
+msgid_plural "%(counter)s filtri attivi"
+msgstr[0] "%(counter)s active filter"
+msgstr[1] "%(counter)s active filters"
+
+msgid "Uscita"
+msgstr "Release"
+
+msgid "RAM installata (GB)"
+msgstr "Installed RAM (GB)"
+
+msgid "VRAM scheda video (GB)"
+msgstr "Graphics card VRAM (GB)"
+
+msgid "Inserisci quanta RAM ha il PC: minimo 4 GB, massimo 128 GB."
+msgstr "Enter how much RAM the PC has: minimum 4 GB, maximum 128 GB."
+
+msgid "Inserisci quanta VRAM ha la scheda video: minimo 4 GB, massimo 64 GB."
+msgstr "Enter how much VRAM the graphics card has: minimum 4 GB, maximum 64 GB."
+
+msgid "Marca processore"
+msgstr "Processor brand"
+
+msgid "Marca scheda video"
+msgstr "Graphics card brand"
+
+msgid "Marca principale"
+msgstr "Main brand"
+
+msgid "Badge catalogo"
+msgstr "Catalog badge"
+
+msgid "Questo valore alimenta il filtro Processore nel catalogo."
+msgstr "This value powers the Processor filter in the catalog."
+
+msgid "Questo valore alimenta il filtro Scheda video nel catalogo."
+msgstr "This value powers the Graphics card filter in the catalog."
+
+msgid "Questo valore alimenta il filtro Marca nel catalogo."
+msgstr "This value powers the Brand filter in the catalog."
+
+msgid "Scegli Piu venduta se la build deve comparire nei filtri/sort best seller."
+msgstr "Choose Best seller if the build should appear in best-seller filters/sorting."
+
+msgid "Parametri filtri"
+msgstr "Filter parameters"
+
+msgid "Marca case"
+msgstr "Case brand"
+
+msgid "Tutte le marche case"
+msgstr "All case brands"
+
+msgid "Clienti serviti"
+msgstr "Served customers"
+
+msgid "Filtra il catalogo per processore, scheda video, case, prezzo, data e caratteristiche principali prima di aprire la scheda completa."
+msgstr "Filter the catalog by processor, graphics card, case, price, date, and key specs before opening the full build page."
+
+msgid "Questo valore alimenta il filtro Marca case nel catalogo."
+msgstr "This value powers the Case brand filter in the catalog."
+
+msgid "Integrata (predefinita)"
+msgstr "Integrated (default)"
+
+msgid "Intel Arc"
+msgstr "Intel Arc"
+
+msgid "Vendite registrate"
+msgstr "Registered sales"
+
+msgid "Vendute"
+msgstr "Sold"
+
+msgid "Piu vendute"
+msgstr "Most sold"
+
+msgid "Meno vendute"
+msgstr "Least sold"
+
+msgid "Badge visuale manuale della scheda. L'ordinamento per vendite usa il contatore automatico nascosto."
+msgstr "Manual visual badge for the card. Sales sorting uses the hidden automatic counter."
+
+msgid "Data uscita"
+msgstr "Release date"
+
+msgid "Questa data alimenta l'ordinamento per uscita nel catalogo."
+msgstr "This date powers the release-date sorting in the catalog."
+
+msgid "Prezzo massimo"
+msgstr "Maximum price"
+
+msgid "Account %(email)s eliminato definitivamente."
+msgstr "Account %(email)s permanently deleted."
+
+msgid "Abbiamo inviato un codice a 6 cifre a %(email)s. Il codice scade dopo 2 minuti."
+msgstr "We sent a 6-digit code to %(email)s. The code expires after 2 minutes."
+
+msgid "Annulla"
+msgstr "Cancel"
+
+msgid "Codice eliminazione account %(site)s"
+msgstr "%(site)s account deletion code"
+
+msgid "Codice scaduto"
+msgstr "Expired code"
+
+msgid "Conferma eliminazione account"
+msgstr "Confirm account deletion"
+
+msgid "Dopo la verifica l'account verra eliminato definitivamente."
+msgstr "After verification, the account will be permanently deleted."
+
+msgid "Elimina account"
+msgstr "Delete account"
+
+msgid "Eliminazione account"
+msgstr "Account deletion"
+
+msgid ""
+"Hai richiesto l'eliminazione definitiva del tuo account.\n"
+"\n"
+"Codice di verifica: %(code)s\n"
+"Pagina di verifica: %(url)s\n"
+"\n"
+"Il codice scade alle %(date)s e dura 2 minuti.\n"
+"Se non sei stato tu, ignora questa email e cambia la password."
+msgstr ""
+"You requested permanent deletion of your account.\n"
+"\n"
+"Verification code: %(code)s\n"
+"Verification page: %(url)s\n"
+"\n"
+"The code expires at %(date)s and lasts 2 minutes.\n"
+"If this was not you, ignore this email and change your password."
+
+msgid "Il codice e scaduto. Premi Reinvia codice per riceverne uno nuovo."
+msgstr "The code has expired. Press Resend code to receive a new one."
+
+msgid "Il codice scade tra"
+msgstr "The code expires in"
+
+msgid "Il super admin non puo eliminare il proprio account da questa sezione."
+msgstr "The super admin cannot delete their account from this section."
+
+msgid "La richiesta di eliminazione non e valida. Ripeti la procedura."
+msgstr "The deletion request is not valid. Repeat the procedure."
+
+msgid "Premi Reinvia codice per riceverne uno nuovo. Il codice precedente non sara piu valido."
+msgstr "Press Resend code to receive a new one. The previous code will no longer be valid."
+
+msgid "Puoi eliminare definitivamente il tuo account solo dopo aver confermato un codice inviato alla tua email."
+msgstr "You can permanently delete your account only after confirming a code sent to your email."
+
+msgid "Questa azione eliminera definitivamente account, profilo e dati collegati."
+msgstr "This action will permanently delete your account, profile, and related data."
+
+msgid "Reinvia codice"
+msgstr "Resend code"
+
+msgid "Richiesta eliminazione account"
+msgstr "Account deletion request"
+
+msgid "Richieste eliminazione account"
+msgstr "Account deletion requests"
+
+msgid "Ti abbiamo inviato un codice di conferma per eliminare l'account."
+msgstr "We sent you a confirmation code to delete the account."
+
+msgid "Ti abbiamo inviato un nuovo codice. Il precedente non e piu valido."
+msgstr "We sent you a new code. The previous one is no longer valid."
+
+msgid "scaduto"
+msgstr "expired"
+
+msgid "L'immagine non puo superare 8 MB."
+msgstr "The image cannot exceed 8 MB."
+
+msgid "Formato immagine non supportato. Usa JPG, PNG o WebP."
+msgstr "Unsupported image format. Use JPG, PNG, or WebP."
+
+msgid "Il tipo di file caricato non e un'immagine valida."
+msgstr "The uploaded file type is not a valid image."
+
+msgid "Le configurazioni gia pronte si vedono nel catalogo dedicato."
+msgstr "Ready-made configurations are shown in the dedicated catalog."
+
+msgid "Da qui puoi aprire il catalogo completo e confrontare tutte le build pubblicate con filtri per prezzo, componenti, data e marche."
+msgstr "From here you can open the full catalog and compare every published build with filters for price, components, date, and brands."
+
+msgid "Build nel catalogo"
+msgstr "Builds in the catalog"
+
+msgid "Clicca il pulsante qui sotto per vedere tutte le build pronte nel catalogo."
+msgstr "Click the button below to see every ready-made build in the catalog."
+
+msgid "Controlli galleria build"
+msgstr "Build gallery controls"
+
+msgid "Accesso non consentito"
+msgstr "Access not allowed"
+
+msgid "Area protetta"
+msgstr "Protected area"
+
+msgid "Non hai i permessi per aprire questa pagina."
+msgstr "You do not have permission to open this page."
+
+msgid "Se pensi sia un errore, torna al tuo account o contatta il team."
+msgstr "If you think this is a mistake, return to your account or contact the team."
+
+msgid "Vai al tuo account"
+msgstr "Go to your account"
+
+msgid "Pagina non trovata"
+msgstr "Page not found"
+
+msgid "Questa pagina non esiste o e stata spostata."
+msgstr "This page does not exist or has been moved."
+
+msgid "Puoi tornare alla home, aprire il catalogo build o accedere al tuo account."
+msgstr "You can return to the home page, open the build catalog, or access your account."
+
+msgid "Vai alle build"
+msgstr "Go to builds"
+
+msgid "Errore temporaneo"
+msgstr "Temporary error"
+
+msgid "Errore server"
+msgstr "Server error"
+
+msgid "Qualcosa non ha risposto correttamente."
+msgstr "Something did not respond correctly."
+
+msgid "Riprova tra poco. Se il problema resta, contatta il team di supporto."
+msgstr "Try again shortly. If the issue continues, contact the support team."
+
+msgid "Un'area di lavoro ordinata per build, utenti, richieste, pagamenti e impostazioni. L'obiettivo qui e capire subito cosa richiede un intervento e cosa e gia sotto controllo."
+msgstr "An organized workspace for builds, users, requests, payments, and settings. The goal here is to immediately understand what needs attention and what is already under control."
+
+msgid "Revisione richiesta build"
+msgstr "Build request review"
+
+msgid "Scopo della pagina"
+msgstr "Page purpose"
+
+msgid "Capire subito richiesta, budget, storico pagamenti e azione amministrativa corretta"
+msgstr "Quickly understand the request, budget, payment history, and correct admin action"
+
+msgid "Ordine consigliato"
+msgstr "Recommended order"
+
+msgid "Controlla componenti e note, salva prezzo finale, poi approva oppure chiudi la richiesta"
+msgstr "Review components and notes, save the final price, then approve or close the request"
+
+msgid "Risultato"
+msgstr "Outcome"
+
+msgid "Il cliente vedra stato, preventivo e checkout aggiornati senza passaggi manuali aggiuntivi"
+msgstr "The customer will see the updated status, quote, and checkout without extra manual steps"
+
+msgid "Vai alle richieste da approvare"
+msgstr "Go to requests to approve"
+
+msgid "Gestisci le build"
+msgstr "Manage builds"
+
+msgid "Priorita"
+msgstr "Priority"
+
+msgid "Intervenire subito su richieste in approvazione e pagamenti da verificare"
+msgstr "Act immediately on requests awaiting approval and payments to verify"
+
+msgid "Gestire tutto senza tabelle caotiche, con segnali chiari su stato e prossima azione"
+msgstr "Manage everything without chaotic tables, with clear signals on status and next action"
+
+msgid "Controllo"
+msgstr "Control"
+
+msgid "Build, utenti, ban e richieste nello stesso flusso operativo"
+msgstr "Builds, users, bans, and requests in the same operating flow"
+
+msgid "Custom in approvazione"
+msgstr "Custom requests awaiting approval"
+
+msgid "Da valutare e quotare."
+msgstr "To review and quote."
+
+msgid "Apri richieste"
+msgstr "Open requests"
+
+msgid "Custom approvate"
+msgstr "Approved custom requests"
+
+msgid "Pagabili ma non ancora concluse."
+msgstr "Payable but not completed yet."
+
+msgid "Custom pagate"
+msgstr "Paid custom requests"
+
+msgid "Flusso pagamento confermato."
+msgstr "Payment flow confirmed."
+
+msgid "Log sintetico delle azioni piu recenti, utile per capire chi ha fatto cosa senza dover entrare in ogni sezione."
+msgstr "A compact log of the latest actions, useful for understanding who did what without opening every section."
+
+msgid "Mostra"
+msgstr "Show"
+
+msgid "Tutte le attivita"
+msgstr "All activities"
+
+msgid "Solo ban"
+msgstr "Bans only"
+
+msgid "Solo pagamenti"
+msgstr "Payments only"
+
+msgid "Solo richieste"
+msgstr "Requests only"
+
+msgid "Solo approvazioni richieste"
+msgstr "Request approvals only"
+
+msgid "Solo eliminazioni account"
+msgstr "Account deletions only"
+
+msgid "Solo nuovi utenti"
+msgstr "New users only"
+
+msgid "Solo nomine e retrocessioni"
+msgstr "Promotions and demotions only"
+
+msgid "Ordina"
+msgstr "Sort"
+
+msgid "Data: piu recenti prima"
+msgstr "Date: newest first"
+
+msgid "Data: meno recenti prima"
+msgstr "Date: oldest first"
+
+msgid "Importanza: super admin, admin, utenti"
+msgstr "Importance: super admin, admins, users"
+
+msgid "Riduci registro"
+msgstr "Collapse log"
+
+msgid "Ingrandisci registro"
+msgstr "Expand log"
+
+msgid "Nessuna attivita con queste caratteristiche."
+msgstr "No activities match these filters."
+
+msgid "Per approvare una richiesta: aprila, inserisci il prezzo finale e premi il pulsante di approvazione."
+msgstr "To approve a request: open it, enter the final price, and press the approval button."
+
+msgid "Apri"
+msgstr "Open"
+
+msgid "Per approvare una richiesta vai nella sezione 'Richieste da approvare', apri la scheda, inserisci il prezzo finale e premi 'Approva richiesta e rendila pagabile'."
+msgstr "To approve a request, go to the requests awaiting approval section, open the page, enter the final price, and press 'Approve request and make it payable'."
+
+msgid "Da fare subito"
+msgstr "To do now"
+
+msgid "Apri le richieste in approvazione, definisci il prezzo finale e comunica il prossimo passo al cliente"
+msgstr "Open requests awaiting approval, define the final price, and tell the customer the next step"
+
+msgid "Lettura rapida"
+msgstr "Quick read"
+
+msgid "Approvazione, approvate e pagate restano divise per evitare confusione tra preventivo e checkout"
+msgstr "Awaiting approval, approved, and paid requests stay separate to avoid confusion between quote and checkout"
+
+msgid "Contatti legacy"
+msgstr "Legacy contacts"
+
+msgid "Le richieste vecchie non approvabili restano separate, cosi non sembrano parte del nuovo flusso"
+msgstr "Old non-approvable requests stay separate so they do not look like part of the new flow"
+
+msgid "Attenzione: non tutte le righe di questa pagina si approvano"
+msgstr "Warning: not every row on this page can be approved"
+
+msgid "Solo la sezione '1. Richieste custom da approvare' contiene richieste approvabili. Le sezioni sulle build del catalogo e i messaggi contatto sono semplici contatti commerciali e non hanno un pulsante di approvazione."
+msgstr "Only the '1. Custom requests to approve' section contains approvable requests. The catalog build and contact message sections are simple commercial contacts and do not have an approval button."
+
+msgid "Provider attuale"
+msgstr "Current provider"
+
+msgid "1. Richieste build da approvare"
+msgstr "1. Build requests to approve"
+
+msgid "Qui trovi sia richieste personalizzate sia richieste arrivate dalle build del catalogo. Apri la scheda, definisci il prezzo finale e poi approva o rifiuta."
+msgstr "Here you can find both custom requests and requests from catalog builds. Open the page, define the final price, then approve or reject."
+
+msgid "Apri e approva"
+msgstr "Open and approve"
+
+msgid "Nessuna richiesta build in attesa di approvazione. Le righe eventualmente mostrate nei contatti legacy non sono approvabili."
+msgstr "No build requests are awaiting approval. Any rows shown in legacy contacts are not approvable."
+
+msgid "Apri richiesta"
+msgstr "Open request"
+
+msgid "4. Contatti legacy dalle build del catalogo"
+msgstr "4. Legacy contacts from catalog builds"
+
+msgid "Qui restano solo eventuali richieste vecchie non ancora collegate al nuovo flusso approvazione e pagamento."
+msgstr "Only old requests not yet connected to the new approval and payment flow remain here."
+
+msgid "Questa sezione non ha approvazione"
+msgstr "This section has no approval"
+
+msgid "Qui non troverai il pulsante di approvazione perche queste righe sono richieste di contatto commerciale, non richieste custom da preventivare e approvare."
+msgstr "You will not find the approval button here because these rows are commercial contact requests, not custom requests to quote and approve."
+
+msgid "Solo contatto"
+msgstr "Contact only"
+
+msgid "Nessun contatto proveniente dalle build del catalogo."
+msgstr "No contacts from catalog builds."
+
+msgid "5. Messaggi contatto"
+msgstr "5. Contact messages"
+
+msgid "Anche questi non si approvano: sono messaggi generici inviati dal modulo contatti del sito."
+msgstr "These are not approved either: they are generic messages sent from the site's contact form."
+
+msgid "Anche qui non c'e approvazione"
+msgstr "There is no approval here either"
+
+msgid "Questi messaggi servono solo per assistenza o contatto commerciale e non fanno parte del flusso richiesta custom."
+msgstr "These messages are only for support or commercial contact and are not part of the custom request flow."
+
+msgid "Da qui gestisci ruolo, stato account e ban senza passare da una sezione separata."
+msgstr "From here you manage role, account status, and bans without using a separate section."
+
+msgid "Solo il super admin puo scegliere se un account e Admin o Utente. Un admin normale non puo promuovere altri account."
+msgstr "Only the super admin can choose whether an account is Admin or User. A normal admin cannot promote other accounts."
+
+msgid "Ban account"
+msgstr "Ban account"
+
+msgid "Puoi scegliere ban permanente oppure temporaneo impostando una data di fine. Un utente bannato non puo accedere finche il ban resta attivo."
+msgstr "You can choose a permanent or temporary ban by setting an end date. A banned user cannot log in while the ban remains active."
+
+msgid "Revoca ban"
+msgstr "Revoke ban"
+
+msgid "Non puoi applicare ban a questo account."
+msgstr "You cannot apply bans to this account."
+
+msgid "Storico ban"
+msgstr "Ban history"
+
+msgid "Registro dei ban applicati a questo account, inclusi quelli scaduti o revocati."
+msgstr "Log of bans applied to this account, including expired or revoked bans."
+
+msgid "Periodo"
+msgstr "Period"
+
+msgid "Da chi"
+msgstr "By"
+
+msgid "permanente"
+msgstr "permanent"
+
+msgid "Nessun ban registrato per questo account."
+msgstr "No bans recorded for this account."
+
+msgid "Cerca per nome utente, apri la scheda e gestisci ruolo, stato account e ban dalla stessa pagina."
+msgstr "Search by username, open the profile sheet, and manage role, account status, and bans from the same page."
+
+msgid "Cerca nome utente"
+msgstr "Search username"
+
+msgid "Scrivi il nome utente, non la email"
+msgstr "Enter the username, not the email"
+
+msgid "Cerca utente"
+msgstr "Search user"
+
+msgid "Mostra tutti"
+msgstr "Show all"
+
+msgid "Apri scheda"
+msgstr "Open profile sheet"
+
+msgid "Nessun utente trovato con questo nome utente."
+msgstr "No user found with this username."

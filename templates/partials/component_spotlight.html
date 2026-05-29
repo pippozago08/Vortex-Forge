@@ -1,0 +1,40 @@
+{% load static catalog_extras %}
+{% static image as component_image_url %}
+{% static_image_size image as component_image_size %}
+<article class="component-spotlight component-spotlight--{{ side }} reveal-on-scroll">
+  {% if side == "right" %}
+    <div class="component-spotlight-copy">
+      <div class="component-spotlight-copy-inner">
+        <span class="component-spotlight-kicker">{{ kicker }}</span>
+        <h3>{{ title }}</h3>
+        <p>{{ description }}</p>
+      </div>
+    </div>
+    <div class="component-spotlight-media">
+        <div class="component-spotlight-stage">
+          <div class="component-spotlight-asset">
+            <img class="component-spotlight-image" src="{{ component_image_url }}" alt="{{ title }}" {% if component_image_size %}width="{{ component_image_size.0 }}" height="{{ component_image_size.1 }}"{% endif %} loading="lazy" decoding="async">
+            <img class="component-spotlight-image component-spotlight-reflection" src="{{ component_image_url }}" alt="" {% if component_image_size %}width="{{ component_image_size.0 }}" height="{{ component_image_size.1 }}"{% endif %} loading="lazy" decoding="async">
+          </div>
+          <span class="component-spotlight-floor"></span>
+        </div>
+      </div>
+  {% else %}
+    <div class="component-spotlight-media">
+        <div class="component-spotlight-stage">
+          <div class="component-spotlight-asset">
+            <img class="component-spotlight-image" src="{{ component_image_url }}" alt="{{ title }}" {% if component_image_size %}width="{{ component_image_size.0 }}" height="{{ component_image_size.1 }}"{% endif %} loading="lazy" decoding="async">
+            <img class="component-spotlight-image component-spotlight-reflection" src="{{ component_image_url }}" alt="" {% if component_image_size %}width="{{ component_image_size.0 }}" height="{{ component_image_size.1 }}"{% endif %} loading="lazy" decoding="async">
+          </div>
+          <span class="component-spotlight-floor"></span>
+        </div>
+      </div>
+    <div class="component-spotlight-copy">
+      <div class="component-spotlight-copy-inner">
+        <span class="component-spotlight-kicker">{{ kicker }}</span>
+        <h3>{{ title }}</h3>
+        <p>{{ description }}</p>
+      </div>
+    </div>
+  {% endif %}
+</article>

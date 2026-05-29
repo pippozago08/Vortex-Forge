@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block body_class %}backoffice-body{% endblock %}
+
+{% block content %}
+  {% with name=request.resolver_match.url_name %}
+    <section class="wrapper admin-shell reveal-on-scroll">
+      <div class="admin-content card-shell admin-workspace">
+        <div class="admin-toolbar">
+          <div class="admin-toolbar-copy">
+            <p class="brand-eyebrow">{% trans "Backoffice" %}</p>
+            <h2>{% trans "Gestione sito" %}</h2>
+            <p class="admin-copy">{% trans "Un'area di lavoro ordinata per build, utenti, richieste, pagamenti e impostazioni. L'obiettivo qui e capire subito cosa richiede un intervento e cosa e gia sotto controllo." %}</p>
+          </div>
+
+          <details class="admin-switcher" data-admin-switcher>
+            <summary class="button button-ghost admin-switcher-toggle">
+              <span class="admin-switcher-label">{% trans "Pannello admin" %}</span>
+              <strong class="admin-switcher-current">
+                {% if name == "dashboard" %}
+                  {% trans "Dashboard" %}
+                {% elif name == "build_list" or name == "build_create" or name == "build_edit" %}
+                  {% trans "Gestione build" %}
+                {% elif name == "user_list" or name == "user_edit" or name == "ban_list" or name == "ban_create" %}
+                  {% trans "Gestione utenti" %}
+                {% elif name == "requests" or name == "custom_request_review" %}
+                  {% trans "Richieste build" %}
+                {% elif name == "settings" %}
+                  {% trans "Impostazioni sito" %}
+                {% else %}
+                  {% trans "Dashboard" %}
+                {% endif %}
+              </strong>
+            </summary>
+
+            <nav class="admin-switcher-menu" aria-label="{% trans 'Navigazione backoffice' %}">
+              <a class="admin-switcher-link {% if name == 'dashboard' %}is-active{% endif %}" href="{% url 'backoffice:dashboard' %}">{% trans "Dashboard" %}</a>
+              {% if request.user.can_access_builds %}
+                <a class="admin-switcher-link {% if name == 'build_list' or name == 'build_create' or name == 'build_edit' %}is-active{% endif %}" href="{% url 'backoffice:build_list' %}">{% trans "Gestione build" %}</a>
+              {% endif %}
+              {% if request.user.can_access_users or request.user.can_access_bans %}
+                <a class="admin-switcher-link {% if name == 'user_list' or name == 'user_edit' or name == 'ban_list' or name == 'ban_create' %}is-active{% endif %}" href="{% url 'backoffice:user_list' %}">{% trans "Gestione utenti" %}</a>
+              {% endif %}
+              {% if request.user.can_access_requests %}
+                <a class="admin-switcher-link {% if name == 'requests' or name == 'custom_request_review' %}is-active{% endif %}" href="{% url 'backoffice:requests' %}">{% trans "Richieste build" %}</a>
+              {% endif %}
+              {% if request.user.can_access_settings %}
+                <a class="admin-switcher-link {% if name == 'settings' %}is-active{% endif %}" href="{% url 'backoffice:settings' %}">{% trans "Impostazioni sito" %}</a>
+              {% endif %}
+            </nav>
+          </details>
+        </div>
+
+        {% block panel_content %}{% endblock %}
+      </div>
+    </section>
+  {% endwith %}
+{% endblock %}

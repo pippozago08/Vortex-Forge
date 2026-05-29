@@ -1,0 +1,417 @@
+{% extends "base.html" %}
+{% load i18n static catalog_extras %}
+
+{% block title %}{{ site_settings.site_name }} | {% trans "PC professionali" %}{% endblock %}
+
+{% block content %}
+  {% trans "Scheda video" as showcase_gpu_kicker %}
+  {% trans "Gestisce ray tracing, frame elevati e carichi grafici pesanti con una presenza scenica forte gia al primo impatto." as showcase_gpu_description %}
+  {% trans "Processore" as showcase_cpu_kicker %}
+  {% trans "Porta fluidita nelle attivita pesanti, ottima risposta nei picchi di carico e margine vero per streaming, editing e multitasking." as showcase_cpu_description %}
+  {% trans "Raffreddamento" as showcase_aio_kicker %}
+  {% trans "Tiene la CPU stabile anche sotto carico e aggiunge un look curato con impatto immediato." as showcase_aio_description %}
+  {% trans "Scheda madre" as showcase_board_kicker %}
+  {% trans "Da struttura alla build con VRM robusti, connettivita moderna e una base solida per componenti di fascia alta." as showcase_board_description %}
+  {% trans "Memoria" as showcase_ram_kicker %}
+  {% trans "Tiene alti transfer rate e buona reattivita quando il sistema deve gestire software creativi, progetti e attivita in parallelo." as showcase_ram_description %}
+  {% trans "Storage" as showcase_ssd_jupiter_kicker %}
+  {% trans "Riduce tempi di caricamento e da una sensazione piu immediata a sistema operativo, software e librerie pesanti." as showcase_ssd_jupiter_description %}
+  {% trans "Archivio veloce" as showcase_ssd_mars_kicker %}
+  {% trans "E perfetto per librerie software, progetti pesanti e un archivio piu reattivo per i file usati ogni giorno." as showcase_ssd_mars_description %}
+  {% trans "Alimentazione" as showcase_psu_kicker %}
+  {% trans "Da margine vero alla configurazione, tiene la build pulita e resta adatto anche a schede video e CPU molto spinte." as showcase_psu_description %}
+  {% trans "Case" as showcase_case_kicker %}
+  {% trans "Apre spazio a raffreddamento, cable management e presenza scenica, lasciando la build ordinata e leggibile." as showcase_case_description %}
+  {% trans "Ventole" as showcase_fan_kicker %}
+  {% trans "Migliora il ricambio d'aria e completa il look della build con una luce uniforme e una resa piu curata." as showcase_fan_description %}
+
+  <section class="hero-scroll-3d" id="hero-section">
+    <div class="wrapper hero-section hero-stage hero-sticky">
+      <div id="hero-3d-container" data-hero-logo-3d data-model-url="{% static 'models/logo_light.glb' %}" aria-hidden="true"></div>
+
+      <div class="hero-main card-shell hero-panel hero-content">
+        <div class="hero-copy hero-copy-stack">
+          <p class="brand-eyebrow">{% trans "Vortex Forge" %}</p>
+          <h1 class="hero-title">{{ site_settings.localized_hero_title }}</h1>
+          <p class="hero-intro">{{ site_settings.localized_hero_subtitle }}</p>
+          <div class="action-row hero-actions">
+            <a class="button button-primary" href="#builds-section">{% trans "Scopri le build" %}</a>
+            <a class="button button-ghost" href="#custom-section">{% trans "Richiedi una build su misura" %}</a>
+          </div>
+
+          <div class="hero-proof-grid">
+            <article class="hero-proof-item">
+              <span>{% trans "Catalogo" %}</span>
+              <strong>{% trans "Configurazioni curate e credibili" %}</strong>
+              <p>{% trans "La pagina mostra build pronte, componenti chiari e un accesso immediato al percorso giusto." %}</p>
+            </article>
+            <article class="hero-proof-item">
+              <span>{% trans "Flusso" %}</span>
+              <strong>{% trans "Preventivo prima del pagamento" %}</strong>
+              <p>{% trans "Il cliente paga solo quando il team conferma la richiesta e salva il prezzo finale." %}</p>
+            </article>
+            <article class="hero-proof-item">
+              <span>{% trans "Supporto" %}</span>
+              <strong>{% trans "Storico, stato e contatti sempre leggibili" %}</strong>
+              <p>{% trans "Ogni passaggio resta sotto controllo nell'account e nel pannello amministrativo." %}</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-aside hero-metrics">
+          <div class="metric-card hero-metric-card">
+            <span>{% trans "Build online" %}</span>
+            <strong>{{ build_count }}</strong>
+          </div>
+          <div class="metric-card hero-metric-card">
+            <span>{% trans "Clienti serviti" %}</span>
+            <strong>{{ clients_served_count }}</strong>
+          </div>
+          <div class="metric-card hero-metric-card">
+            <span>{% trans "Supporto" %}</span>
+            <strong>IT / EN</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual-stack hero-content">
+        <div class="hero-side-panel card-shell hero-note-panel">
+          <p class="brand-eyebrow">{% trans "Percorso cliente" %}</p>
+          <div class="hero-flow-list">
+            <article class="hero-flow-item">
+              <span>01</span>
+              <div>
+                <strong>{% trans "Esplora o personalizza" %}</strong>
+                <p>{% trans "Puoi partire da una build gia pronta oppure configurare una richiesta da zero nello stesso sito." %}</p>
+              </div>
+            </article>
+            <article class="hero-flow-item">
+              <span>02</span>
+              <div>
+                <strong>{% trans "Il team approva il preventivo" %}</strong>
+                <p>{% trans "Admin e super admin valutano la richiesta, impostano il prezzo finale e lasciano eventuali note utili." %}</p>
+              </div>
+            </article>
+            <article class="hero-flow-item">
+              <span>03</span>
+              <div>
+                <strong>{% trans "Checkout solo quando pronto" %}</strong>
+                <p>{% trans "Il pagamento compare solo dopo approvazione, con stato chiaro e riepilogo ordine completo." %}</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-side-panel card-shell hero-note-panel hero-note-panel-secondary">
+          <p class="brand-eyebrow">{% trans "Perche sceglierci" %}</p>
+          <ul class="feature-list">
+            <li>{% trans "Catalogo reale gestito da pannello amministrativo protetto." %}</li>
+            <li>{% trans "Richieste custom, contatti e build salvati in database." %}</li>
+            <li>{% trans "Account sicuri con reset password, ruoli e gestione ban." %}</li>
+            <li>{% trans "Esperienza responsive, chiara e pronta per la pubblicazione." %}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper section-shell reveal-on-scroll" id="service-section">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Servizio" %}</p>
+        <h2>{% trans "Una piattaforma unica per presentare, configurare e approvare PC su misura." %}</h2>
+        <p class="section-copy">{% trans "La parte pubblica vive in una sola pagina chiara: chi arriva vede subito prodotti, processo, richiesta custom e contatti senza saltare tra sezioni scollegate." %}</p>
+      </div>
+    </div>
+
+    <div class="service-grid">
+      <article class="info-card service-card">
+        <p class="brand-eyebrow">{% trans "Build" %}</p>
+        <h3>{% trans "Schede curate e componenti leggibili" %}</h3>
+        <p>{% trans "Ogni build mette in evidenza immagine, prezzo, disponibilita e componenti senza costringere il cliente a cercare le informazioni importanti." %}</p>
+      </article>
+      <article class="info-card service-card">
+        <p class="brand-eyebrow">{% trans "Custom" %}</p>
+        <h3>{% trans "Richiesta su misura con logica commerciale reale" %}</h3>
+        <p>{% trans "Il cliente inserisce componenti, budget e note in modo chiaro. Il team poi approva il preventivo prima di mostrare il pagamento." %}</p>
+      </article>
+      <article class="info-card service-card">
+        <p class="brand-eyebrow">{% trans "Supporto" %}</p>
+        <h3>{% trans "Contatti e account pensati per il follow-up" %}</h3>
+        <p>{% trans "Dalla prima richiesta fino al checkout, tutto resta tracciato con stati leggibili e azioni coerenti." %}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrapper section-shell reveal-on-scroll showcase-intro-shell">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Hardware" %}</p>
+        <h2>{% trans "Componenti reali, raccontati come parte di un prodotto curato." %}</h2>
+        <p class="section-copy">{% trans "Queste immagini danno peso visivo alla proposta e aiutano a far percepire il livello delle configurazioni che il sito vuole rappresentare." %}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="component-showcase-section">
+    <div class="component-showcase-shell">
+      {% include "partials/component_spotlight.html" with side="left" image="img/showcase/gpu-rog-geforce.webp" kicker=showcase_gpu_kicker title="ROG GeForce RTX" description=showcase_gpu_description %}
+      {% include "partials/component_spotlight.html" with side="right" image="img/showcase/cpu-ryzen-9000.webp" kicker=showcase_cpu_kicker title="AMD Ryzen 9000" description=showcase_cpu_description %}
+      {% include "partials/component_spotlight.html" with side="left" image="img/showcase/aio-rog-ryuo-360.webp" kicker=showcase_aio_kicker title="ROG Ryuo III 360" description=showcase_aio_description %}
+      {% include "partials/component_spotlight.html" with side="right" image="img/showcase/motherboard-msi-meg.webp" kicker=showcase_board_kicker title="MSI MEG Enthusiast" description=showcase_board_description %}
+      {% include "partials/component_spotlight.html" with side="left" image="img/showcase/ram-viper-ddr5.webp" kicker=showcase_ram_kicker title="Viper DDR5" description=showcase_ram_description %}
+      {% include "partials/component_spotlight.html" with side="right" image="img/showcase/ssd-fikwot-jupiter.webp" kicker=showcase_ssd_jupiter_kicker title="Fikwot Jupiter PCIe 4.0" description=showcase_ssd_jupiter_description %}
+      {% include "partials/component_spotlight.html" with side="left" image="img/showcase/ssd-fikwot-mars.webp" kicker=showcase_ssd_mars_kicker title="Fikwot Mars PCIe" description=showcase_ssd_mars_description %}
+      {% include "partials/component_spotlight.html" with side="right" image="img/showcase/psu-rog-thor-1600w.webp" kicker=showcase_psu_kicker title="ROG Thor 1600W" description=showcase_psu_description %}
+      {% include "partials/component_spotlight.html" with side="left" image="img/showcase/case-tryx-white.webp" kicker=showcase_case_kicker title="TRYX White Showcase" description=showcase_case_description %}
+      {% include "partials/component_spotlight.html" with side="right" image="img/showcase/fan-corsair-rgb.webp" kicker=showcase_fan_kicker title="Corsair RGB Fan" description=showcase_fan_description %}
+    </div>
+  </section>
+
+  <section class="wrapper section-shell reveal-on-scroll feature-showcase" id="builds-section">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Le nostre build" %}</p>
+        <h2>{% trans "Le configurazioni gia pronte si vedono nel catalogo dedicato." %}</h2>
+        <p class="section-copy">{% trans "Da qui puoi aprire il catalogo completo e confrontare tutte le build pubblicate con filtri per prezzo, componenti, data e marche." %}</p>
+      </div>
+      <div class="catalog-summary-card">
+        <span>{% trans "Build nel catalogo" %}</span>
+        <strong>{{ build_count }}</strong>
+        <p>{% trans "Clicca il pulsante qui sotto per vedere tutte le build pronte nel catalogo." %}</p>
+        <a class="button button-ghost" href="{% url 'catalog:build_list' %}">{% trans "Vai al catalogo build" %}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper section-shell reveal-on-scroll" id="process-section">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Processo" %}</p>
+        <h2>{% trans "Un flusso semplice per il cliente, ma abbastanza solido per vendere davvero." %}</h2>
+      </div>
+    </div>
+
+    <div class="process-grid">
+      <article class="process-card">
+        <span class="process-index">01</span>
+        <h3>{% trans "Scelta iniziale" %}</h3>
+        <p>{% trans "Il cliente esplora le build oppure parte direttamente da una richiesta personalizzata." %}</p>
+      </article>
+      <article class="process-card">
+        <span class="process-index">02</span>
+        <h3>{% trans "Revisione commerciale" %}</h3>
+        <p>{% trans "Il team controlla la richiesta, prepara il preventivo finale e aggiorna lo stato in modo leggibile." %}</p>
+      </article>
+      <article class="process-card">
+        <span class="process-index">03</span>
+        <h3>{% trans "Checkout abilitato" %}</h3>
+        <p>{% trans "Il pagamento compare solo quando la richiesta e approvata, con riepilogo chiaro e metodo selezionato." %}</p>
+      </article>
+      <article class="process-card">
+        <span class="process-index">04</span>
+        <h3>{% trans "Storico e supporto" %}</h3>
+        <p>{% trans "Cliente e amministrazione possono sempre rivedere riferimenti, esiti e note senza perdere contesto." %}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrapper section-shell reveal-on-scroll" id="custom-section">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Personalizza il tuo PC" %}</p>
+        <h2>{% trans "Invia una richiesta su misura senza lasciare la homepage." %}</h2>
+        <p class="section-copy">{% trans "Questa sezione raccoglie componenti, budget e note. Dopo l'invio il team valutera la richiesta e solo allora il checkout comparira nel tuo account." %}</p>
+      </div>
+      {% if request.user.is_authenticated %}
+        <a class="button button-ghost" href="{% url 'accounts:dashboard' %}">{% trans "Apri il tuo account" %}</a>
+      {% else %}
+        <a class="button button-ghost" href="{% url 'accounts:login' %}">{% trans "Accedi per continuare" %}</a>
+      {% endif %}
+    </div>
+
+    <div class="custom-request-shell">
+      <div class="custom-request-summary">
+        <article class="request-fact">
+          <span>{% trans "Obiettivo" %}</span>
+          <strong>{% trans "Raccogliere una richiesta completa e leggibile" %}</strong>
+        </article>
+        <article class="request-fact">
+          <span>{% trans "Pagamento" %}</span>
+          <strong>{% trans "Disponibile solo dopo approvazione admin" %}</strong>
+        </article>
+        <article class="request-fact">
+          <span>{% trans "Suggerimento" %}</span>
+          <strong>{% trans "Indica i componenti gia decisi e usa le note per priorita, dubbi o stile desiderato" %}</strong>
+        </article>
+      </div>
+
+      <article class="info-card custom-request-side-note">
+        <p class="brand-eyebrow">{% trans "Prima di iniziare" %}</p>
+        <h3>{% trans "Cosa aiuta davvero il team a quotare bene" %}</h3>
+        <ul class="feature-list">
+          <li>{% trans "Budget massimo realistico." %}</li>
+          <li>{% trans "Uso del PC: gaming, editing, rendering, workstation o misto." %}</li>
+          <li>{% trans "Preferenze su estetica, rumore, raffreddamento e dimensioni." %}</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="request-steps">
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Passo 1" %}</p>
+        <h3>{% trans "Invia la richiesta" %}</h3>
+        <p>{% trans "Compili componenti, budget e note. I campi non ancora decisi possono restare vuoti." %}</p>
+      </article>
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Passo 2" %}</p>
+        <h3>{% trans "Il team la valuta" %}</h3>
+        <p>{% trans "Admin e super admin definiscono il prezzo finale, salvano eventuali note e aggiornano lo stato." %}</p>
+      </article>
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Passo 3" %}</p>
+        <h3>{% trans "Paghi solo se approvata" %}</h3>
+        <p>{% trans "Il checkout compare solo quando la richiesta e pronta. Prima non vedrai alcun pulsante di pagamento." %}</p>
+      </article>
+    </div>
+
+    {% if request.user.is_authenticated %}
+      <form method="post" class="stack-layout">
+        {% csrf_token %}
+        <input type="hidden" name="form_type" value="custom_request">
+
+        {% if custom_request_form.non_field_errors %}
+          <div class="status-panel status-danger">
+            {{ custom_request_form.non_field_errors|striptags }}
+          </div>
+        {% endif %}
+
+        <section class="form-panel">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "1. Componenti che conosci gia" %}</h2>
+              <p class="section-copy">{% trans "Inserisci solo i componenti che hai gia deciso. Se qualcosa non e definito, spiegalo nelle note finali." %}</p>
+            </div>
+          </div>
+          <div class="form-layout">
+            {% include "partials/form_field.html" with field=custom_request_form.cpu %}
+            {% include "partials/form_field.html" with field=custom_request_form.gpu %}
+            {% include "partials/form_field.html" with field=custom_request_form.power_supply %}
+            {% include "partials/form_field.html" with field=custom_request_form.ram %}
+            {% include "partials/form_field.html" with field=custom_request_form.cooling %}
+            {% include "partials/form_field.html" with field=custom_request_form.storage %}
+            {% include "partials/form_field.html" with field=custom_request_form.case %}
+            {% include "partials/form_field.html" with field=custom_request_form.motherboard %}
+            {% include "partials/form_field.html" with field=custom_request_form.extra_fans %}
+            {% include "partials/form_field.html" with field=custom_request_form.network_card %}
+          </div>
+        </section>
+
+        <section class="form-panel">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "2. Budget" %}</h2>
+              <p class="section-copy">{% trans "Il budget massimo e obbligatorio. Il minimo e facoltativo e serve solo se vuoi indicare una fascia di partenza." %}</p>
+            </div>
+          </div>
+          <div class="form-layout">
+            {% include "partials/form_field.html" with field=custom_request_form.budget_min %}
+            {% include "partials/form_field.html" with field=custom_request_form.budget_max %}
+            {% include "partials/form_field.html" with field=custom_request_form.currency %}
+          </div>
+        </section>
+
+        <section class="form-panel">
+          <div class="subsection-headline">
+            <div>
+              <h2>{% trans "3. Note finali" %}</h2>
+              <p class="section-copy">{% trans "Qui puoi spiegare l'uso del PC, lo stile che preferisci, la priorita tra prestazioni e silenziosita o altre richieste importanti." %}</p>
+            </div>
+          </div>
+          <div class="form-layout">
+            {% include "partials/form_field.html" with field=custom_request_form.notes field_class="field-group field-span-full" %}
+          </div>
+        </section>
+
+        <div class="action-row">
+          <button type="submit" class="button button-primary">{% trans "Invia richiesta" %}</button>
+          <a class="button button-ghost" href="{% url 'accounts:dashboard' %}">{% trans "Apri il tuo account" %}</a>
+        </div>
+      </form>
+    {% else %}
+      <div class="empty-panel empty-panel-rich">
+        <div>
+          <h3>{% trans "Accedi per inviare la richiesta personalizzata" %}</h3>
+          <p>{% trans "Il login serve a collegare la richiesta al tuo account, mostrarti gli stati e attivare il checkout solo quando il team la approva." %}</p>
+        </div>
+        <div class="action-row">
+          <a class="button button-primary" href="{% url 'accounts:login' %}?next=/">{% trans "Accedi" %}</a>
+          <a class="button button-ghost" href="{% url 'accounts:register' %}">{% trans "Registrati" %}</a>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+
+  <section class="wrapper section-shell reveal-on-scroll" id="contacts-section">
+    <div class="section-headline">
+      <div>
+        <p class="brand-eyebrow">{% trans "Contatti" %}</p>
+        <h2>{% trans "Parla con il team commerciale senza cambiare pagina." %}</h2>
+        <p class="section-copy">{% trans "Numero, email, sede e modulo messaggi vivono qui, cosi il percorso pubblico resta davvero unico e coerente." %}</p>
+      </div>
+      <div class="contact-inline">
+        <span class="meta-chip">{{ site_settings.support_phone }}</span>
+        <span class="meta-chip">{{ site_settings.support_email }}</span>
+      </div>
+    </div>
+
+    <div class="dashboard-overview contact-overview">
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Telefono" %}</p>
+        <h3>{{ site_settings.support_phone }}</h3>
+        <p>{% trans "Per supporto commerciale e prime richieste rapide." %}</p>
+      </article>
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Email" %}</p>
+        <h3>{{ site_settings.support_email }}</h3>
+        <p>{% trans "Per comunicazioni strutturate, approvazioni e aggiornamenti." %}</p>
+      </article>
+      <article class="info-card compact">
+        <p class="brand-eyebrow">{% trans "Sede" %}</p>
+        <h3>{{ site_settings.company_name }}</h3>
+        <p>{{ site_settings.company_address }}</p>
+      </article>
+    </div>
+
+    <div class="content-split">
+      <article class="info-card">
+        <p class="brand-eyebrow">{% trans "Dati aziendali" %}</p>
+        <h3>{{ site_settings.company_name }}</h3>
+        <ul class="footer-list">
+          <li>{{ site_settings.company_address }}</li>
+          <li>{{ site_settings.vat_number }}</li>
+          <li>{% trans "Assistenza clienti dedicata e richieste tracciate." %}</li>
+          <li>{% trans "Flusso account, approvazioni e checkout strutturato." %}</li>
+        </ul>
+      </article>
+
+      <form method="post" class="info-card form-layout compact">
+        {% csrf_token %}
+        <input type="hidden" name="form_type" value="contact">
+        {% include "partials/form_field.html" with field=contact_form.name %}
+        {% include "partials/form_field.html" with field=contact_form.email %}
+        {% include "partials/form_field.html" with field=contact_form.phone %}
+        {% include "partials/form_field.html" with field=contact_form.subject %}
+        {% include "partials/form_field.html" with field=contact_form.message field_class="field-group field-span-full" %}
+        <div class="field-span-full">
+          <button type="submit" class="button button-primary">{% trans "Invia messaggio" %}</button>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}
+
+{% block extra_scripts %}
+  {{ block.super }}
+  <script defer src="{% static 'js/hero-logo-3d.js' %}?v=hero3d-tablet-on-1"></script>
+{% endblock %}
