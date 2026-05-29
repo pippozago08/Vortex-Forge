@@ -61,7 +61,7 @@ SECRET_KEY = env(
     "DJANGO_SECRET_KEY",
     "replace-this-with-a-long-random-secret-key-before-production-2026-vortex-forge",
 )
-DEBUG = env_bool("DJANGO_DEBUG", True)
+DEBUG = env_bool("DJANGO_DEBUG", not bool(env("DATABASE_URL") or env("RENDER") or env("RENDER_EXTERNAL_HOSTNAME")))
 ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,testserver")
 CSRF_TRUSTED_ORIGINS = env_list("DJANGO_CSRF_TRUSTED_ORIGINS", "")
 
