@@ -57,7 +57,7 @@ INSERT INTO accounts_user (
     can_manage_settings
 )
 VALUES (
-    'pbkdf2_sha256$1000000$7KRN4C8gepFvVKP26I82jR$S9kLK/EY/RwvNhdZ3ns1Es08djtbj89VaOyt6+vfejQ=',
+    'pbkdf2_sha256$1000000$u8xeJ3kuvt5fqftRPk1z6m$n3P41aBlcW2m0L017Q9veOgH7nSHe5D9nnBnQKHecXE=',
     NULL,
     TRUE,
     'pippozago08',
