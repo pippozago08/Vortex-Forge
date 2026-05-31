@@ -23,6 +23,24 @@ services:
         value: "https://vortex-forge.onrender.com"
       - key: SITE_SUPPORT_EMAIL
         value: "vortexforge.support@gmail.com"
+      - key: EMAIL_BACKEND
+        value: "django.core.mail.backends.smtp.EmailBackend"
+      - key: EMAIL_HOST
+        value: "smtp.gmail.com"
+      - key: EMAIL_PORT
+        value: "587"
+      - key: EMAIL_HOST_USER
+        value: "vortexforge.support@gmail.com"
+      - key: EMAIL_HOST_PASSWORD
+        sync: false
+      - key: EMAIL_USE_TLS
+        value: "True"
+      - key: EMAIL_USE_SSL
+        value: "False"
+      - key: DEFAULT_FROM_EMAIL
+        value: "Vortex Forge <vortexforge.support@gmail.com>"
+      - key: SERVER_EMAIL
+        value: "vortexforge.support@gmail.com"
       - key: PAYMENT_PROVIDER
         value: "simulated"
       - key: PAYMENT_DEFAULT_CURRENCY

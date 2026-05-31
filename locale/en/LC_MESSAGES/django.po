@@ -3774,3 +3774,18 @@ msgstr "Open profile sheet"
 
 msgid "Nessun utente trovato con questo nome utente."
 msgstr "No user found with this username."
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Apri a schermo intero"
+msgstr "Open fullscreen"
+
+msgid "Riduci pannello"
+msgstr "Exit fullscreen"
+
+msgid "Non siamo riusciti a inviare l'email. Riprova tra qualche minuto."
+msgstr "We could not send the email. Please try again in a few minutes."
+
+msgid "Non siamo riusciti a reinviare l'email. Riprova tra qualche minuto."
+msgstr "We could not resend the email. Please try again in a few minutes."

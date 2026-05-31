@@ -574,6 +574,40 @@ function initializeAdminActivityLog() {
   });
 }
 
+function initializeAccountPaymentsPanel() {
+  document.querySelectorAll("[data-account-payments-card]").forEach((card) => {
+    if (card.dataset.paymentsPanelBound === "true") {
+      return;
+    }
+
+    const expandButton = card.querySelector("[data-account-payments-expand]");
+    if (!expandButton) {
+      return;
+    }
+
+    card.dataset.paymentsPanelBound = "true";
+
+    const setExpanded = (isExpanded) => {
+      card.classList.toggle("is-expanded", isExpanded);
+      body.classList.toggle("account-payments-open", isExpanded);
+      expandButton.setAttribute("aria-expanded", String(isExpanded));
+      expandButton.textContent = isExpanded
+        ? expandButton.dataset.expandedLabel
+        : expandButton.dataset.collapsedLabel;
+    };
+
+    expandButton.addEventListener("click", () => {
+      setExpanded(!card.classList.contains("is-expanded"));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && card.classList.contains("is-expanded")) {
+        setExpanded(false);
+      }
+    });
+  });
+}
+
 function initializeAdminSwitcher() {
   document.querySelectorAll("[data-admin-switcher]").forEach((switcher) => {
     if (switcher.dataset.switcherBound === "true") {
@@ -810,6 +844,7 @@ assignStaggerIndices(".dashboard-overview .info-card");
 initializeInteractiveGlow();
 initializeBuildGallery();
 initializeAdminActivityLog();
+initializeAccountPaymentsPanel();
 initializeAdminSwitcher();
 initializeBrandMenu();
 initializePasswordVisibility();

@@ -213,12 +213,22 @@
           </div>
         </article>
 
-        <article class="info-card">
+        <article class="info-card account-payments-card" data-account-payments-card>
           <div class="subsection-headline">
             <div>
               <h2>{% trans "Pagamenti e tentativi recenti" %}</h2>
               <p class="section-copy">{% trans "Qui controlli velocemente i pagamenti riusciti, quelli da riprovare e gli eventuali checkout ancora in corso." %}</p>
             </div>
+            <button
+              type="button"
+              class="button button-ghost button-small account-payments-expand"
+              data-account-payments-expand
+              data-expanded-label="{% trans 'Riduci pannello' %}"
+              data-collapsed-label="{% trans 'Apri a schermo intero' %}"
+              aria-expanded="false"
+            >
+              {% trans "Apri a schermo intero" %}
+            </button>
           </div>
 
           <div class="request-key-facts">

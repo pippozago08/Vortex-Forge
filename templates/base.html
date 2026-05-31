@@ -21,8 +21,8 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="{% static 'css/site.css' %}?v=deploy-final-1">
-  <script defer src="{% static 'js/site.js' %}?v=vertical-spacing-pass-1"></script>
+  <link rel="stylesheet" href="{% static 'css/site.css' %}?v=responsive-account-pass-1">
+  <script defer src="{% static 'js/site.js' %}?v=responsive-account-pass-1"></script>
   {% block extra_head %}{% endblock %}
 </head>
 <body class="site-body {% block body_class %}{% endblock %}">
@@ -54,6 +54,10 @@
             <span class="brand-eyebrow brand-kicker">{% trans "PC su misura" %}</span>
             <strong class="brand-title">{{ site_settings.site_name }}</strong>
           </div>
+          <span class="brand-menu-hint" aria-hidden="true">
+            <span>{% trans "Menu" %}</span>
+            <i class="brand-menu-hint-icon"></i>
+          </span>
         </button>
 
         <nav class="brand-anchor-menu" id="brand-anchor-menu" data-brand-menu aria-label="{% trans 'Sezioni del sito' %}">

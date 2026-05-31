@@ -1,4 +1,5 @@
 import hashlib
+import logging
 from datetime import timedelta
 
 from django.conf import settings
@@ -33,6 +34,7 @@ from .models import AccountDeletionRequest, Ban, LoginAttempt, PasswordResetRequ
 
 
 User = get_user_model()
+logger = logging.getLogger(__name__)
 
 
 def get_client_ip(request):
@@ -220,7 +222,13 @@ class PasswordResetRequestView(FormView):
         if user:
             reset, raw_token, code = PasswordResetRequest.build_request(user, get_client_ip(self.request))
             reset.save()
-            send_password_reset_code(self.request, reset, raw_token, code)
+            try:
+                send_password_reset_code(self.request, reset, raw_token, code)
+            except Exception:
+                logger.exception("Password reset email delivery failed for user %s", user.pk)
+                reset.delete()
+                messages.error(self.request, _("Non siamo riusciti a inviare l'email. Riprova tra qualche minuto."))
+                return redirect("accounts:password_reset_request")
             self.request.session["password_reset_email"] = user.email
 
             messages.success(self.request, _("Ti abbiamo inviato un codice di verifica via email."))
@@ -276,8 +284,20 @@ class PasswordResetResendView(View):
             messages.error(request, _("La richiesta di reset non e valida. Ripeti la procedura."))
             return redirect("accounts:password_reset_request")
 
+        previous_code_hash = reset_request.code_hash
+        previous_expires_at = reset_request.expires_at
+        previous_verified_at = reset_request.verified_at
         code = reset_request.refresh_code()
-        send_password_reset_code(request, reset_request, kwargs["token"], code)
+        try:
+            send_password_reset_code(request, reset_request, kwargs["token"], code)
+        except Exception:
+            logger.exception("Password reset resend failed for request %s", reset_request.pk)
+            reset_request.code_hash = previous_code_hash
+            reset_request.expires_at = previous_expires_at
+            reset_request.verified_at = previous_verified_at
+            reset_request.save(update_fields=["code_hash", "expires_at", "verified_at"])
+            messages.error(request, _("Non siamo riusciti a reinviare l'email. Riprova tra qualche minuto."))
+            return redirect("accounts:password_reset_verify", token=kwargs["token"])
         request.session.pop("verified_reset_id", None)
         request.session["password_reset_email"] = reset_request.user.email
         messages.success(request, _("Ti abbiamo inviato un nuovo codice. Il precedente non e piu valido."))
@@ -325,7 +345,13 @@ class AccountDeleteRequestView(LoginRequiredMixin, View):
             get_client_ip(request),
         )
         deletion_request.save()
-        send_account_deletion_code(request, deletion_request, raw_token, code)
+        try:
+            send_account_deletion_code(request, deletion_request, raw_token, code)
+        except Exception:
+            logger.exception("Account deletion email delivery failed for user %s", request.user.pk)
+            deletion_request.delete()
+            messages.error(request, _("Non siamo riusciti a inviare l'email. Riprova tra qualche minuto."))
+            return redirect("accounts:dashboard")
         request.session["account_deletion_email"] = request.user.email
         messages.success(request, _("Ti abbiamo inviato un codice di conferma per eliminare l'account."))
         return redirect("accounts:account_delete_verify", token=raw_token)
@@ -396,8 +422,20 @@ class AccountDeleteResendView(LoginRequiredMixin, View):
             messages.error(request, _("La richiesta di eliminazione non e valida. Ripeti la procedura."))
             return redirect("accounts:dashboard")
 
+        previous_code_hash = deletion_request.code_hash
+        previous_expires_at = deletion_request.expires_at
+        previous_verified_at = deletion_request.verified_at
         code = deletion_request.refresh_code()
-        send_account_deletion_code(request, deletion_request, kwargs["token"], code)
+        try:
+            send_account_deletion_code(request, deletion_request, kwargs["token"], code)
+        except Exception:
+            logger.exception("Account deletion resend failed for request %s", deletion_request.pk)
+            deletion_request.code_hash = previous_code_hash
+            deletion_request.expires_at = previous_expires_at
+            deletion_request.verified_at = previous_verified_at
+            deletion_request.save(update_fields=["code_hash", "expires_at", "verified_at"])
+            messages.error(request, _("Non siamo riusciti a reinviare l'email. Riprova tra qualche minuto."))
+            return redirect("accounts:account_delete_verify", token=kwargs["token"])
         request.session["account_deletion_email"] = deletion_request.user.email
         messages.success(request, _("Ti abbiamo inviato un nuovo codice. Il precedente non e piu valido."))
         return redirect("accounts:account_delete_verify", token=kwargs["token"])
