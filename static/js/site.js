@@ -586,8 +586,18 @@ function initializeAccountPaymentsPanel() {
     }
 
     card.dataset.paymentsPanelBound = "true";
+    const placeholder = document.createComment("account-payments-card");
+    const originalParent = card.parentNode;
+    const originalNextSibling = card.nextSibling;
 
     const setExpanded = (isExpanded) => {
+      if (isExpanded) {
+        originalParent.insertBefore(placeholder, originalNextSibling);
+        body.append(card);
+      } else if (placeholder.parentNode) {
+        placeholder.replaceWith(card);
+      }
+
       card.classList.toggle("is-expanded", isExpanded);
       body.classList.toggle("account-payments-open", isExpanded);
       expandButton.setAttribute("aria-expanded", String(isExpanded));
@@ -605,6 +615,41 @@ function initializeAccountPaymentsPanel() {
         setExpanded(false);
       }
     });
+  });
+}
+
+function initializeVerificationCountdowns() {
+  document.querySelectorAll("[data-expires-at]").forEach((countdown) => {
+    if (countdown.dataset.countdownBound === "true") {
+      return;
+    }
+
+    const output = countdown.querySelector("[data-countdown-value]");
+    const expiresAt = new Date(countdown.dataset.expiresAt).getTime();
+    if (!output || Number.isNaN(expiresAt)) {
+      return;
+    }
+
+    countdown.dataset.countdownBound = "true";
+
+    const render = () => {
+      const secondsLeft = Math.max(0, Math.ceil((expiresAt - Date.now()) / 1000));
+      const minutes = Math.floor(secondsLeft / 60);
+      const seconds = String(secondsLeft % 60).padStart(2, "0");
+      output.textContent = secondsLeft > 0 ? `${minutes}:${seconds}` : countdown.dataset.expiredLabel;
+      countdown.classList.toggle("is-expired", secondsLeft <= 0);
+      return secondsLeft;
+    };
+
+    if (render() <= 0) {
+      return;
+    }
+
+    const timer = window.setInterval(() => {
+      if (render() <= 0) {
+        window.clearInterval(timer);
+      }
+    }, 1000);
   });
 }
 
@@ -845,6 +890,7 @@ initializeInteractiveGlow();
 initializeBuildGallery();
 initializeAdminActivityLog();
 initializeAccountPaymentsPanel();
+initializeVerificationCountdowns();
 initializeAdminSwitcher();
 initializeBrandMenu();
 initializePasswordVisibility();
